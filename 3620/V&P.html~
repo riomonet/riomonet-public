@@ -196,13 +196,13 @@
 <body>
 <div id="content" class="content">
 
-<div id="outline-container-org372840a" class="outline-2">
-<h2 id="org372840a">Vectors Points and Projections</h2>
-<div class="outline-text-2" id="text-org372840a">
+<div id="outline-container-org45cbbe7" class="outline-2">
+<h2 id="org45cbbe7">Vectors Points and Projections</h2>
+<div class="outline-text-2" id="text-org45cbbe7">
 </div>
-<div id="outline-container-orgb9150cc" class="outline-3">
-<h3 id="orgb9150cc">dimension meaning</h3>
-<div class="outline-text-3" id="text-orgb9150cc">
+<div id="outline-container-org3c1bf47" class="outline-3">
+<h3 id="org3c1bf47">dimension meaning</h3>
+<div class="outline-text-3" id="text-org3c1bf47">
 <p>
 The word dimension comes from the latin roots.
 </p>
@@ -227,13 +227,13 @@ Which give us the word.
 </div>
 </div>
 
-<div id="outline-container-org20fdbd0" class="outline-3">
-<h3 id="org20fdbd0">3 and 2 dimensions</h3>
-<div class="outline-text-3" id="text-org20fdbd0">
+<div id="outline-container-org596f11a" class="outline-3">
+<h3 id="org596f11a">3 and 2 dimensions</h3>
+<div class="outline-text-3" id="text-org596f11a">
 </div>
-<div id="outline-container-org171e66a" class="outline-4">
-<h4 id="org171e66a">2 dimensions</h4>
-<div class="outline-text-4" id="text-org171e66a">
+<div id="outline-container-orgcf5f174" class="outline-4">
+<h4 id="orgcf5f174">2 dimensions</h4>
+<div class="outline-text-4" id="text-orgcf5f174">
 <ul class="org-ul">
 <li>Plane : is a flat surface, the simplest of all geometric surfaces.</li>
 <li>Geometrically we can fully describe and model a flat surface using 2 measurements,
@@ -273,8 +273,8 @@ PYTHOGOREAN THEOREM.</li>
 </div>
 
 <ul class="org-ul">
-<li><a id="org07c6afe"></a>-&gt; demonstration:<br />
-<div class="outline-text-5" id="text-org07c6afe">
+<li><a id="orgf190b52"></a>-&gt; demonstration:<br />
+<div class="outline-text-5" id="text-orgf190b52">
 <ol class="org-ol">
 <li>refer to flat surfaces, the white board, the table tops, the walls, the floor,
 computer screens, photogrpahs, paintings.</li>
@@ -298,9 +298,9 @@ pythagoreans theorem.
 </ul>
 </div>
 
-<div id="outline-container-org20355da" class="outline-4">
-<h4 id="org20355da">3 dimensions</h4>
-<div class="outline-text-4" id="text-org20355da">
+<div id="outline-container-org3112166" class="outline-4">
+<h4 id="org3112166">3 dimensions</h4>
+<div class="outline-text-4" id="text-org3112166">
 <p>
 When we describe a flat surface and what is on it.
 we use 2 meaurements.
@@ -334,8 +334,8 @@ For hunting, to get out of the way of falling objects, to throw and catch.
 </div>
 
 <ul class="org-ul">
-<li><a id="org874a2bc"></a>demonstration:<br />
-<div class="outline-text-5" id="text-org874a2bc">
+<li><a id="org63c62bf"></a>demonstration:<br />
+<div class="outline-text-5" id="text-org63c62bf">
 <ul class="org-ul">
 <li>show a (h,v, d) axis and plot a points from the origin.</li>
 <li>show 3d sphere and rectangle. discuss how we can use our 3
@@ -348,9 +348,9 @@ dimensions to specify rotation as well as position</li>
 </div>
 
 
-<div id="outline-container-org39051fb" class="outline-3">
-<h3 id="org39051fb">what is a wave?</h3>
-<div class="outline-text-3" id="text-org39051fb">
+<div id="outline-container-org71e8bd1" class="outline-3">
+<h3 id="org71e8bd1">what is a wave?</h3>
+<div class="outline-text-3" id="text-org71e8bd1">
 <p class="verse">
 It is Energy propogating, via Oscilation, through space or a medium,<br />
 Waves can be described using<br />
@@ -359,9 +359,9 @@ Amplitude, wavelengths and Frequency<br />
 </div>
 </div>
 
-<div id="outline-container-orge4483d0" class="outline-3">
-<h3 id="orge4483d0">What is light ?</h3>
-<div class="outline-text-3" id="text-orge4483d0">
+<div id="outline-container-orgdf874c7" class="outline-3">
+<h3 id="orgdf874c7">What is light ?</h3>
+<div class="outline-text-3" id="text-orgdf874c7">
 <p class="verse">
 for our purposes.<br />
 It is a wave of electromagnetic energy,within a specific range of<br />
@@ -370,18 +370,18 @@ frequency and wavelengths, that travels in a straight line.<br />
 </div>
 </div>
 
-<div id="outline-container-orgd875034" class="outline-3">
-<h3 id="orgd875034">What is color ?</h3>
-<div class="outline-text-3" id="text-orgd875034">
+<div id="outline-container-orgbc4377b" class="outline-3">
+<h3 id="orgbc4377b">What is color ?</h3>
+<div class="outline-text-3" id="text-orgbc4377b">
 <p>
 Color is human perception of frequency and wavelengths light
 </p>
 </div>
 </div>
 
-<div id="outline-container-org9629336" class="outline-3">
-<h3 id="org9629336">How do we see ?</h3>
-<div class="outline-text-3" id="text-org9629336">
+<div id="outline-container-org02590f3" class="outline-3">
+<h3 id="org02590f3">How do we see ?</h3>
+<div class="outline-text-3" id="text-org02590f3">
 <p class="verse">
 <br />
 Light energy can bounce off of surfaces. This is called reflection.<br />
@@ -400,9 +400,9 @@ signals that are sent to our brains to process.<br />
 
 
 
-<div id="outline-container-org96989ff" class="outline-3">
-<h3 id="org96989ff">What is a Picture and a Picture plane ?</h3>
-<div class="outline-text-3" id="text-org96989ff">
+<div id="outline-container-orgd451dd2" class="outline-3">
+<h3 id="orgd451dd2">What is a Picture and a Picture plane ?</h3>
+<div class="outline-text-3" id="text-orgd451dd2">
 <p class="verse">
 What is a picture ?<br />
 1. What is a photograph ?<br />
@@ -441,9 +441,9 @@ is painted that color.<br />
 </div>
 
 
-<div id="outline-container-org33a46ba" class="outline-3">
-<h3 id="org33a46ba">Projection Definition</h3>
-<div class="outline-text-3" id="text-org33a46ba">
+<div id="outline-container-org2fbf454" class="outline-3">
+<h3 id="org2fbf454">Projection Definition</h3>
+<div class="outline-text-3" id="text-org2fbf454">
 <p>
 In our context the word projection means to translate dimensionality from 3 to 2 dimensions.
 </p>
@@ -466,9 +466,9 @@ screen.
 </p>
 </div>
 
-<div id="outline-container-org67809bb" class="outline-4">
-<h4 id="org67809bb">Natural and Mechanical Projection</h4>
-<div class="outline-text-4" id="text-org67809bb">
+<div id="outline-container-org105e1cf" class="outline-4">
+<h4 id="org105e1cf">Natural and Mechanical Projection</h4>
+<div class="outline-text-4" id="text-org105e1cf">
 <p>
 #+begin<sub>verse</sub>
 In natural Projections onto our retinas and in cameras happens according to 
@@ -523,12 +523,12 @@ behind another point.</li>
 </div>
 
 
-<div id="outline-container-orgc24ba61" class="outline-3">
-<h3 id="orgc24ba61">Field of View</h3>
+<div id="outline-container-org50ebc05" class="outline-3">
+<h3 id="org50ebc05">Field of View</h3>
 </div>
-<div id="outline-container-org6d2bca5" class="outline-3">
-<h3 id="org6d2bca5">Vectors</h3>
-<div class="outline-text-3" id="text-org6d2bca5">
+<div id="outline-container-org6f696a9" class="outline-3">
+<h3 id="org6f696a9">Vectors</h3>
+<div class="outline-text-3" id="text-org6f696a9">
 <p>
 In computer graphcis we need to create mathamaticals models of 3d objects
 </p>
@@ -570,9 +570,9 @@ the information it stores and conveys is:
 </div>
 </div>
 
-<div id="outline-container-orge121a21" class="outline-3">
-<h3 id="orge121a21">Abstract Data Types</h3>
-<div class="outline-text-3" id="text-orge121a21">
+<div id="outline-container-org507de17" class="outline-3">
+<h3 id="org507de17">Abstract Data Types</h3>
+<div class="outline-text-3" id="text-org507de17">
 <p>
 We are going to use the typedef operator in C
 to define our own abstract data types that will
@@ -581,9 +581,9 @@ is going to be a struct.
 </p>
 </div>
 
-<div id="outline-container-org76ee642" class="outline-4">
-<h4 id="org76ee642">How to use typedef</h4>
-<div class="outline-text-4" id="text-org76ee642">
+<div id="outline-container-org6d66258" class="outline-4">
+<h4 id="org6d66258">How to use typedef</h4>
+<div class="outline-text-4" id="text-org6d66258">
 <p>
 Is a facility for creating new datatype names.
 for example
@@ -607,9 +607,9 @@ Length *lengths[];
 </div>
 
 
-<div id="outline-container-org03b18ae" class="outline-4">
-<h4 id="org03b18ae">What is a struct ?</h4>
-<div class="outline-text-4" id="text-org03b18ae">
+<div id="outline-container-orgd81e455" class="outline-4">
+<h4 id="orgd81e455">What is a struct ?</h4>
+<div class="outline-text-4" id="text-orgd81e455">
 <p>
 "A Struct is a collection of one or more variables, possibly
 of different types, grouped together under a single name for
@@ -619,9 +619,9 @@ convenient handling." K&amp;R
 </div>
 
 
-<div id="outline-container-org3e5b58e" class="outline-4">
-<h4 id="org3e5b58e">Let's Define a 2 dimensional vector as vec2<sub>t</sub></h4>
-<div class="outline-text-4" id="text-org3e5b58e">
+<div id="outline-container-org4bac2f5" class="outline-4">
+<h4 id="org4bac2f5">Let's Define a 2 dimensional vector as vec2<sub>t</sub></h4>
+<div class="outline-text-4" id="text-org4bac2f5">
 <div class="org-src-container">
 <pre class="src src-c"><span style="font-weight: bold;">typedef</span> <span style="font-weight: bold;">struct</span> {
   <span style="font-weight: bold; text-decoration: underline;">float</span> <span style="font-weight: bold; font-style: italic;">x</span>;
@@ -632,9 +632,9 @@ convenient handling." K&amp;R
 </div>
 </div>
 
-<div id="outline-container-orgea9d9ac" class="outline-4">
-<h4 id="orgea9d9ac">Let's Define a  3d vector type as vec3<sub>t</sub></h4>
-<div class="outline-text-4" id="text-orgea9d9ac">
+<div id="outline-container-org2d7b433" class="outline-4">
+<h4 id="org2d7b433">Let's Define a  3d vector type as vec3<sub>t</sub></h4>
+<div class="outline-text-4" id="text-org2d7b433">
 <div class="org-src-container">
 <pre class="src src-c">
 <span style="font-weight: bold;">typedef</span> <span style="font-weight: bold;">struct</span> {
@@ -648,9 +648,9 @@ convenient handling." K&amp;R
 </div>
 
 
-<div id="outline-container-org944a1c2" class="outline-4">
-<h4 id="org944a1c2">Let's define a camera type</h4>
-<div class="outline-text-4" id="text-org944a1c2">
+<div id="outline-container-org969638e" class="outline-4">
+<h4 id="org969638e">Let's define a camera type</h4>
+<div class="outline-text-4" id="text-org969638e">
 <p>
 Notice structs can have other structs within them
 </p>
@@ -668,24 +668,24 @@ Notice structs can have other structs within them
 
 
 
-<div id="outline-container-orgfa2af96" class="outline-4">
-<h4 id="orgfa2af96">Building a model of a cube</h4>
+<div id="outline-container-orgca0ec04" class="outline-4">
+<h4 id="orgca0ec04">Building a model of a cube</h4>
 </div>
 </div>
 </div>
 
 
 
-<div id="outline-container-orgb8f2f58" class="outline-2">
-<h2 id="orgb8f2f58">Modules vector.h</h2>
-<div class="outline-text-2" id="text-orgb8f2f58">
+<div id="outline-container-orgd019841" class="outline-2">
+<h2 id="orgd019841">Modules vector.h</h2>
+<div class="outline-text-2" id="text-orgd019841">
 </div>
-<div id="outline-container-orgd7fc661" class="outline-3">
-<h3 id="orgd7fc661"><span class="todo TODO">TODO</span> describe #ifndef routing for including headers</h3>
+<div id="outline-container-org3217ace" class="outline-3">
+<h3 id="org3217ace"><span class="todo TODO">TODO</span> describe #ifndef routing for including headers</h3>
 </div>
-<div id="outline-container-org2c61885" class="outline-3">
-<h3 id="org2c61885">vector.h</h3>
-<div class="outline-text-3" id="text-org2c61885">
+<div id="outline-container-orgddb3541" class="outline-3">
+<h3 id="orgddb3541">vector.h</h3>
+<div class="outline-text-3" id="text-orgddb3541">
 <p>
 We are going to create our first module.
 </p>
@@ -713,9 +713,9 @@ We are going to create our first module.
 </div>
 </div>
 
-<div id="outline-container-orgdfe3ce4" class="outline-3">
-<h3 id="orgdfe3ce4">vector.c</h3>
-<div class="outline-text-3" id="text-orgdfe3ce4">
+<div id="outline-container-org91270b6" class="outline-3">
+<h3 id="org91270b6">vector.c</h3>
+<div class="outline-text-3" id="text-org91270b6">
 <p>
 we are going to have all the implementation details for all the  functions we need to manipulate vectors
 in this file.
@@ -744,26 +744,26 @@ variables of that type.
 </div>
 </div>
 
-<div id="outline-container-org39c2d1a" class="outline-2">
-<h2 id="org39c2d1a">linear transformations</h2>
-<div class="outline-text-2" id="text-org39c2d1a">
+<div id="outline-container-org5b0f60c" class="outline-2">
+<h2 id="org5b0f60c">linear transformations</h2>
+<div class="outline-text-2" id="text-org5b0f60c">
 </div>
-<div id="outline-container-org56d1912" class="outline-3">
-<h3 id="org56d1912">scaling</h3>
+<div id="outline-container-org0cfaecb" class="outline-3">
+<h3 id="org0cfaecb">scaling</h3>
 </div>
-<div id="outline-container-org5f83183" class="outline-3">
-<h3 id="org5f83183">translation</h3>
+<div id="outline-container-org2f55df0" class="outline-3">
+<h3 id="org2f55df0">translation</h3>
 </div>
-<div id="outline-container-orgffae7a4" class="outline-3">
-<h3 id="orgffae7a4">rotation</h3>
+<div id="outline-container-orgd89507b" class="outline-3">
+<h3 id="orgd89507b">rotation</h3>
 </div>
 </div>
 
 
 
-<div id="outline-container-orga824269" class="outline-2">
-<h2 id="orga824269">scratch</h2>
-<div class="outline-text-2" id="text-orga824269">
+<div id="outline-container-orgd7c2405" class="outline-2">
+<h2 id="orgd7c2405">scratch</h2>
+<div class="outline-text-2" id="text-orgd7c2405">
 <p>
 <i>/ now we can declare variables of type vec2<sub>t</sub>(our 2 dimensional vector)
   /</i> when we declare a new variable of this type we can initialze as below

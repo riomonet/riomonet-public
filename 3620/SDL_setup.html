@@ -197,9 +197,9 @@
 <div id="content" class="content">
 
 
-<div id="outline-container-org58a7c92" class="outline-2">
-<h2 id="org58a7c92"><span class="todo TODO">TODO</span> comments: this lesson is mostly done just need to clean up and orgainzie a little.</h2>
-<div class="outline-text-2" id="text-org58a7c92">
+<div id="outline-container-orgcc086f0" class="outline-2">
+<h2 id="orgcc086f0"><span class="todo TODO">TODO</span> comments: this lesson is mostly done just need to clean up and orgainzie a little.</h2>
+<div class="outline-text-2" id="text-orgcc086f0">
 <p>
 We end this lesson with drawing rectangles and grids look for other todo's below
 most sudents had a very hard time setting up the linker. this has to be a much quicker and finished within
@@ -232,9 +232,9 @@ It stands for Simple Direct Media Layer. It is a low level, written in c,  cross
 <div class="outline-text-3" id="text-h:2de7cad6-1f4e-4a57-beda-fadeece29b36">
 </div>
 
-<div id="outline-container-org298374d" class="outline-4">
-<h4 id="org298374d"><span class="todo TODO">TODO</span> include more detailed linking instructions, including `SDL2-config &#x2013;cflags &#x2013;etc&#x2026;` copy</h4>
-<div class="outline-text-4" id="text-org298374d">
+<div id="outline-container-orga3c4a3a" class="outline-4">
+<h4 id="orga3c4a3a"><span class="todo TODO">TODO</span> include more detailed linking instructions, including `SDL2-config &#x2013;cflags &#x2013;etc&#x2026;` copy</h4>
+<div class="outline-text-4" id="text-orga3c4a3a">
 <p>
 the information that was posted on the dischord from the different students.
 </p>
@@ -282,7 +282,7 @@ Visual Studio Tutorials
 <div id="outline-container-h:17d11b8b-c950-42b7-b54b-b75e796012e1" class="outline-3">
 <h3 id="h:17d11b8b-c950-42b7-b54b-b75e796012e1">Create the following folder hierarchy</h3>
 <div class="outline-text-3" id="text-h:17d11b8b-c950-42b7-b54b-b75e796012e1">
-<pre class="example" id="org4a960e3">
+<pre class="example" id="org889066e">
 └── 3drenderer
     ├── Makefile
     └── src
@@ -334,7 +334,7 @@ You end up with what is called an object file that can be run.
 <div id="outline-container-h:eb38ee53-56d7-4ab0-89de-c854cc3137f3" class="outline-3">
 <h3 id="h:eb38ee53-56d7-4ab0-89de-c854cc3137f3">This is what the Makefile you created in your hierarchy should look like.</h3>
 <div class="outline-text-3" id="text-h:eb38ee53-56d7-4ab0-89de-c854cc3137f3">
-<pre class="example" id="org45aeba8">
+<pre class="example" id="org7694a04">
 build:
 	gcc -Wall -g -std=c99 ./src/*.c -o main -lSDL2
 run:
@@ -466,8 +466,8 @@ window = SDL_CreateWindow(<span style="font-weight: bold; text-decoration: under
 </div>
 
 <ul class="org-ul">
-<li><a id="orgb85b7c5"></a>flags options available for <code>SDL_Create_Window()</code><br />
-<div class="outline-text-5" id="text-orgb85b7c5">
+<li><a id="orga62bb76"></a>flags options available for <code>SDL_Create_Window()</code><br />
+<div class="outline-text-5" id="text-orga62bb76">
 <div class="org-src-container">
 <pre class="src src-c"><span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_FULLSCREEN`: fullscreen window</span><span style="font-weight: bold; font-style: italic;"> */</span>
 <span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_FULLSCREEN_DESKTOP`: fullscreen window at desktop resolution</span><span style="font-weight: bold; font-style: italic;"> */</span>
@@ -487,8 +487,8 @@ window = SDL_CreateWindow(<span style="font-weight: bold; text-decoration: under
 </div>
 </li>
 
-<li><a id="org2b3e913"></a><code>SDL_Window</code> struct<br />
-<div class="outline-text-5" id="text-org2b3e913">
+<li><a id="orga0ecad9"></a><code>SDL_Window</code> struct<br />
+<div class="outline-text-5" id="text-orga0ecad9">
 <p>
 This is the SDL Window Structure. When we call SDL CreateWindow() a pointer to a structure with this information is returned to us. The contents of the structure itself are not useful to programmers using it. Only to progrmmers that are actively developing SDL2 itself. 
 </p>
@@ -583,9 +583,9 @@ renderer = SDL_CreateRenderer(window, -1, 0);
 
 
 
-<div id="outline-container-org314ebdc" class="outline-3">
-<h3 id="org314ebdc"><code>initialize_window()</code> function</h3>
-<div class="outline-text-3" id="text-org314ebdc">
+<div id="outline-container-orgf7bb24f" class="outline-3">
+<h3 id="orgf7bb24f"><code>initialize_window()</code> function</h3>
+<div class="outline-text-3" id="text-orgf7bb24f">
 <p>
 lets create a function that will hold all of our SDL initializaion
 </p>
@@ -620,9 +620,9 @@ lets create a function that will hold all of our SDL initializaion
 </div>
 </div>
 
-<div id="outline-container-orgcc97fa3" class="outline-3">
-<h3 id="orgcc97fa3"><code>clean_up()</code> function</h3>
-<div class="outline-text-3" id="text-orgcc97fa3">
+<div id="outline-container-orgd9014b9" class="outline-3">
+<h3 id="orgd9014b9"><code>clean_up()</code> function</h3>
+<div class="outline-text-3" id="text-orgd9014b9">
 <p>
 lets create a function that will handle all of our SDL clean up at the end of our program.
 </p>
@@ -677,9 +677,9 @@ SDL mantains what is called a back buffer for the window.
 </div>
 </div>
 
-<div id="outline-container-org9c50872" class="outline-3">
-<h3 id="org9c50872">Lets create a function called <code>run_render_pipeline()</code></h3>
-<div class="outline-text-3" id="text-org9c50872">
+<div id="outline-container-orge188dc5" class="outline-3">
+<h3 id="orge188dc5">Lets create a function called <code>run_render_pipeline()</code></h3>
+<div class="outline-text-3" id="text-orge188dc5">
 <div class="org-src-container">
 <pre class="src src-c">
 <span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">run_render_pipeline</span>() {
@@ -698,9 +698,9 @@ SDL_RenderPresent(renderer);
 </div>
 </div>
 
-<div id="outline-container-org7ac8065" class="outline-2">
-<h2 id="org7ac8065"><span class="underline">INTERACTING WITH THE KEYBOARD</span></h2>
-<div class="outline-text-2" id="text-org7ac8065">
+<div id="outline-container-org64a38c6" class="outline-2">
+<h2 id="org64a38c6"><span class="underline">INTERACTING WITH THE KEYBOARD</span></h2>
+<div class="outline-text-2" id="text-org64a38c6">
 <p>
 SDL has functionality for interacting with input devices.  For the purposes of this course we are interested in interacting with the keyboard. To do this we must:
 </p>
@@ -714,9 +714,9 @@ You can find alot of information about keycodes in the file <code>SDL2/keycode.h
 </p>
 </div>
 
-<div id="outline-container-orgf0c3d21" class="outline-3">
-<h3 id="orgf0c3d21">Lets create a function called <code>process_keyboard_input()</code></h3>
-<div class="outline-text-3" id="text-orgf0c3d21">
+<div id="outline-container-orgbe04749" class="outline-3">
+<h3 id="orgbe04749">Lets create a function called <code>process_keyboard_input()</code></h3>
+<div class="outline-text-3" id="text-orgbe04749">
 <div class="org-src-container">
 <pre class="src src-c">
 <span style="font-weight: bold; text-decoration: underline;">void</span>  <span style="font-weight: bold;">process_keyboard_input</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>)
@@ -751,9 +751,9 @@ You can find alot of information about keycodes in the file <code>SDL2/keycode.h
 </div>
 </div>
 
-<div id="outline-container-org99d31b2" class="outline-2">
-<h2 id="org99d31b2"><span class="underline">THE GAME LOOP</span></h2>
-<div class="outline-text-2" id="text-org99d31b2">
+<div id="outline-container-org6cf2baf" class="outline-2">
+<h2 id="org6cf2baf"><span class="underline">THE GAME LOOP</span></h2>
+<div class="outline-text-2" id="text-org6cf2baf">
 <p>
 The game loop is a loop that runs for the lifetime of your application. It cycles over and over again until the user enters something to make the loop quit. For our purposes we are going to use a very simple game loop. For now we need to do 3 jobs for every cycle of the loop.
 </p>
@@ -794,9 +794,9 @@ go thru the process of rendering our drawing buffer to the screen.
 </div>
 </div>
 
-<div id="outline-container-org7373dc3" class="outline-2">
-<h2 id="org7373dc3"><span class="underline">CREATING YOUR DRAWING BUFFER</span></h2>
-<div class="outline-text-2" id="text-org7373dc3">
+<div id="outline-container-orgc8da682" class="outline-2">
+<h2 id="orgc8da682"><span class="underline">CREATING YOUR DRAWING BUFFER</span></h2>
+<div class="outline-text-2" id="text-orgc8da682">
 <p>
 We are going to create a memory buffer, let's call it <code>color_buffer</code>. The size of the memory buffer is going to be based on the size that we declared for our window. The color of Each pixel in our window will be encoded using 32bits, A 4 byte unsigned integer value.  Each of the 4 bytes that make up our 32 bit integer will hold some information that SDL needs to render the color of a pixel. The Bytes are layed out as follows.
 </p>
@@ -817,9 +817,9 @@ Our <span class="underline">MEMORY BUFFER,</span> that we will name <code>"color
 </p>
 </div>
 
-<div id="outline-container-org9fba54a" class="outline-3">
-<h3 id="org9fba54a">Aquiring Memory for our buffer.</h3>
-<div class="outline-text-3" id="text-org9fba54a">
+<div id="outline-container-orgec504e6" class="outline-3">
+<h3 id="orgec504e6">Aquiring Memory for our buffer.</h3>
+<div class="outline-text-3" id="text-orgec504e6">
 <p>
 The <code>malloc(Number_of_bytes_int_value)</code> function is A function that is defined in stdlib.h. We need to tell malloc <span class="underline">exactly how many bytes of memory</span> we would like to get from the operating system. we calculate the number of bytes with the following calculation.
 </p>
@@ -851,18 +851,18 @@ The actual code to use with malloc is
 </div>
 </div>
 
-<div id="outline-container-orga649adc" class="outline-3">
-<h3 id="orga649adc">Accessing memory locations</h3>
-<div class="outline-text-3" id="text-orga649adc">
+<div id="outline-container-org577b553" class="outline-3">
+<h3 id="org577b553">Accessing memory locations</h3>
+<div class="outline-text-3" id="text-org577b553">
 <p>
 <code>color_buffer</code> is a pointer to a memory location that holds a 4 byte integer. To write to and read from the memory location we just need to use bracket notation like a standard array.  Like this <code>color_buffer[0]</code>,  accesses the value we will specify to be used for  0th pixel. That is the top left corner pixel of our window. 
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb444af0" class="outline-3">
-<h3 id="orgb444af0">Translating (x,y) coordinates to <code>color_buffer[index]</code></h3>
-<div class="outline-text-3" id="text-orgb444af0">
+<div id="outline-container-org9403153" class="outline-3">
+<h3 id="org9403153">Translating (x,y) coordinates to <code>color_buffer[index]</code></h3>
+<div class="outline-text-3" id="text-org9403153">
 <p>
 Our frame is a grid that we think about in terms of (x,y) coordinates, but our drawing buffer is an array with index values [0..(width * height)] it may be easier to think of width as columns and height as rows.
 So if we want to draw the pixel at coordinates (x,y) we need to know the index of the memory location where that stores the pixel value at that location.
@@ -1029,9 +1029,9 @@ so the index for storing color information for the pixel at point (2,3) is 17<br
 </div>
 </div>
 
-<div id="outline-container-org533b0ca" class="outline-3">
-<h3 id="org533b0ca">Lets create a function called <code>setup_memory_buffers()</code></h3>
-<div class="outline-text-3" id="text-org533b0ca">
+<div id="outline-container-org20d6565" class="outline-3">
+<h3 id="org20d6565">Lets create a function called <code>setup_memory_buffers()</code></h3>
+<div class="outline-text-3" id="text-org20d6565">
 <div class="org-src-container">
 <pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">setup_memory_buffers</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>)
 {
@@ -1044,9 +1044,9 @@ so the index for storing color information for the pixel at point (2,3) is 17<br
 </div>
 </div>
 
-<div id="outline-container-org1fe2315" class="outline-2">
-<h2 id="org1fe2315">RENDERING YOUR DRAWING BUFFER</h2>
-<div class="outline-text-2" id="text-org1fe2315">
+<div id="outline-container-org4ed7bca" class="outline-2">
+<h2 id="org4ed7bca">RENDERING YOUR DRAWING BUFFER</h2>
+<div class="outline-text-2" id="text-org4ed7bca">
 <p>
 For now, during each iteration of the game loop, we are going to clear the <code>color_buffer</code>
 array with some color we choose.  Remember "clear" in SDL lingo means to paint every pixel a certain color. To do that for now all we have to do is set each memory location of the array to the same value.
@@ -1130,9 +1130,9 @@ which can render copy all or a portion of the texture to the rendering target.
 </div>
 </div>
 
-<div id="outline-container-orge92964d" class="outline-2">
-<h2 id="orge92964d"><span class="underline">GLOBAL VARIABLES</span></h2>
-<div class="outline-text-2" id="text-orge92964d">
+<div id="outline-container-org6777cfd" class="outline-2">
+<h2 id="org6777cfd"><span class="underline">GLOBAL VARIABLES</span></h2>
+<div class="outline-text-2" id="text-org6777cfd">
 <p>
 Layout of our program
 </p>
@@ -1151,13 +1151,13 @@ Layout of our program
 </div>
 </div>
 
-<div id="outline-container-org6842638" class="outline-2">
-<h2 id="org6842638"><span class="underline">FULL SCREEN WINDOW</span></h2>
-<div class="outline-text-2" id="text-org6842638">
+<div id="outline-container-orgdb0b3bd" class="outline-2">
+<h2 id="orgdb0b3bd"><span class="underline">FULL SCREEN WINDOW</span></h2>
+<div class="outline-text-2" id="text-orgdb0b3bd">
 </div>
-<div id="outline-container-org7287674" class="outline-3">
-<h3 id="org7287674">fake full screen</h3>
-<div class="outline-text-3" id="text-org7287674">
+<div id="outline-container-org17c5a56" class="outline-3">
+<h3 id="org17c5a56">fake full screen</h3>
+<div class="outline-text-3" id="text-org17c5a56">
 <p>
 In fake full screen we get the width and height of our "display" and then
 open a window without borders and decoration using those values. That will
@@ -1183,9 +1183,9 @@ window_height=display_mode.h;
 </div>
 </div>
 
-<div id="outline-container-org53ba8cd" class="outline-3">
-<h3 id="org53ba8cd">Real full screen</h3>
-<div class="outline-text-3" id="text-org53ba8cd">
+<div id="outline-container-org6336289" class="outline-3">
+<h3 id="org6336289">Real full screen</h3>
+<div class="outline-text-3" id="text-org6336289">
 <p>
 There is an actual full screen video mode built into our video systems.
 SDL allow us to actually change the mode of the underlying OS video system to
@@ -1196,9 +1196,9 @@ we want and still project it onto the full size of the Display Monitor.  So we c
 </p>
 </div>
 
-<div id="outline-container-org952db92" class="outline-4">
-<h4 id="org952db92"><code>SDL_SetWindowFullScreen</code></h4>
-<div class="outline-text-4" id="text-org952db92">
+<div id="outline-container-orgbd04b30" class="outline-4">
+<h4 id="orgbd04b30"><code>SDL_SetWindowFullScreen</code></h4>
+<div class="outline-text-4" id="text-orgbd04b30">
 <p>
 paramaters
 </p>
@@ -1220,13 +1220,13 @@ we will add this to our initialziation function at the end before we return true
 </div>
 
 
-<div id="outline-container-org0348a7b" class="outline-2">
-<h2 id="org0348a7b"><span class="underline">OVERALL PROGRAM STRUCTURE</span></h2>
-<div class="outline-text-2" id="text-org0348a7b">
+<div id="outline-container-org56027c6" class="outline-2">
+<h2 id="org56027c6"><span class="underline">OVERALL PROGRAM STRUCTURE</span></h2>
+<div class="outline-text-2" id="text-org56027c6">
 </div>
-<div id="outline-container-orgf9cbd68" class="outline-3">
-<h3 id="orgf9cbd68">Our preprocessor Directives</h3>
-<div class="outline-text-3" id="text-orgf9cbd68">
+<div id="outline-container-orgd709bc2" class="outline-3">
+<h3 id="orgd709bc2">Our preprocessor Directives</h3>
+<div class="outline-text-3" id="text-orgd709bc2">
 <div class="org-src-container">
 <pre class="src src-c"><span style="font-weight: bold;">#include</span> <span style="font-style: italic;">&lt;stdio.h&gt;</span>
 <span style="font-weight: bold;">#include</span> <span style="font-style: italic;">&lt;SDL2/SDL.h&gt;</span>
@@ -1236,9 +1236,9 @@ we will add this to our initialziation function at the end before we return true
 </div>
 </div>
 </div>
-<div id="outline-container-org646809f" class="outline-3">
-<h3 id="org646809f">Our Global Variables</h3>
-<div class="outline-text-3" id="text-org646809f">
+<div id="outline-container-orge6cd510" class="outline-3">
+<h3 id="orge6cd510">Our Global Variables</h3>
+<div class="outline-text-3" id="text-orge6cd510">
 <ul class="org-ul">
 <li><code>SDL_Window *window;</code></li>
 <li><code>SDL_Texture *texture;</code></li>
@@ -1263,9 +1263,9 @@ we will add this to our initialziation function at the end before we return true
 </ul>
 </div>
 </div>
-<div id="outline-container-orge51876d" class="outline-3">
-<h3 id="orge51876d">Our Functions</h3>
-<div class="outline-text-3" id="text-orge51876d">
+<div id="outline-container-org7aec722" class="outline-3">
+<h3 id="org7aec722">Our Functions</h3>
+<div class="outline-text-3" id="text-org7aec722">
 <ul class="org-ul">
 <li><p>
 <code>initialize_windowing_system()</code>
@@ -1419,8 +1419,8 @@ SDL_RenderPresent(renderer); <span style="font-weight: bold; font-style: italic;
 </div>
 </div>
 
-<div id="outline-container-org16b588b" class="outline-2">
-<h2 id="org16b588b">ADDITIVE COLOR</h2>
+<div id="outline-container-org26919ae" class="outline-2">
+<h2 id="org26919ae">ADDITIVE COLOR</h2>
 </div>
 </div>
 </body>

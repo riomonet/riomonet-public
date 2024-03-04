@@ -195,9 +195,9 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="outline-container-org5761b5a" class="outline-2">
-<h2 id="org5761b5a">Pipes</h2>
-<div class="outline-text-2" id="text-org5761b5a">
+<div id="outline-container-org81f91f0" class="outline-2">
+<h2 id="org81f91f0">Pipes</h2>
+<div class="outline-text-2" id="text-org81f91f0">
 <p>
 Our goal is to learn how to combine the simple programs we have been learning
 about to do complicated tasks for us. The way we mix and match our different programs on the linux Bash Shell is
@@ -207,9 +207,9 @@ add these to the commands you should know file
 </p>
 </div>
 
-<div id="outline-container-org3bed822" class="outline-3">
-<h3 id="org3bed822">Stdin and Stdout</h3>
-<div class="outline-text-3" id="text-org3bed822">
+<div id="outline-container-org199f358" class="outline-3">
+<h3 id="org199f358">Stdin and Stdout</h3>
+<div class="outline-text-3" id="text-org199f358">
 <p>
 Most linux commands(programs) read input from your keyboard and write
 their output to the screen. In linux terminology these are called
