@@ -195,9 +195,9 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="outline-container-orgd84ce45" class="outline-2">
-<h2 id="orgd84ce45">Notes on Perspective Divide and Projection</h2>
-<div class="outline-text-2" id="text-orgd84ce45">
+<div id="outline-container-org2e0e76f" class="outline-2">
+<h2 id="org2e0e76f">Notes on Perspective Divide and Projection</h2>
+<div class="outline-text-2" id="text-org2e0e76f">
 <p class="verse">
 Perspective is just one step in the process of perspective projection.<br />
 What we have done is a very simplified version of perspective projection.<br />
@@ -212,7 +212,7 @@ Other things we have to think about are.<br />
 
 <div class="org-center">
 
-<div id="orgcb3da34" class="figure">
+<div id="orgf8a5341" class="figure">
 <p><img src="../../CIS_3620_resources/images/2228711.jpg" alt="2228711.jpg" />
 </p>
 </div>
@@ -222,9 +222,9 @@ Other things we have to think about are.<br />
 
 
 
-<div id="outline-container-org67eb6a6" class="outline-2">
-<h2 id="org67eb6a6">Vector Transformations</h2>
-<div class="outline-text-2" id="text-org67eb6a6">
+<div id="outline-container-orgb9c8197" class="outline-2">
+<h2 id="orgb9c8197">Vector Transformations</h2>
+<div class="outline-text-2" id="text-orgb9c8197">
 <p class="verse">
 Right now we have a cube with static points. they Don't change, they don't move.<br />
 To give movement to a 3d object we apply transformations to the models.<br />
@@ -234,9 +234,9 @@ vectors are lines pointin in a direction with a magnitude.<br />
 </p>
 </div>
 
-<div id="outline-container-org1771fbc" class="outline-3">
-<h3 id="org1771fbc">They are 3 main transformations we can apply to a vector</h3>
-<div class="outline-text-3" id="text-org1771fbc">
+<div id="outline-container-org26c5e02" class="outline-3">
+<h3 id="org26c5e02">They are 3 main transformations we can apply to a vector</h3>
+<div class="outline-text-3" id="text-org26c5e02">
 <p class="verse">
 scaling -&gt;      change the magnitude  multiply each vector by scalar<br />
 translations -&gt; move to a different position add to each vector by a scalar<br />
@@ -248,9 +248,9 @@ rotation -&gt;     point towards a different direction.<br />
 
 
 
-<div id="outline-container-org3f958e5" class="outline-3">
-<h3 id="org3f958e5">We already are performing scaling and translation</h3>
-<div class="outline-text-3" id="text-org3f958e5">
+<div id="outline-container-org7414d14" class="outline-3">
+<h3 id="org7414d14">We already are performing scaling and translation</h3>
+<div class="outline-text-3" id="text-org7414d14">
 <p class="verse">
 - scaling =&gt; we apply by multiplying each x and y of a vec2<sub>t</sub> by a<br />
 scalar. remember our model is built on values from -1 to 1.<br />
@@ -261,18 +261,18 @@ So we apply a scaling transformation to every vector in our model.<br />
 </div>
 
 
-<div id="outline-container-orgfbfea0a" class="outline-3">
-<h3 id="orgfbfea0a">Rotation</h3>
-<div class="outline-text-3" id="text-orgfbfea0a">
+<div id="outline-container-org4bde8d8" class="outline-3">
+<h3 id="org4bde8d8">Rotation</h3>
+<div class="outline-text-3" id="text-org4bde8d8">
 <p>
 Draw a demo of rotating around each axis x,y,z.
 </p>
 </div>
 
 
-<div id="outline-container-org471bf7d" class="outline-4">
-<h4 id="org471bf7d">Trionometry review</h4>
-<div class="outline-text-4" id="text-org471bf7d">
+<div id="outline-container-orga640610" class="outline-4">
+<h4 id="orga640610">Trionometry review</h4>
+<div class="outline-text-4" id="text-orga640610">
 <p class="verse">
 We will need to use some basic trignometry<br />
 &#xa0;to rotate our model around a given axis.<br />
@@ -306,24 +306,24 @@ You can remember these by the neumonic SOH-CAH-TOA<br />
 </div>
 
 <ul class="org-ul">
-<li><a id="org6e6ea3c"></a>sine<br />
-<div class="outline-text-5" id="text-org6e6ea3c">
+<li><a id="orga5780fe"></a>sine<br />
+<div class="outline-text-5" id="text-orga5780fe">
 <p>
 is the ratio of the lengths of the  oppsite/hypotenuse
 </p>
 </div>
 </li>
 
-<li><a id="org3bb9fef"></a>cosine<br />
-<div class="outline-text-5" id="text-org3bb9fef">
+<li><a id="orge3c9ed4"></a>cosine<br />
+<div class="outline-text-5" id="text-orge3c9ed4">
 <p>
 is the ratio of the lengths of the  adjacent/hypotenuse
 </p>
 </div>
 </li>
 
-<li><a id="org38547ac"></a>tan<br />
-<div class="outline-text-5" id="text-org38547ac">
+<li><a id="org18232d3"></a>tan<br />
+<div class="outline-text-5" id="text-org18232d3">
 <p>
 is the ratio of the lengths of the opposite/adjacent
 </p>
@@ -333,8 +333,8 @@ is the ratio of the lengths of the opposite/adjacent
 
 
 
-<li><a id="org1b7460b"></a>360 degrees<br />
-<div class="outline-text-5" id="text-org1b7460b">
+<li><a id="org8d2a47c"></a>360 degrees<br />
+<div class="outline-text-5" id="text-org8d2a47c">
 <p class="verse">
 Now we have to realize that theta can move from 1 to 360 degrees.<br />
 that is the nature of angles. so lets see what happens to the sin value<br />
@@ -351,8 +351,8 @@ what value we can easily find for this triangle?<br />
 </div>
 </li>
 
-<li><a id="org51f9db9"></a>problem 1<br />
-<div class="outline-text-5" id="text-org51f9db9">
+<li><a id="org1545ddb"></a>problem 1<br />
+<div class="outline-text-5" id="text-org1545ddb">
 <p class="verse">
 The distance between Jill and the diamond is exactly 50 pixels.<br />
 The horizontal distance between her and the diamond is 30 pixels. With these two values (30px and 50px)<br />
@@ -365,9 +365,9 @@ draw the trianlge<br />
 </ul>
 </div>
 
-<div id="outline-container-org09c7c1f" class="outline-4">
-<h4 id="org09c7c1f">rotation matrix formula derivation</h4>
-<div class="outline-text-4" id="text-org09c7c1f">
+<div id="outline-container-orgf0513ed" class="outline-4">
+<h4 id="orgf0513ed">rotation matrix formula derivation</h4>
+<div class="outline-text-4" id="text-orgf0513ed">
 <p class="verse">
 we will start by rotating vectos in 2 dimensions<br />
 <br />
@@ -401,16 +401,16 @@ y' = r*sin(alpha + beta)<br />
 
 
 <ul class="org-ul">
-<li><a id="orgbced983"></a>Finding x' with the Angle addition formula for cosine<br />
-<div class="outline-text-5" id="text-orgbced983">
+<li><a id="org03c18d0"></a>Finding x' with the Angle addition formula for cosine<br />
+<div class="outline-text-5" id="text-org03c18d0">
 <p>
 we find x' using angle addition formual for cosine
 </p>
 </div>
 
 <ul class="org-ul">
-<li><a id="org7e9dfc9"></a>cos(a + b) = cosA*cosB - sinA*sinB<br />
-<div class="outline-text-6" id="text-org7e9dfc9">
+<li><a id="org73fadde"></a>cos(a + b) = cosA*cosB - sinA*sinB<br />
+<div class="outline-text-6" id="text-org73fadde">
 <p class="verse">
 so we have<br />
 <br />
@@ -438,10 +438,10 @@ This is the formula we will be using for our rotation matrix<br />
 </li>
 
 
-<li><a id="orgf943489"></a>Finding y' with the Angle addition formula for sin<br />
+<li><a id="orgf303ee1"></a>Finding y' with the Angle addition formula for sin<br />
 <ul class="org-ul">
-<li><a id="org9dc7753"></a>sin(a + b) = sin(a) * cos(b) + cos(a) * sin(b)<br />
-<div class="outline-text-6" id="text-org9dc7753">
+<li><a id="org6a5101f"></a>sin(a + b) = sin(a) * cos(b) + cos(a) * sin(b)<br />
+<div class="outline-text-6" id="text-org6a5101f">
 <p class="verse">
 y' = r*sin(alpha + beta) =&gt;<br />
 <br />
@@ -466,9 +466,9 @@ so substituting into the formula we have<br />
 </div>
 
 
-<div id="outline-container-org49dcb0a" class="outline-4">
-<h4 id="org49dcb0a">rotation matrix formula</h4>
-<div class="outline-text-4" id="text-org49dcb0a">
+<div id="outline-container-org3f4f740" class="outline-4">
+<h4 id="org3f4f740">rotation matrix formula</h4>
+<div class="outline-text-4" id="text-org3f4f740">
 <p class="verse">
 x' = x*cos(beta) - y * sin(Beta)<br />
 <b>y' = y*cos(beta) + x * *sin(beta)</b><br />
@@ -476,9 +476,9 @@ x' = x*cos(beta) - y * sin(Beta)<br />
 </div>
 </div>
 
-<div id="outline-container-org85684fe" class="outline-4">
-<h4 id="org85684fe">Rotating in 3d</h4>
-<div class="outline-text-4" id="text-org85684fe">
+<div id="outline-container-orgda8e400" class="outline-4">
+<h4 id="orgda8e400">Rotating in 3d</h4>
+<div class="outline-text-4" id="text-orgda8e400">
 <p class="verse">
 Demo:<br />
 if we want to rotate things around x<br />
@@ -497,8 +497,8 @@ to x and y.<br />
 
 
 <ul class="org-ul">
-<li><a id="orgd89746f"></a>Rotation functions<br />
-<div class="outline-text-5" id="text-orgd89746f">
+<li><a id="orgdcb2e12"></a>Rotation functions<br />
+<div class="outline-text-5" id="text-orgdcb2e12">
 <div class="org-src-container">
 <pre class="src src-c">
 <span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold;">vec3_rotate_z</span>(<span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold; font-style: italic;">v</span>, <span style="font-weight: bold; text-decoration: underline;">float</span> <span style="font-weight: bold; font-style: italic;">angle</span>)
