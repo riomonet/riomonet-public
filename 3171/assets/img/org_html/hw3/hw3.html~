@@ -197,14 +197,14 @@
 <div id="content" class="content">
 
 
-<div id="outline-container-orgc4f67a6" class="outline-2">
-<h2 id="orgc4f67a6">ALL SHOULD BE DONE USING VIM ON THE SERVER</h2>
-<div class="outline-text-2" id="text-orgc4f67a6">
+<div id="outline-container-org80ac7bf" class="outline-2">
+<h2 id="org80ac7bf">ALL SHOULD BE DONE USING VIM ON THE SERVER</h2>
+<div class="outline-text-2" id="text-org80ac7bf">
 </div>
-<div id="outline-container-org324999d" class="outline-3">
-<h3 id="org324999d">create the Following folders and text files</h3>
-<div class="outline-text-3" id="text-org324999d">
-<pre class="example" id="org7db2b61">
+<div id="outline-container-orge94ece9" class="outline-3">
+<h3 id="orge94ece9">create the Following folders and text files</h3>
+<div class="outline-text-3" id="text-orge94ece9">
+<pre class="example" id="org01511c2">
 notice the when there is a [d] below it means it's a directory.
 homework and projects are directories. The rest are just plain files.
 
@@ -219,9 +219,9 @@ homework and projects are directories. The rest are just plain files.
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd420d51" class="outline-3">
-<h3 id="orgd420d51">Do the entire vimtutor project</h3>
-<div class="outline-text-3" id="text-orgd420d51">
+<div id="outline-container-org85ccdc2" class="outline-3">
+<h3 id="org85ccdc2">Do the entire vimtutor project</h3>
+<div class="outline-text-3" id="text-org85ccdc2">
 <ul class="org-ul">
 <li>A.  After you make all the corrections to the file that you are
 you workthrough in vimtutor, save it in you homework directory as
@@ -236,9 +236,9 @@ thoughts you have about vim and the process of going throught the tutor.</li>
 </div>
 
 
-<div id="outline-container-org63f073d" class="outline-3">
-<h3 id="org63f073d">In your <code>Notes_on_Data_Structuring</code> file.</h3>
-<div class="outline-text-3" id="text-org63f073d">
+<div id="outline-container-org2e40c68" class="outline-3">
+<h3 id="org2e40c68">In your <code>Notes_on_Data_Structuring</code> file.</h3>
+<div class="outline-text-3" id="text-org2e40c68">
 <p>
 Use the same date command (ESC !!date)to enter the date and time in your file. Write 1/2 to 1 page and
 a few questions. The same way you did after watching the Ocaml video.  but this time 
@@ -248,9 +248,9 @@ on the server using the VIM text editor.
 </div>
 </div>
 
-<div id="outline-container-org3ac2e02" class="outline-3">
-<h3 id="org3ac2e02">in your <span class="underline">shorcuts</span> file add the following lines</h3>
-<div class="outline-text-3" id="text-org3ac2e02">
+<div id="outline-container-orgf782b09" class="outline-3">
+<h3 id="orgf782b09">in your <span class="underline">shorcuts</span> file add the following lines</h3>
+<div class="outline-text-3" id="text-orgf782b09">
 <p>
 C stands for control, M stands Meta which could be the alt, option, or command key
 (see if you could find this key on your mac or windows machine)
@@ -269,9 +269,9 @@ C-b   :  move backward one character<br />
 </div>
 
 
-<div id="outline-container-orgd3d66a9" class="outline-3">
-<h3 id="orgd3d66a9">in <code>shell_commands_i_should_know</code></h3>
-<div class="outline-text-3" id="text-orgd3d66a9">
+<div id="outline-container-org9e2c89a" class="outline-3">
+<h3 id="org9e2c89a">in <code>shell_commands_i_should_know</code></h3>
+<div class="outline-text-3" id="text-org9e2c89a">
 <p>
 make this list: work on becoming fluent with these commands
 </p>
@@ -283,9 +283,9 @@ ls, mv, rm, cp, cat, less, mkdir, rmdir, cd, touch, vim, pwd, chmod
 </div>
 
 
-<div id="outline-container-orgcff9685" class="outline-3">
-<h3 id="orgcff9685">In your <code>engineers_daybook</code> make an entry</h3>
-<div class="outline-text-3" id="text-orgcff9685">
+<div id="outline-container-org718f956" class="outline-3">
+<h3 id="org718f956">In your <code>engineers_daybook</code> make an entry</h3>
+<div class="outline-text-3" id="text-org718f956">
 <p>
 about a shell command.. Pick a command, look it up in the man pages, specify 2 options
 the command can take.

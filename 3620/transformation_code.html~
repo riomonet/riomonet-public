@@ -195,9 +195,9 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="outline-container-orgf2962b6" class="outline-2">
-<h2 id="orgf2962b6">CODE</h2>
-<div class="outline-text-2" id="text-orgf2962b6">
+<div id="outline-container-orgb13fd55" class="outline-2">
+<h2 id="orgb13fd55">CODE</h2>
+<div class="outline-text-2" id="text-orgb13fd55">
 <div class="org-src-container">
 <pre class="src src-c">      <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">add globals</span>
 

@@ -195,18 +195,18 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="outline-container-org71c7205" class="outline-2">
-<h2 id="org71c7205">HW2-3</h2>
-<div class="outline-text-2" id="text-org71c7205">
+<div id="outline-container-org0d2a9da" class="outline-2">
+<h2 id="org0d2a9da">HW2-3</h2>
+<div class="outline-text-2" id="text-org0d2a9da">
 </div>
-<div id="outline-container-orga8824e4" class="outline-3">
-<h3 id="orga8824e4">ALL SHOULD BE DONE USING VIM ON THE SERVER</h3>
-<div class="outline-text-3" id="text-orga8824e4">
+<div id="outline-container-org2282e29" class="outline-3">
+<h3 id="org2282e29">ALL SHOULD BE DONE USING VIM ON THE SERVER</h3>
+<div class="outline-text-3" id="text-org2282e29">
 </div>
-<div id="outline-container-org5b51368" class="outline-4">
-<h4 id="org5b51368">create the Following folders and text files</h4>
-<div class="outline-text-4" id="text-org5b51368">
-<pre class="example" id="org9ea70d6">
+<div id="outline-container-org3c1181e" class="outline-4">
+<h4 id="org3c1181e">create the Following folders and text files</h4>
+<div class="outline-text-4" id="text-org3c1181e">
+<pre class="example" id="org70fbd49">
 notice the when there is a [d] below it means it's a directory.
 homework and projects are directories. The rest are just plain files.
 
@@ -221,9 +221,9 @@ homework and projects are directories. The rest are just plain files.
 </pre>
 </div>
 </div>
-<div id="outline-container-org6926162" class="outline-4">
-<h4 id="org6926162">Do the entire vimtutor project</h4>
-<div class="outline-text-4" id="text-org6926162">
+<div id="outline-container-org14f9bb9" class="outline-4">
+<h4 id="org14f9bb9">Do the entire vimtutor project</h4>
+<div class="outline-text-4" id="text-org14f9bb9">
 <ul class="org-ul">
 <li>A.  After you make all the corrections to the file that you are
 you workthrough in vimtutor, save it in you homework directory as
@@ -237,9 +237,9 @@ thoughts you have about vim and the process of going throught the tutor.</li>
 </div>
 </div>
 
-<div id="outline-container-org3a86e8b" class="outline-4">
-<h4 id="org3a86e8b">In your <code>Notes_on_Data_Structuring</code> file.</h4>
-<div class="outline-text-4" id="text-org3a86e8b">
+<div id="outline-container-org493058d" class="outline-4">
+<h4 id="org493058d">In your <code>Notes_on_Data_Structuring</code> file.</h4>
+<div class="outline-text-4" id="text-org493058d">
 <p>
 Use the same date command (ESC !!date)to enter the date and time in your file. Write 1/2 to 1 page and
 a few questions. The same way you did after watching the Ocaml video.  but this time 
@@ -249,9 +249,9 @@ on the server using the VIM text editor.
 </div>
 </div>
 
-<div id="outline-container-org64667be" class="outline-4">
-<h4 id="org64667be">in your <span class="underline">shorcuts</span> file add the following lines</h4>
-<div class="outline-text-4" id="text-org64667be">
+<div id="outline-container-orga2e97c4" class="outline-4">
+<h4 id="orga2e97c4">in your <span class="underline">shorcuts</span> file add the following lines</h4>
+<div class="outline-text-4" id="text-orga2e97c4">
 <p>
 C stands for control, M stands Meta which could be the alt, option, or command key
 (see if you could find this key on your mac or windows machine)
@@ -269,9 +269,9 @@ C-b   :  move backward one character<br />
 </div>
 </div>
 
-<div id="outline-container-org34907b6" class="outline-4">
-<h4 id="org34907b6">in <code>shell_commands_i_should_know</code></h4>
-<div class="outline-text-4" id="text-org34907b6">
+<div id="outline-container-org0e2ddf7" class="outline-4">
+<h4 id="org0e2ddf7">in <code>shell_commands_i_should_know</code></h4>
+<div class="outline-text-4" id="text-org0e2ddf7">
 <p>
 make this list: work on becoming fluent with these commands
 </p>
@@ -282,9 +282,9 @@ ls, mv, rm, cp, cat, less, mkdir, rmdir, cd, touch, vim, pwd, chmod
 </div>
 </div>
 
-<div id="outline-container-org69a6952" class="outline-4">
-<h4 id="org69a6952">In your <code>engineers_daybook</code> make an entry</h4>
-<div class="outline-text-4" id="text-org69a6952">
+<div id="outline-container-org9b81189" class="outline-4">
+<h4 id="org9b81189">In your <code>engineers_daybook</code> make an entry</h4>
+<div class="outline-text-4" id="text-org9b81189">
 <p>
 about a shell command.. Pick a command, look it up in the man pages, specify 2 options
 the command can take.

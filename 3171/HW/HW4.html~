@@ -195,18 +195,18 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="outline-container-org26f1e67" class="outline-2">
-<h2 id="org26f1e67">HW 4</h2>
-<div class="outline-text-2" id="text-org26f1e67">
+<div id="outline-container-org91cc1ad" class="outline-2">
+<h2 id="org91cc1ad">HW 4</h2>
+<div class="outline-text-2" id="text-org91cc1ad">
 </div>
-<div id="outline-container-orgbb296e8" class="outline-3">
-<h3 id="orgbb296e8">ALL SHOULD BE DONE USING VIM ON THE SERVER</h3>
-<div class="outline-text-3" id="text-orgbb296e8">
+<div id="outline-container-orgef1ca11" class="outline-3">
+<h3 id="orgef1ca11">ALL SHOULD BE DONE USING VIM ON THE SERVER</h3>
+<div class="outline-text-3" id="text-orgef1ca11">
 </div>
-<div id="outline-container-org2bd9c0a" class="outline-4">
-<h4 id="org2bd9c0a">CREATE THE FOLLOWING FOLDERS AND TEXT FILES</h4>
-<div class="outline-text-4" id="text-org2bd9c0a">
-<pre class="example" id="org247d436">
+<div id="outline-container-org220d7a3" class="outline-4">
+<h4 id="org220d7a3">CREATE THE FOLLOWING FOLDERS AND TEXT FILES</h4>
+<div class="outline-text-4" id="text-org220d7a3">
+<pre class="example" id="org6d4175b">
 remember ~/ refers to your directory
 
 ~/projects/programming/c
@@ -218,9 +218,9 @@ remember ~/ refers to your directory
 </div>
 </div>
 
-<div id="outline-container-orgc62a3ea" class="outline-4">
-<h4 id="orgc62a3ea">EDIT .VIMRC</h4>
-<div class="outline-text-4" id="text-orgc62a3ea">
+<div id="outline-container-org5007f6d" class="outline-4">
+<h4 id="org5007f6d">EDIT .VIMRC</h4>
+<div class="outline-text-4" id="text-org5007f6d">
 <p>
 use this link as guide to customize your vim experience
 <a href="https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/">customizing your vim</a>
@@ -236,14 +236,14 @@ in the file.</li>
 </div>
 </div>
 
-<div id="outline-container-org9dcdb22" class="outline-4">
-<h4 id="org9dcdb22">EDIT ~/.BASHRC</h4>
-<div class="outline-text-4" id="text-org9dcdb22">
+<div id="outline-container-org8ab6892" class="outline-4">
+<h4 id="org8ab6892">EDIT ~/.BASHRC</h4>
+<div class="outline-text-4" id="text-org8ab6892">
 <p>
 add the following line
 </p>
 
-<pre class="example" id="org0436047">
+<pre class="example" id="org4cd3d11">
 PS1="\w\$ "
 
 close vim and at the command prompt $
@@ -257,9 +257,9 @@ for you shell.
 </p>
 </div>
 </div>
-<div id="outline-container-org9a1a851" class="outline-4">
-<h4 id="org9a1a851">READ SECTIONS 1.1 AND 1.2 OF STRUCTURING DATA</h4>
-<div class="outline-text-4" id="text-org9a1a851">
+<div id="outline-container-org0639a3a" class="outline-4">
+<h4 id="org0639a3a">READ SECTIONS 1.1 AND 1.2 OF STRUCTURING DATA</h4>
+<div class="outline-text-4" id="text-org0639a3a">
 <ul class="org-ul">
 <li>Write a paragraph and ask questions in an entry in your
 Notes on DATA STRUCTURING file.</li>
