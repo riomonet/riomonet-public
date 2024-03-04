@@ -196,18 +196,18 @@
 <body>
 <div id="content" class="content">
 
-<div id="outline-container-orgc4abc15" class="outline-2">
-<h2 id="orgc4abc15">Welcome To CIS 3620 Computer Graphics</h2>
-<div class="outline-text-2" id="text-orgc4abc15">
+<div id="outline-container-org5cb8ed1" class="outline-2">
+<h2 id="org5cb8ed1">Welcome To CIS 3620 Computer Graphics</h2>
+<div class="outline-text-2" id="text-org5cb8ed1">
 <p>
 Hello, Programmers!!
 We are going low Level! Software Rendering, memory buffers MATH!!
 </p>
 </div>
 
-<div id="outline-container-orga0f3122" class="outline-4">
-<h4 id="orga0f3122">Computer Graphics, Professor Ari Zablozki</h4>
-<div class="outline-text-4" id="text-orga0f3122">
+<div id="outline-container-orgc8ccb40" class="outline-4">
+<h4 id="orgc8ccb40">Computer Graphics, Professor Ari Zablozki</h4>
+<div class="outline-text-4" id="text-orgc8ccb40">
 <hr />
 <ul class="org-ul">
 <li><a href="logistics.html">Schedule, Room Number and Contact Information</a></li>
@@ -217,9 +217,9 @@ We are going low Level! Software Rendering, memory buffers MATH!!
 </div>
 </div>
 
-<div id="outline-container-orge948656" class="outline-4">
-<h4 id="orge948656">Homework Assignments</h4>
-<div class="outline-text-4" id="text-orge948656">
+<div id="outline-container-org6786b20" class="outline-4">
+<h4 id="org6786b20">Homework Assignments</h4>
+<div class="outline-text-4" id="text-org6786b20">
 <hr />
 <ul class="org-ul">
 <li>Set up SDL</li>
@@ -231,9 +231,9 @@ We are going low Level! Software Rendering, memory buffers MATH!!
 </div>
 </div>
 
-<div id="outline-container-org9d90811" class="outline-4">
-<h4 id="org9d90811">Class Notes</h4>
-<div class="outline-text-4" id="text-org9d90811">
+<div id="outline-container-orgd4352dc" class="outline-4">
+<h4 id="orgd4352dc">Class Notes</h4>
+<div class="outline-text-4" id="text-orgd4352dc">
 <hr />
 
 <ul class="org-ul">
@@ -247,9 +247,9 @@ We are going low Level! Software Rendering, memory buffers MATH!!
 </div>
 </div>
 
-<div id="outline-container-org79cd0c5" class="outline-4">
-<h4 id="org79cd0c5">Code</h4>
-<div class="outline-text-4" id="text-org79cd0c5">
+<div id="outline-container-org1350f40" class="outline-4">
+<h4 id="org1350f40">Code</h4>
+<div class="outline-text-4" id="text-org1350f40">
 <ul class="org-ul">
 <li><a href="newops.html">various functions</a></li>
 <li><a href="vector_module.html">Vector Module</a></li>
@@ -259,9 +259,9 @@ We are going low Level! Software Rendering, memory buffers MATH!!
 </div>
 
 
-<div id="outline-container-orga9b8d17" class="outline-4">
-<h4 id="orga9b8d17">Student Work</h4>
-<div class="outline-text-4" id="text-orga9b8d17">
+<div id="outline-container-org804344e" class="outline-4">
+<h4 id="org804344e">Student Work</h4>
+<div class="outline-text-4" id="text-org804344e">
 <hr />
 <p>
 Coming Soon

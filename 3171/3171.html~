@@ -195,17 +195,17 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="outline-container-org061d2dd" class="outline-2">
-<h2 id="org061d2dd">Welcome Engineers to CISC 3171</h2>
-<div class="outline-text-2" id="text-org061d2dd">
+<div id="outline-container-orgb0526e4" class="outline-2">
+<h2 id="orgb0526e4">Welcome Engineers to CISC 3171</h2>
+<div class="outline-text-2" id="text-orgb0526e4">
 <p>
 Looking forward to an exciting semester!!
 </p>
 </div>
 
-<div id="outline-container-org71ff955" class="outline-3">
-<h3 id="org71ff955">Software Engineering, Professor Ari Zablozki</h3>
-<div class="outline-text-3" id="text-org71ff955">
+<div id="outline-container-orgb77b194" class="outline-3">
+<h3 id="orgb77b194">Software Engineering, Professor Ari Zablozki</h3>
+<div class="outline-text-3" id="text-orgb77b194">
 <hr />
 <ul class="org-ul">
 <li><a href="logistics.html">Schedule, Room Number and Contact Information</a></li>
@@ -215,9 +215,9 @@ Looking forward to an exciting semester!!
 </div>
 </div>
 
-<div id="outline-container-orgb6eac8f" class="outline-3">
-<h3 id="orgb6eac8f">Homework Assignments</h3>
-<div class="outline-text-3" id="text-orgb6eac8f">
+<div id="outline-container-orgea20e22" class="outline-3">
+<h3 id="orgea20e22">Homework Assignments</h3>
+<div class="outline-text-3" id="text-orgea20e22">
 <hr />
 <ul class="org-ul">
 <li><a href="HW/hw1.html">HW 1</a></li>
@@ -227,9 +227,9 @@ Looking forward to an exciting semester!!
 </div>
 </div>
 
-<div id="outline-container-orgdb03260" class="outline-3">
-<h3 id="orgdb03260">Notes</h3>
-<div class="outline-text-3" id="text-orgdb03260">
+<div id="outline-container-orged071dd" class="outline-3">
+<h3 id="orged071dd">Notes</h3>
+<div class="outline-text-3" id="text-orged071dd">
 <hr />
 <ul class="org-ul">
 <li><a href="lecture_notes/combining_commands.html">Combining Commands</a></li>
@@ -238,9 +238,9 @@ Looking forward to an exciting semester!!
 </div>
 </div>
 
-<div id="outline-container-org8ed7550" class="outline-3">
-<h3 id="org8ed7550">Building the Arsenal</h3>
-<div class="outline-text-3" id="text-org8ed7550">
+<div id="outline-container-org7c248be" class="outline-3">
+<h3 id="org7c248be">Building the Arsenal</h3>
+<div class="outline-text-3" id="text-org7c248be">
 <hr />
 <ul class="org-ul">
 <li><a href="arsenal.html">Commands</a></li>

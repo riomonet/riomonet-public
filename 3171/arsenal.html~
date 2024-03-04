@@ -195,17 +195,17 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="outline-container-org4313687" class="outline-2">
-<h2 id="org4313687">Commands</h2>
-<div class="outline-text-2" id="text-org4313687">
+<div id="outline-container-org2b63702" class="outline-2">
+<h2 id="org2b63702">Commands</h2>
+<div class="outline-text-2" id="text-org2b63702">
 <p>
 wc, head, cut, grep, sort, uniq, less
 </p>
 </div>
 
 <ul class="org-ul">
-<li><a id="org5187c0a"></a>wc - word count<br />
-<div class="outline-text-5" id="text-org5187c0a">
+<li><a id="orga39735e"></a>wc - word count<br />
+<div class="outline-text-5" id="text-orga39735e">
 <p>
 This command can count the number of lines words and characters.
 for example-&gt; goto a users dir and demonstrate the wc command
@@ -220,8 +220,8 @@ ls -1 | wc -l
 </div>
 </li>
 
-<li><a id="org7cc5040"></a>head and tail - prints the first lines of a file<br />
-<div class="outline-text-5" id="text-org7cc5040">
+<li><a id="orgb202dd3"></a>head and tail - prints the first lines of a file<br />
+<div class="outline-text-5" id="text-orgb202dd3">
 <p>
 can use -n&lt;num&gt; option to specify how many lines you want to see.
 cd /usr/bin
@@ -230,11 +230,11 @@ ls -l | head
 </div>
 </li>
 
-<li><a id="org87b5438"></a>cut<br /></li>
-<li><a id="org23a7445"></a>sort<br /></li>
+<li><a id="orgcec3f50"></a>cut<br /></li>
+<li><a id="org14bdd1e"></a>sort<br /></li>
 
-<li><a id="org6518cc3"></a>less<br />
-<div class="outline-text-5" id="text-org6518cc3">
+<li><a id="org278f05d"></a>less<br />
+<div class="outline-text-5" id="text-org278f05d">
 <p>
 lets say you want to see the contents of /lib directory so you use the
 ll alias you wrote to run the ls -l command. ls prints the entire output to
