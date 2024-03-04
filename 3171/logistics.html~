@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Logistics</title>
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -195,9 +195,10 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="outline-container-org42f6041" class="outline-2">
-<h2 id="org42f6041">Schedule, Room Number and Contacts</h2>
-<div class="outline-text-2" id="text-org42f6041">
+
+<div id="outline-container-orga6c984d" class="outline-2">
+<h2 id="orga6c984d">Schedule, Room Number and Contacts</h2>
+<div class="outline-text-2" id="text-orga6c984d">
 <ul class="org-ul">
 <li>Professor Ari Zablozki</li>
 <li>Tuesdays and Thursdays 3:40 - 4:55</li>
@@ -205,6 +206,7 @@
 <li><a href="mailto:ari@sci.brooklyn.cuny.edu">Professor Z's email</a></li>
 <li>Office Hours Tues and Thursdays 1pm - 2pm</li>
 <li><a href="assets/pdf/Spring-2024-Calendar.pdf">Spring 2024 Calender</a></li>
+<li></li>
 </ul>
 </div>
 </div>

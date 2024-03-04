@@ -195,9 +195,9 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="outline-container-org6e926d8" class="outline-2">
-<h2 id="org6e926d8">Declare a new function called <code>draw_pixel()</code></h2>
-<div class="outline-text-2" id="text-org6e926d8">
+<div id="outline-container-org0754a8a" class="outline-2">
+<h2 id="org0754a8a">Declare a new function called <code>draw_pixel()</code></h2>
+<div class="outline-text-2" id="text-org0754a8a">
 <p>
 In our main file let's declare this function to draw a pixel anywhere
 on the screen.
