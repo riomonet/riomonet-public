@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+<body>
+<div id="content" class="content">
+<div id="outline-container-orgd3550ea" class="outline-2">
+<h2 id="orgd3550ea">Introduction</h2>
+<div class="outline-text-2" id="text-orgd3550ea">
+<p>
+Introduce yourself
+Mame of class
+Course policies, requirements, expectations, and grading policy.
+Types of assignments. Readings, Videos, writing.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7c5c31f" class="outline-2">
+<h2 id="org7c5c31f">Getting to know you</h2>
+<div class="outline-text-2" id="text-org7c5c31f">
+<ul class="org-ul">
+<li>WHat os is everyone running</li>
+<li>What IDE/Text editor ?</li>
+<li>What languages/pardigms? functional?</li>
+<li>Goals dreams and asperations as a programmer?</li>
+<li>Do you have any programming idols</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org756cb05" class="outline-2">
+<h2 id="org756cb05">Hero's in computing</h2>
+<div class="outline-text-2" id="text-org756cb05">
+</div>
+<div id="outline-container-org0e758fd" class="outline-4">
+<h4 id="org0e758fd">main Topic</h4>
+<div class="outline-text-4" id="text-org0e758fd">
+<ol class="org-ol">
+<li>Hero's in Computer programming
+
+<ul class="org-ul">
+<li>John Carmack - E historic game programmer</li>
+<li>Dennis Ritchie Ken thompson  - E created c and unix</li>
+<li>Linus Torvald - E created linux and git</li>
+<li>Rich Hickey -E created clojure programming language</li>
+<li>Casey Muratori -E  handmade hero</li>
+<li>Fabrice Bellard - E creator of ffmpeg</li>
+<li>Salvatore Sanfilippo -E creator redis</li>
+<li>Margaret Hamilton -E</li>
+<li>Barbara Liskov -T</li>
+<li>Don Knuth -E T  
+The bible of computer programming</li>
+<li>Satoshi Nakamoto -E bitcoin</li>
+<li>Richard Stallman gnu, emacs and the free software foundation
+GNU, emacs</li>
+
+<li>Nicklaus Wirth - good books to read -Turing award winner
+pascal, modula&#x2026;</li>
+
+<li>Edsger dijkstra -Turng award winnter
+websters definition of elegant :  ingeniuosly simple and effective.</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgbb5c2dc" class="outline-2">
+<h2 id="orgbb5c2dc">The Main Theme, the software crisis, What is the software crisis.</h2>
+<div class="outline-text-2" id="text-orgbb5c2dc">
+<p>
+The <b>Main theme</b> of this lecture is to get across the idea is that there is <span class="underline">ABSOLUTELY ZERO</span> consensus on how to write reliable BIG <i>softare</i> that is
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgc3c6cb7" class="outline-2">
+<h2 id="orgc3c6cb7">1968 NATO Science Comittee Conference and the creation of the new field of Software Engineering.</h2>
+<div class="outline-text-2" id="text-orgc3c6cb7">
+<p>
+Garmisch Germany Oct 7 - Oct 11 1968
+</p>
+
+<p>
+In the Autumn of 1967 the Science Committee established a Study Group on Computer Science. The Study Group
+was given the task of assessing the entire field of computer science.
+</p>
+</div>
+
+<div id="outline-container-org5784e30" class="outline-3">
+<h3 id="org5784e30">Software engineering compared to tranditional branches of engineering</h3>
+<div class="outline-text-3" id="text-org5784e30">
+<p>
+The Study Group concentrated on possible actions which would merit an international, rather than a national effort.
+In particular it focussed its attentions on the <b>problems of software</b>. In late 1967 the Study Group recommended the
+holding of a working confenrence on <b>Software Engineering</b>. The phrase ‘SOFTWARE ENGINEERING’ was deliberately chosen
+as being provocative, in implying the need for software manufacture to be based on the types of theoretical founda-
+tions and practical disciplines, that are traditional in the established branches of engineering.
+</p>
+
+<p>
+The Conference was to shed further light on the many <span class="underline">current problems in software engineering</span>, and also to discuss
+possible techniques, methods and developments which might lead to their solution.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org94d36b0" class="outline-3">
+<h3 id="org94d36b0">Motivations</h3>
+<div class="outline-text-3" id="text-org94d36b0">
+<p>
+One of the major motivations for the organizing of the conference was an awareness of the rapidly increas-
+ing importance of computer software systems in many activities of society.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbe6d931" class="outline-3">
+<h3 id="orgbe6d931">quotes</h3>
+<div class="outline-text-3" id="text-orgbe6d931">
+<p>
+Dijkstra: "The dissemination of knowledge is of obvious value — the massive dissemination of error-loaded software
+is frightening."
+</p>
+
+<p>
+David and Fraser: "Particularly alarming is the seemingly unavoidable fallibility of large software, since a malfunction
+in an advanced hardware-software system can be a matter of life and death."
+</p>
+
+<p>
+Buxton: "Ninety-nine percent of computers work tolerably satisfactorily. There are thousands of respectable Fortran-
+oriented installations using many different machines, and lots of good data processing applications running
+steadily.
+However, there are areas of the field which were viewed by many participants with great concern."
+</p>
+
+<p>
+Kolence: "Programming management will continue to deserve its current poor reputation for cost and schedule effec-
+tiveness until such time as a more complete understanding of the program design process is achieved."
+</p>
+
+<p>
+Opler: "I am concerned about the current growth of systems, and what I expect is probably an exponential growth of
+errors. Should we have systems of this size and complexity? Is it the manufacturer’s fault for producing them or
+the user’s for demanding them? One shouldn’t ask for large systems and then complain about their largeness."
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9e6164e" class="outline-3">
+<h3 id="org9e6164e">The software engineering process from design to machine code</h3>
+<div class="outline-text-3" id="text-org9e6164e">
+<ul class="org-ul">
+<li>Analysis - Problem Recognition
+<ul class="org-ul">
+<li>Identifies problems and produced first Tentative design</li>
+<li>Description of Problem -&gt;&gt;</li>
+</ul></li>
+<li>Design
+<ul class="org-ul">
+<li>Complete system specification</li>
+</ul></li>
+<li>Implementation
+<ul class="org-ul">
+<li>AN error-prone translation process</li>
+</ul></li>
+<li>installation
+<ul class="org-ul">
+<li>run and test</li>
+</ul></li>
+<li>Maintenance</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org7160a4d" class="outline-3">
+<h3 id="org7160a4d">Notable Attendees</h3>
+<div class="outline-text-3" id="text-org7160a4d">
+</div>
+<div id="outline-container-org9dcd722" class="outline-4">
+<h4 id="org9dcd722"><span class="underline">Alan Perlis</span></h4>
+</div>
+<div id="outline-container-org089f832" class="outline-4">
+<h4 id="org089f832"><span class="underline">Peter Nauer</span></h4>
+</div>
+<div id="outline-container-orge968812" class="outline-4">
+<h4 id="orge968812">Edsger Dijekstra</h4>
+</div>
+<div id="outline-container-org4ec529a" class="outline-4">
+<h4 id="org4ec529a">David Gries</h4>
+<div class="outline-text-4" id="text-org4ec529a">
+<p>
+<a href="http://www.riomonet.net/3171/resources/pdf/nato1968.PDF">link to paper documenting the 1968 meeting</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2c3aac7" class="outline-2">
+<h2 id="org2c3aac7">Correctness</h2>
+<div class="outline-text-2" id="text-org2c3aac7">
+<ul class="org-ul">
+<li>Correct
+<ul class="org-ul">
+<li>What is correctness ?
+<ul class="org-ul">
+<li>How do we prove that A piece of software is correct ?
+<ul class="org-ul">
+<li><span class="underline">Authority</span> -
+We are just told so by a trusted person. "trust me the code will work"</li>
+<li><span class="underline">Inductive Reasoning</span> -
+Observe, experiment, Test and use. We come to observations and conclusions based on the results
+Typical source of knowledge about programs.
+We construct test cases. This is how most software is developed today. there is
+<ul class="org-ul">
+<li>(TDD) Test Driven Development</li>
+<li>(BDD) Behavior Driven Developmnet</li>
+<li>Automated TEST SUITES, Continuous Integeration and Continuous Delivery</li>
+</ul></li>
+
+<li><span class="underline">Deductive reasoning</span> -
+We construct proofs based on theories and Models, This requires tremendous effort, but leaves you with provably correct programs.
+Like a mathamatical proof of a program.
+
+<ul class="org-ul">
+<li>Formal Methods
+
+<ul class="org-ul">
+<li><span class="underline">Formal Specification</span>
+TLA+ is a formal specification language developed by Leslie Lamport. It is used for designing, modelling, documentation, and verification of programs, especially concurrent systems and distributed systems. TLA+ is considered to be exhaustively-testable pseudocode,[4] and its use likened to drawing blueprints for software systems;[5] TLA is an acronym for Temporal Logic of Actions.</li>
+<li><span class="underline">Formal Proofs</span> - Coq is an interactive theorem prover first released in 1989. It allows for expressing mathematical assertions, mechanically checks proofs of these assertions, helps find formal proofs, and extracts a certified program from the constructive proof of its formal specification. Coq works within the theory of the calculus of inductive constructions, a derivative of the calculus of constructions. Coq is not an automated theorem prover but includes automatic theorem proving tactics (procedures) and various decision procedures.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Stable
+<ul class="org-ul">
+<li>What does it mean for software to be stable ?</li>
+</ul></li>
+
+<li>Flexible
+<ul class="org-ul">
+<li>We will be reading and watching some video's that state very clearly that one of the most important aspects of designing software is to allow for change.</li>
+</ul></li>
+
+<li>Maintainable</li>
+</ul>
+</div>
+
+<div id="outline-container-org1be9b7f" class="outline-3">
+<h3 id="org1be9b7f">references:</h3>
+<div class="outline-text-3" id="text-org1be9b7f">
+<blockquote>
+<p>
+<a href="https://www.youtube.com/watch?v=RFX7_OuYTHQ&amp;list=PLre5AT9JnKShFK9l9HYzkZugkJSsXioFs&amp;index=3">Sources of Knowledge</a>  Michael Ryan Clarkson
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb4f93a9" class="outline-2">
+<h2 id="orgb4f93a9">QUOTE OF THE DAY</h2>
+<div class="outline-text-2" id="text-orgb4f93a9">
+<p>
+I’m a huge proponent of designing your code around the data, rather than the other way around, and I think it’s one of the reasons git has been fairly successful… I will, in fact, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
+linus torvald
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orga81e092" class="outline-2">
+<h2 id="orga81e092">Where are we going.</h2>
+<div class="outline-text-2" id="text-orga81e092">
+</div>
+<div id="outline-container-orgd3c7b3b" class="outline-3">
+<h3 id="orgd3c7b3b">Hoare structuring data</h3>
+<div class="outline-text-3" id="text-orgd3c7b3b">
+<p>
+<a href="https://www.cs.cornell.edu/courses/cs6180/2017fa/notes/week1/lecture2/structured-programming_hoare.pdf">https://www.cs.cornell.edu/courses/cs6180/2017fa/notes/week1/lecture2/structured-programming_hoare.pdf</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
