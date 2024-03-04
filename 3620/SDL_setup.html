@@ -1,0 +1,1427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Installing and Setting up SDL2</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+<body>
+<div id="content" class="content">
+
+
+<div id="outline-container-org6c5e51c" class="outline-2">
+<h2 id="org6c5e51c"><span class="todo TODO">TODO</span> comments: this lesson is mostly done just need to clean up and orgainzie a little.</h2>
+<div class="outline-text-2" id="text-org6c5e51c">
+<p>
+We end this lesson with drawing rectangles and grids look for other todo's below
+most sudents had a very hard time setting up the linker. this has to be a much quicker and finished within
+the first week.
+</p>
+</div>
+</div>
+
+<div id="outline-container-h:f8fdd2b4-2279-43ab-ab88-9ccf6a44da78" class="outline-2">
+<h2 id="h:f8fdd2b4-2279-43ab-ab88-9ccf6a44da78"><span class="underline">SDL2 DESCRIPTION and INSTALLATION</span></h2>
+<div class="outline-text-2" id="text-h:f8fdd2b4-2279-43ab-ab88-9ccf6a44da78">
+</div>
+<div id="outline-container-h:de9ba8e7-b790-41c7-8315-9fdbb7486b60" class="outline-3">
+<h3 id="h:de9ba8e7-b790-41c7-8315-9fdbb7486b60">What is SDL2 ?</h3>
+<div class="outline-text-3" id="text-h:de9ba8e7-b790-41c7-8315-9fdbb7486b60">
+<p>
+It stands for Simple Direct Media Layer. It is a low level, written in c,  cross platform Library for interacting with Operating Systems.  Using SDL2 we get low level access to
+</p>
+<ul class="org-ul">
+<li>open a window of any size in any location</li>
+<li>Interact with user input, via keybaord, mouse, joystick</li>
+<li>Interact with audio and graphics hardware.</li>
+<li>Draw to the window.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-h:2de7cad6-1f4e-4a57-beda-fadeece29b36" class="outline-3">
+<h3 id="h:2de7cad6-1f4e-4a57-beda-fadeece29b36">Installing SDL2</h3>
+<div class="outline-text-3" id="text-h:2de7cad6-1f4e-4a57-beda-fadeece29b36">
+</div>
+
+<div id="outline-container-org82edbb9" class="outline-4">
+<h4 id="org82edbb9"><span class="todo TODO">TODO</span> include more detailed linking instructions, including `SDL2-config &#x2013;cflags &#x2013;etc&#x2026;` copy</h4>
+<div class="outline-text-4" id="text-org82edbb9">
+<p>
+the information that was posted on the dischord from the different students.
+</p>
+</div>
+</div>
+<div id="outline-container-h:0c0a0704-9ced-4ae5-9cf1-33b21a8e1ed7" class="outline-4">
+<h4 id="h:0c0a0704-9ced-4ae5-9cf1-33b21a8e1ed7">Linux</h4>
+<div class="outline-text-4" id="text-h:0c0a0704-9ced-4ae5-9cf1-33b21a8e1ed7">
+<div class="org-src-container">
+<pre class="src src-sh">sudo apt install build-essential
+sudo apt install libsdl2-dev
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-h:2b89ceaf-46d9-428c-b39c-c6b795ae3461" class="outline-4">
+<h4 id="h:2b89ceaf-46d9-428c-b39c-c6b795ae3461">Mac</h4>
+<div class="outline-text-4" id="text-h:2b89ceaf-46d9-428c-b39c-c6b795ae3461">
+<div class="org-src-container">
+<pre class="src src-sh">brew install sdl2
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-h:dcfd61e6-f666-4a78-89c3-239e039fc9c2" class="outline-4">
+<h4 id="h:dcfd61e6-f666-4a78-89c3-239e039fc9c2">Windows</h4>
+<div class="outline-text-4" id="text-h:dcfd61e6-f666-4a78-89c3-239e039fc9c2">
+<p>
+Visual Studio Tutorials
+</p>
+<ul class="org-ul">
+<li><a href="https://www.youtube.com/watch?v=tmGBhM8AEj8">Install SDL2 for visual studio on windows</a></li>
+<li><a href="https://lazyfoo.net/tutorials/SDL/01_hello_SDL/windows/msvc2019/index.php">Lazy Foo instructions to setup SDL2 for VSCode</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-h:fcb52c2e-1bf6-40af-ad0d-e5d4a00bc2c9" class="outline-2">
+<h2 id="h:fcb52c2e-1bf6-40af-ad0d-e5d4a00bc2c9"><span class="underline">SETTING UP OUR PROJECT</span></h2>
+<div class="outline-text-2" id="text-h:fcb52c2e-1bf6-40af-ad0d-e5d4a00bc2c9">
+</div>
+<div id="outline-container-h:17d11b8b-c950-42b7-b54b-b75e796012e1" class="outline-3">
+<h3 id="h:17d11b8b-c950-42b7-b54b-b75e796012e1">Create the following folder hierarchy</h3>
+<div class="outline-text-3" id="text-h:17d11b8b-c950-42b7-b54b-b75e796012e1">
+<pre class="example" id="orgf355b8b">
+└── 3drenderer
+    ├── Makefile
+    └── src
+        └── main.c
+</pre>
+</div>
+</div>
+
+<div id="outline-container-h:526650c5-1880-42be-98a5-f3ca8c164a51" class="outline-3">
+<h3 id="h:526650c5-1880-42be-98a5-f3ca8c164a51">Create a simple Hello World to test if SDL2 is being linked correctly</h3>
+<div class="outline-text-3" id="text-h:526650c5-1880-42be-98a5-f3ca8c164a51">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">#include</span> <span style="font-style: italic;">&lt;stdio.h&gt;</span>
+<span style="font-weight: bold;">#include</span> <span style="font-style: italic;">&lt;SDL2/SDL.h&gt;</span>
+
+<span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold;">main</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>)
+{
+  printf(<span style="font-style: italic;">"Hello Professor Z this is &lt;put your name here&gt;"</span>);
+  <span style="font-weight: bold;">return</span> 0;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-h:23765c58-f072-47ff-9228-22023dd513d7" class="outline-3">
+<h3 id="h:23765c58-f072-47ff-9228-22023dd513d7">Compile and run main.c</h3>
+<div class="outline-text-3" id="text-h:23765c58-f072-47ff-9228-22023dd513d7">
+<p>
+GCC is the gnu compiler.  It translates your "c" code written in plain text into machine code.  That machine code is stored in binary file format.
+You end up with what is called an object file that can be run.
+</p>
+<ul class="org-ul">
+<li>File Formats 
+<ul class="org-ul">
+<li>Linux - ELF</li>
+<li>Mac - Mach-O</li>
+<li>Windows - PE</li>
+</ul></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sh">gcc -Wall -g -std=c99 ./src/*.c -o main -lSDL2
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-h:eb38ee53-56d7-4ab0-89de-c854cc3137f3" class="outline-3">
+<h3 id="h:eb38ee53-56d7-4ab0-89de-c854cc3137f3">This is what the Makefile you created in your hierarchy should look like.</h3>
+<div class="outline-text-3" id="text-h:eb38ee53-56d7-4ab0-89de-c854cc3137f3">
+<pre class="example" id="orgc6f65b6">
+build:
+	gcc -Wall -g -std=c99 ./src/*.c -o main -lSDL2
+run:
+	./main
+clean:
+	rm ./main
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-h:5762b600-49e8-44e5-aa77-30460949006e" class="outline-2">
+<h2 id="h:5762b600-49e8-44e5-aa77-30460949006e"><span class="underline">3 STEP SDL INITIALIAZATION</span></h2>
+<div class="outline-text-2" id="text-h:5762b600-49e8-44e5-aa77-30460949006e">
+<p class="verse">
+In the beginning&#x2026;<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;We have to call 3 SDL initialization functions.<br />
+<br />
+When the program quits&#x2026;<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;we need to release the resources, that were claimed when we called those functions.<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;C does not have garbage collection built in.<br />
+</p>
+</div>
+
+<div id="outline-container-h:dc3abc27-4e99-49e6-8c7d-c70d9ed59b05" class="outline-3">
+<h3 id="h:dc3abc27-4e99-49e6-8c7d-c70d9ed59b05">Step 1 - Initiazlize which Subsystems we are going to use - <i>we must free them before we quit</i></h3>
+<div class="outline-text-3" id="text-h:dc3abc27-4e99-49e6-8c7d-c70d9ed59b05">
+<ul class="org-ul">
+<li><code>SDL_Init()</code> initializes the SDL Subsystems we are going to use.</li>
+<li><code>SDL_Quit()</code> releases resources reserved in <code>SDL_Init()</code></li>
+</ul>
+</div>
+<div id="outline-container-h:4b6897c8-7c78-459f-83ae-df5c89cdc833" class="outline-4">
+<h4 id="h:4b6897c8-7c78-459f-83ae-df5c89cdc833"><code>SDL_Init()</code></h4>
+<div class="outline-text-4" id="text-h:4b6897c8-7c78-459f-83ae-df5c89cdc833">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">SDL_Init</span>(SDL_INIT_EVERYTHING); <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">initialize SDL to use all subsystems</span>
+
+<span style="font-weight: bold;">SDL_Quit</span>();
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><b>THE PARAMATERS</b></li>
+</ul>
+<p class="verse">
+We pass an integer value that represents an SDL subsystem. The values are specified in SDL.h<br />
+Below is an excerpt for SDL.h showing the subsystems.<br />
+<br />
+Can you find SDL.h is installed on you system ?<br />
+</p>
+
+<ul class="org-ul">
+<li><b>THE |</b> symbol is a <span class="underline">bitwise OR</span>. we can bitwise OR any of the values below to ask SDL to intialize those specific subsystems.</li>
+<li><b>RETURN VALUES:</b>  0 on success and a negative number on failure.</li>
+<li><code>#define</code> is a preprocessor directive.</li>
+</ul>
+<p class="verse">
+Before compilations the Preprocesser will replace any Symbols in the code with it's definition.<br />
+For example if we call <code>SDL_Init(SDL_INIT_TIMER)</code> the preprocessor will<br />
+replace the symbol <code>SDL_INIT_TIMER</code> with the  unsigned 4 byte integer value<br />
+0x00000001u.<br />
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="h:2ce200f6-8915-4e68-ad39-005e4027e322"></a>SDL Subsystem definitions as seen in SDL.h<br />
+<div class="outline-text-5" id="text-h:2ce200f6-8915-4e68-ad39-005e4027e322">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">SDL_INIT_TIMER</span>          0x00000001u
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">SDL_INIT_AUDIO</span>          0x00000010u
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">SDL_INIT_VIDEO</span>          0x00000020u 
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">SDL_INIT_JOYSTICK</span>       0x00000200u 
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">SDL_INIT_HAPTIC</span>         0x00001000u
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">SDL_INIT_GAMECONTROLLER</span> 0x00002000u 
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">SDL_INIT_EVENTS</span>         0x00004000u
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">SDL_INIT_SENSOR</span>         0x00008000u
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">SDL_INIT_NOPARACHUTE</span>    0x00100000u 
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">SDL_INIT_EVERYTHING</span> ( 
+                      SDL_INIT_TIMER    | 
+                      SDL_INIT_AUDIO    |
+                      SDL_INIT_VIDEO    |
+                      SDL_INIT_EVENTS   |                               \
+                      SDL_INIT_JOYSTICK |
+                      SDL_INIT_HAPTIC   |
+                      SDL_INIT_GAMECONTROLLER |
+                      SDL_INIT_SENSOR )
+
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-h:16431eaf-2d46-4dd9-b100-fcdd53b0307e" class="outline-3">
+<h3 id="h:16431eaf-2d46-4dd9-b100-fcdd53b0307e">Step 2 - Initialize  a <code>SDL_Window</code> Struct - <i>don't forget to free it when we are done</i></h3>
+<div class="outline-text-3" id="text-h:16431eaf-2d46-4dd9-b100-fcdd53b0307e">
+<ul class="org-ul">
+<li><code>SDL_CreateWindow()</code> a data structure that represents A window</li>
+<li><code>SDL_DestroyWindow()</code> realeases the resources used by the window</li>
+</ul>
+</div>
+<div id="outline-container-h:554a6a52-8f28-454e-b28d-6b4f2ba6dc72" class="outline-4">
+<h4 id="h:554a6a52-8f28-454e-b28d-6b4f2ba6dc72"><code>SDL_CreateWindow()</code></h4>
+<div class="outline-text-4" id="text-h:554a6a52-8f28-454e-b28d-6b4f2ba6dc72">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">SDL_window</span> *<span style="font-weight: bold; font-style: italic;">window</span>; <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">declare a new variable of type SDL_window</span>
+window = SDL_CreateWindow(<span style="font-weight: bold; text-decoration: underline;">NULL</span>, SDL_Windowpos_centered, SDL_Windowpos_centered,
+                          800,
+                          600,
+                          SDL_window_borderless);
+
+<span style="font-weight: bold;">SDL_DestroyWindow</span>(window);
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><b>RETURN VALUE</b> a <b>pointer</b> to an <span class="underline">SDL Window structure</span> as seen below or NULL on failure. Most of the flags and paramaters can be found in <code>SDL_Video.h</code>, can you find <code>SDL_Video.h</code> ?</li>
+<li><b>The Paramaters</b>
+<ol class="org-ol">
+<li>Title of the window (if it's not full screen there is usually a title in the top left window pane)</li>
+<li>The top left corner Position where the window is placed on your screen in X and Y coordinates of your current screen resolution. Screen Coordinate System - This 2D coordinate system refers to the physical coordinates of the pixels on the computer screen, based on current screen resolution. ( E.g. 1024x768 )</li>
+<li>the width and the height of the window you are creating. This will be the Coordinate system you reference when drawing to your window.</li>
+<li>Additional flags enumerated below</li>
+</ol></li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org4cadb8b"></a>flags options available for <code>SDL_Create_Window()</code><br />
+<div class="outline-text-5" id="text-org4cadb8b">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_FULLSCREEN`: fullscreen window</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_FULLSCREEN_DESKTOP`: fullscreen window at desktop resolution</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_OPENGL`: window usable with an OpenGL context</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_VULKAN`: window usable with a Vulkan instance</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_METAL`: window usable with a Metal instance</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_HIDDEN`: window is not visible</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_BORDERLESS`: no window decoration</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_RESIZABLE`: window can be resized</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_MINIMIZED`: window is minimized</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_MAXIMIZED`: window is maximized</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_INPUT_GRABBED`: window has grabbed input focus</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">`SDL_WINDOW_ALLOW_HIGHDPI`: window should be created in high-DPI mode if</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">supported (&gt;= SDL 2.0.1)</span><span style="font-weight: bold; font-style: italic;"> */</span>
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="org1e254a8"></a><code>SDL_Window</code> struct<br />
+<div class="outline-text-5" id="text-org1e254a8">
+<p>
+This is the SDL Window Structure. When we call SDL CreateWindow() a pointer to a structure with this information is returned to us. The contents of the structure itself are not useful to programmers using it. Only to progrmmers that are actively developing SDL2 itself. 
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">struct</span> <span style="font-weight: bold; text-decoration: underline;">SDL_Window</span>
+{
+    <span style="font-weight: bold;">const</span> <span style="font-weight: bold; text-decoration: underline;">void</span> *<span style="font-weight: bold; font-style: italic;">magic</span>;
+    <span style="font-weight: bold; text-decoration: underline;">Uint32</span> <span style="font-weight: bold; font-style: italic;">id</span>;
+    <span style="font-weight: bold; text-decoration: underline;">char</span> *<span style="font-weight: bold; font-style: italic;">title</span>;
+    <span style="font-weight: bold; text-decoration: underline;">SDL_Surface</span> *<span style="font-weight: bold; font-style: italic;">icon</span>;
+    <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">x</span>, <span style="font-weight: bold; font-style: italic;">y</span>;
+    <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">w</span>, <span style="font-weight: bold; font-style: italic;">h</span>;
+    <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">min_w</span>, <span style="font-weight: bold; font-style: italic;">min_h</span>;
+    <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">max_w</span>, <span style="font-weight: bold; font-style: italic;">max_h</span>;
+    <span style="font-weight: bold; text-decoration: underline;">Uint32</span> <span style="font-weight: bold; font-style: italic;">flags</span>;
+    <span style="font-weight: bold; text-decoration: underline;">Uint32</span> <span style="font-weight: bold; font-style: italic;">last_fullscreen_flags</span>;
+
+    <span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">Stored position and size for windowed mode</span><span style="font-weight: bold; font-style: italic;"> */</span>
+    <span style="font-weight: bold; text-decoration: underline;">SDL_Rect</span> <span style="font-weight: bold; font-style: italic;">windowed</span>;
+
+    <span style="font-weight: bold; text-decoration: underline;">SDL_DisplayMode</span> <span style="font-weight: bold; font-style: italic;">fullscreen_mode</span>;
+
+    <span style="font-weight: bold; text-decoration: underline;">float</span> <span style="font-weight: bold; font-style: italic;">brightness</span>;
+    <span style="font-weight: bold; text-decoration: underline;">Uint16</span> *<span style="font-weight: bold; font-style: italic;">gamma</span>;
+    <span style="font-weight: bold; text-decoration: underline;">Uint16</span> *<span style="font-weight: bold; font-style: italic;">saved_gamma</span>;        <span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">(just offset into gamma)</span><span style="font-weight: bold; font-style: italic;"> */</span>
+
+    <span style="font-weight: bold; text-decoration: underline;">SDL_Surface</span> *<span style="font-weight: bold; font-style: italic;">surface</span>;
+    <span style="font-weight: bold; text-decoration: underline;">SDL_bool</span> <span style="font-weight: bold; font-style: italic;">surface_valid</span>;
+
+    <span style="font-weight: bold; text-decoration: underline;">SDL_bool</span> <span style="font-weight: bold; font-style: italic;">is_hiding</span>;
+    <span style="font-weight: bold; text-decoration: underline;">SDL_bool</span> <span style="font-weight: bold; font-style: italic;">is_destroying</span>;
+
+    <span style="font-weight: bold; text-decoration: underline;">SDL_WindowShaper</span> *<span style="font-weight: bold; font-style: italic;">shaper</span>;
+
+    <span style="font-weight: bold; text-decoration: underline;">SDL_HitTest</span> <span style="font-weight: bold; font-style: italic;">hit_test</span>;
+    <span style="font-weight: bold; text-decoration: underline;">void</span> *<span style="font-weight: bold; font-style: italic;">hit_test_data</span>;
+
+    <span style="font-weight: bold; text-decoration: underline;">SDL_WindowUserData</span> *<span style="font-weight: bold; font-style: italic;">data</span>;
+
+    <span style="font-weight: bold; text-decoration: underline;">void</span> *<span style="font-weight: bold; font-style: italic;">driverdata</span>;
+
+    <span style="font-weight: bold; text-decoration: underline;">SDL_Window</span> *<span style="font-weight: bold; font-style: italic;">prev</span>;
+    <span style="font-weight: bold; text-decoration: underline;">SDL_Window</span> *<span style="font-weight: bold; font-style: italic;">next</span>;
+};
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-h:72adce0f-5f5d-4047-9036-05fc27712dc0" class="outline-3">
+<h3 id="h:72adce0f-5f5d-4047-9036-05fc27712dc0">Step 3 - Initialize  <code>SDL_Renderer</code> Struct - <i>don't forget to free it when we are done</i></h3>
+<div class="outline-text-3" id="text-h:72adce0f-5f5d-4047-9036-05fc27712dc0">
+<ul class="org-ul">
+<li><code>SDL_CreateRenderer()</code> a data structure that represents a rendering context(hardware driver com)</li>
+<li><code>SDL_DestroyRenderer()</code></li>
+</ul>
+</div>
+
+<div id="outline-container-h:3c2cf08f-5a5d-4a85-ad5e-7bb04bf997fb" class="outline-4">
+<h4 id="h:3c2cf08f-5a5d-4a85-ad5e-7bb04bf997fb"><code>SDL_CreateRenderer()</code></h4>
+<div class="outline-text-4" id="text-h:3c2cf08f-5a5d-4a85-ad5e-7bb04bf997fb">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">SDL_renderer</span> *<span style="font-weight: bold; font-style: italic;">renderer</span>;
+renderer = SDL_CreateRenderer(window, -1, 0);
+
+<span style="font-weight: bold;">SDL_DestroyRenderer</span>(renderer);
+
+</pre>
+</div>
+
+<p>
+<b>Paramaters</b>:
+</p>
+<ul class="org-ul">
+<li>The pointer to the SDL Window that you want to render to.</li>
+<li>The Display device we are going to use (if we pass -1 SDL fetches the default display device)</li>
+<li>Flags as in the other SDL functions, we are passing 0 so default set up.</li>
+</ul>
+<p>
+<b>Returns:</b>
+</p>
+<ul class="org-ul">
+<li>A pointer to an <code>SDL_renderer</code> or <code>NULL</code> on failure</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org1d213d6" class="outline-3">
+<h3 id="org1d213d6"><code>initialize_window()</code> function</h3>
+<div class="outline-text-3" id="text-org1d213d6">
+<p>
+lets create a function that will hold all of our SDL initializaion
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">bool</span> <span style="font-weight: bold;">initialize_windowing_system</span>()
+{
+
+  <span style="font-weight: bold;">if</span> (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+    fprintf(stderr, <span style="font-style: italic;">"SDL_Init() Failed\n"</span>);
+    <span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">false</span>;
+  }
+
+  window = SDL_CreateWindow(<span style="font-weight: bold; text-decoration: underline;">NULL</span>, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+                            window_width,
+                            window_height,
+                            SDL_WINDOW_BORDERLESS);
+  <span style="font-weight: bold;">if</span> (!window) {
+    fprintf(stderr, <span style="font-style: italic;">"SDL_CreateWindow() Failed\n"</span>);
+    <span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">false</span>
+  }
+
+  renderer = SDL_CreateRenderer(window,-1, 0)
+    <span style="font-weight: bold;">if</span> (!renderer) {
+      fprintf(stderr, <span style="font-style: italic;">"SDL_CreateRenderer() Failed\n"</span>);
+      <span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">false</span>
+    }
+
+  <span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">true</span>;
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orged6d2ab" class="outline-3">
+<h3 id="orged6d2ab"><code>clean_up()</code> function</h3>
+<div class="outline-text-3" id="text-orged6d2ab">
+<p>
+lets create a function that will handle all of our SDL clean up at the end of our program.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">clean_up</span>()
+{
+  free(color_buffer)
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyWindow(window);
+  SDL_Quit();
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-h:5dc0c10d-16d0-45f6-9376-9b16c173ed2b" class="outline-2">
+<h2 id="h:5dc0c10d-16d0-45f6-9376-9b16c173ed2b"><span class="underline">RENDERING THE WINDOW BACKGROUND</span></h2>
+<div class="outline-text-2" id="text-h:5dc0c10d-16d0-45f6-9376-9b16c173ed2b">
+<p>
+Once SDL has been intialized there are 3 more SDL Functions to call to render an actual window.
+SDL mantains what is called a back buffer for the window.
+</p>
+<ul class="org-ul">
+<li><code>SDL_SetRenderDrawColor()</code> specifies which color we are going to paint the back buffer.</li>
+<li><code>SDL_RenderClear()</code> paints the full back buffer what every color is specified in <code>SDL_SetRenderDrawColor()</code>.
+<ul class="org-ul">
+<li>when I say paint what is actually happening ?</li>
+</ul></li>
+<li>Then <code>SDL_RenderPresent()</code> is called and the back buffer is passed to the Display hardware so the physical monitor can show what we painted on the back buffer.</li>
+</ul>
+</div>
+
+<div id="outline-container-h:93c9c510-abaa-41ee-a582-b550bc64d50f" class="outline-3">
+<h3 id="h:93c9c510-abaa-41ee-a582-b550bc64d50f"><code>SDL_SetRenderDrawColor()</code></h3>
+<div class="outline-text-3" id="text-h:93c9c510-abaa-41ee-a582-b550bc64d50f">
+<p>
+<b>Paramaters:</b>
+</p>
+<ul class="org-ul">
+<li>A pointer to the <code>SDL_Renderer</code> struct</li>
+<li>R,G,B,Alpha values.
+<ul class="org-ul">
+<li>0-255,0-255,0-255,0-255
+<ul class="org-ul">
+<li>255 is completely opaque alpha value</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org071ecd4" class="outline-3">
+<h3 id="org071ecd4">Lets create a function called <code>run_render_pipeline()</code></h3>
+<div class="outline-text-3" id="text-org071ecd4">
+<div class="org-src-container">
+<pre class="src src-c">
+<span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">run_render_pipeline</span>() {
+
+SDL_SetRenderDrawColor(renderer,255,0,0,255); <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">what color is this?</span>
+SDL_RenderClear(renderer);
+
+ <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">will do some other stuff in here later</span>
+
+SDL_RenderPresent(renderer);
+
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3995608" class="outline-2">
+<h2 id="org3995608"><span class="underline">INTERACTING WITH THE KEYBOARD</span></h2>
+<div class="outline-text-2" id="text-org3995608">
+<p>
+SDL has functionality for interacting with input devices.  For the purposes of this course we are interested in interacting with the keyboard. To do this we must:
+</p>
+<ul class="org-ul">
+<li>Declare a variable of type <code>SDL_Event;</code>   This is a variable of type union that will be updated everytime an event occurs, it is defined in <code>SDL_events.h</code></li>
+<li>call <code>SDL_PollEvent(&amp;event);</code></li>
+</ul>
+<p>
+The <b>&amp;</b> specifies that we are passing the address of <code>event</code> to the function <code>SDL_PollEvent(&amp;event)</code>
+You can find alot of information about keycodes in the file <code>SDL2/keycode.h</code>
+</p>
+</div>
+
+<div id="outline-container-orgcf96057" class="outline-3">
+<h3 id="orgcf96057">Lets create a function called <code>process_keyboard_input()</code></h3>
+<div class="outline-text-3" id="text-orgcf96057">
+<div class="org-src-container">
+<pre class="src src-c">
+<span style="font-weight: bold; text-decoration: underline;">void</span>  <span style="font-weight: bold;">process_keyboard_input</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>)
+  {
+
+    <span style="font-weight: bold; text-decoration: underline;">SDL_Event</span> <span style="font-weight: bold; font-style: italic;">event</span>; <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">create the union</span>
+    SDL_PollEvent(&amp;event); <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">fill the union with the current state </span>
+
+    <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">check the state of the union event</span>
+    <span style="font-weight: bold;">switch</span>(event.type) {
+
+    <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">SDL quit is returned when you press the x button to close your window.</span>
+    <span style="font-weight: bold;">case</span> SDL_QUIT: 
+      is_running = <span style="font-weight: bold; text-decoration: underline;">false</span>;
+      <span style="font-weight: bold;">break</span>;
+
+    <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">SDL has constants for every key that can be pressed.</span>
+    <span style="font-weight: bold;">case</span> SDL_KEYDOWN:
+      <span style="font-weight: bold;">if</span> (event.key.keysym.sym == SDLK_ESACPE) 
+        is_running=<span style="font-weight: bold; text-decoration: underline;">false</span>;
+      <span style="font-weight: bold;">break</span>;
+
+      }
+  }
+</pre>
+</div>
+
+<p>
+<code>SDL_event</code> is actually a union not a struct, what is the difference between a union and a struct? 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2418946" class="outline-2">
+<h2 id="org2418946"><span class="underline">THE GAME LOOP</span></h2>
+<div class="outline-text-2" id="text-org2418946">
+<p>
+The game loop is a loop that runs for the lifetime of your application. It cycles over and over again until the user enters something to make the loop quit. For our purposes we are going to use a very simple game loop. For now we need to do 3 jobs for every cycle of the loop.
+</p>
+<ol class="org-ol">
+<li>Check for Keyboard Events</li>
+<li>Update the state of our application where needed and update the Drawing buffer.
+<ul class="org-ul">
+<li>what is state ?
+<ul class="org-ul">
+<li>Every Variable and it's associated value is the state of our application.</li>
+</ul></li>
+</ul></li>
+<li><p>
+go thru the process of rendering our drawing buffer to the screen.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold;">main</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>)
+{
+
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">is running is a global boolean variable</span>
+  is_running = initialize_windowing_system(); 
+
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">Game loop</span>
+  <span style="font-weight: bold; font-style: italic;">/*</span><span style="font-weight: bold; font-style: italic;">if process_keyboard_input sets the</span>
+<span style="font-weight: bold; font-style: italic;">    global variable is_running to false we exit the loop.</span><span style="font-weight: bold; font-style: italic;">*/</span>
+  <span style="font-weight: bold;">while</span> (is_running) {
+    process_keyboard_input(); 
+    update_state();
+    run_render_pipeline();
+    }
+
+  clean_up();
+}
+</pre>
+</div></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orga68950f" class="outline-2">
+<h2 id="orga68950f"><span class="underline">CREATING YOUR DRAWING BUFFER</span></h2>
+<div class="outline-text-2" id="text-orga68950f">
+<p>
+We are going to create a memory buffer, let's call it <code>color_buffer</code>. The size of the memory buffer is going to be based on the size that we declared for our window. The color of Each pixel in our window will be encoded using 32bits, A 4 byte unsigned integer value.  Each of the 4 bytes that make up our 32 bit integer will hold some information that SDL needs to render the color of a pixel. The Bytes are layed out as follows.
+</p>
+
+<p>
+<b>BYTES</b> of our 32 bit integer.
+</p>
+<ol class="org-ol">
+<li>Red Value</li>
+<li>Green Value</li>
+<li>Blue Value</li>
+<li>Transparency (also called alpha channel, 0xFF is fully Opaque)</li>
+</ol>
+
+<p>
+So for each pixel we need 4 bytes. A 4 byte integer in c can be declared as unsigned 32 bit integer type,  <code>uint32_t</code>.
+Our <span class="underline">MEMORY BUFFER,</span> that we will name <code>"color_buffer"</code>, will be an array of pixel-information encoded as 32 bit integer values. 
+</p>
+</div>
+
+<div id="outline-container-org5a7c1c7" class="outline-3">
+<h3 id="org5a7c1c7">Aquiring Memory for our buffer.</h3>
+<div class="outline-text-3" id="text-org5a7c1c7">
+<p>
+The <code>malloc(Number_of_bytes_int_value)</code> function is A function that is defined in stdlib.h. We need to tell malloc <span class="underline">exactly how many bytes of memory</span> we would like to get from the operating system. we calculate the number of bytes with the following calculation.
+</p>
+<p class="verse">
+<code>number_of_bytes = window_width * window_height * sizeof(uint32_t)</code><br />
+<br />
+The <code>sizeof()</code> operator returns the number of bytes that the computer uses to store any given type or variable in memory.<br />
+<code>sizeof(int)</code> can vary on different machines<br />
+<code>sizeof(char)</code> returns 1<br />
+<code>sizeof(uint32_t)</code> is always going to return 4.<br />
+<br />
+Can you try out the sizeof() operator ?<br />
+</p>
+
+<p>
+The actual code to use with malloc is
+</p>
+<div class="org-src-container">
+<pre class="src src-c">color_buffer = (<span style="font-weight: bold; text-decoration: underline;">uint32_t</span> *) <span style="font-weight: bold;">malloc</span>(<span style="font-weight: bold; text-decoration: underline;">window_width</span> * <span style="font-weight: bold;">window_height</span> * <span style="font-weight: bold;">sizeof</span>(uint_32t));
+
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">color_buffer is declared globally as a pointer to an uint_32t type</span><span style="font-weight: bold; font-style: italic;"> */</span>
+<span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">window_width and window_height are also declared globally</span><span style="font-weight: bold; font-style: italic;"> */</span>
+</pre>
+</div>
+
+<p>
+<code>malloc()</code> returns what in c is known as a void pointer <code>(void *)</code>. That means it can be a pointer to any type. before assigning the return value from malloc to <code>color_buffer we must cast it using this expression ~(uint32_t *)</code> as a pointer to <code>uint_32t *</code> type. So <code>color_buffer</code> is a pointer to a unsigned 32 bit integer aka a <code>uint_32t *</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org864d628" class="outline-3">
+<h3 id="org864d628">Accessing memory locations</h3>
+<div class="outline-text-3" id="text-org864d628">
+<p>
+<code>color_buffer</code> is a pointer to a memory location that holds a 4 byte integer. To write to and read from the memory location we just need to use bracket notation like a standard array.  Like this <code>color_buffer[0]</code>,  accesses the value we will specify to be used for  0th pixel. That is the top left corner pixel of our window. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1447969" class="outline-3">
+<h3 id="org1447969">Translating (x,y) coordinates to <code>color_buffer[index]</code></h3>
+<div class="outline-text-3" id="text-org1447969">
+<p>
+Our frame is a grid that we think about in terms of (x,y) coordinates, but our drawing buffer is an array with index values [0..(width * height)] it may be easier to think of width as columns and height as rows.
+So if we want to draw the pixel at coordinates (x,y) we need to know the index of the memory location where that stores the pixel value at that location.
+</p>
+<p class="verse">
+<code>Given (x,y), index = y * number_of_colums + x</code><br />
+<br />
+Note:<br />
+The first column is the 0th column<br />
+The first row is the 0th row<br />
+<br />
+the grid below has 5 columns and 5 rows<br />
+<br />
+so if we wan't to paint the pixel at (2, 3) in the frame below<br />
+we use the formula<br />
+3 * 5 + 2 = 17<br />
+so the index for storing color information for the pixel at point (2,3) is 17<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
+<caption class="t-above"><span class="table-number">Table 1:</span> memory buffer with index [0..24] and corresponding (x,y) grid below</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-right">5</td>
+<td class="org-right">6</td>
+<td class="org-right">7</td>
+<td class="org-right">8</td>
+<td class="org-right">9</td>
+<td class="org-right">10</td>
+<td class="org-right">11</td>
+<td class="org-left">&#x2026;..</td>
+<td class="org-right">12</td>
+<td class="org-right">13</td>
+<td class="org-right">14</td>
+<td class="org-right">15</td>
+<td class="org-left">&#x2026;.</td>
+<td class="org-right">23</td>
+<td class="org-right">24</td>
+</tr>
+</tbody>
+</table>
+<br>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="all" frame="border">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">0</th>
+<th scope="col" class="org-right">1</th>
+<th scope="col" class="org-right">2</th>
+<th scope="col" class="org-right">3</th>
+<th scope="col" class="org-right">4</th>
+<th scope="col" class="org-left">cols/rows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+<td class="org-left"><b>0</b></td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">6</td>
+<td class="org-right">7</td>
+<td class="org-right">8</td>
+<td class="org-right">9</td>
+<td class="org-left"><b>1</b></td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">11</td>
+<td class="org-right">12</td>
+<td class="org-right">13</td>
+<td class="org-right">14</td>
+<td class="org-left"><b>2</b></td>
+</tr>
+
+<tr>
+<td class="org-right">15</td>
+<td class="org-right">16</td>
+<td class="org-right">17</td>
+<td class="org-right">18</td>
+<td class="org-right">19</td>
+<td class="org-left"><b>3</b></td>
+</tr>
+
+<tr>
+<td class="org-right">20</td>
+<td class="org-right">21</td>
+<td class="org-right">22</td>
+<td class="org-right">23</td>
+<td class="org-right">24</td>
+<td class="org-left"><b>4</b></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org571c474" class="outline-3">
+<h3 id="org571c474">Lets create a function called <code>setup_memory_buffers()</code></h3>
+<div class="outline-text-3" id="text-org571c474">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">setup_memory_buffers</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>)
+{
+    color_buffer = (<span style="font-weight: bold; text-decoration: underline;">uint32_t</span> *) malloc(window_width * window_height * <span style="font-weight: bold;">sizeof</span>(uint_32t));
+}
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfc9b81d" class="outline-2">
+<h2 id="orgfc9b81d">RENDERING YOUR DRAWING BUFFER</h2>
+<div class="outline-text-2" id="text-orgfc9b81d">
+<p>
+For now, during each iteration of the game loop, we are going to clear the <code>color_buffer</code>
+array with some color we choose.  Remember "clear" in SDL lingo means to paint every pixel a certain color. To do that for now all we have to do is set each memory location of the array to the same value.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">for</span>(<span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">i</span> = 0; i &lt; window_width*window_height; i++)
+   <span style="font-weight: bold; text-decoration: underline;">color_buffer</span>[i] = 0xFFFF00FF;
+</pre>
+</div>
+
+<p>
+To render the contents of the  <code>color_buffer</code> array to the screen,  SDL requires that you
+copy the contents to an SDL defined struct of type <code>SDL_texture</code>.
+</p>
+
+<p>
+We will copy all the contents of our color buffer to SDL<sub>texture</sub> by creating a pointer variable to
+of pointer to SDL<sub>Texture</sub> type; Then calling a function SDL<sub>CreateTexture</sub> which allocates memory and sets the initial state of the structure.
+</p>
+
+<ul class="org-ul">
+<li>paramaters
+<ol class="org-ol">
+<li>pointer to renderer</li>
+<li>Pixel format. //see SDL<sub>PixelFormatEnum</sub></li>
+<li>SDL texture access frequency (rarely, frequently, as a render target)</li>
+<li>window<sub>width</sub></li>
+<li>window<sub>height</sub></li>
+</ol></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-c">
+<span style="font-weight: bold; text-decoration: underline;">SDL_texture</span> *<span style="font-weight: bold; font-style: italic;">texture</span> = <span style="font-weight: bold; text-decoration: underline;">NULL</span>; <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">declare a global variable called texture.</span>
+texture = SDL_CreateTexture(renderer,SDL_PIXELFORMAT_ARGB8888,
+                            SDL_TEXTUREACCESS_STREAMING,
+                            window_width,
+                            window_height);
+</pre>
+</div>
+
+
+<p>
+Then we need to copy the contents or <code>color-buffer</code> over to our newly created texture.
+we use the function <code>SDL_Updatetexture();</code>
+</p>
+
+<ul class="org-ul">
+<li>Paramaters
+<ol class="org-ol">
+<li>the pointer to the texture</li>
+<li>we can copy a certain subsection of our drawing buffer if we like, but for our case we are going to copy the whole thing so we just pass NULL</li>
+<li>pointer to the array we are going to copy</li>
+<li>This is called the texture pitch, which is just the number of bytes we have for each row.</li>
+</ol></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">SDL_UpdateTexture</span>(texture,<span style="font-weight: bold; text-decoration: underline;">NULL</span>,color_buffer, (<span style="font-weight: bold; text-decoration: underline;">int</span>)(<span style="font-weight: bold; text-decoration: underline;">window_width</span> * <span style="font-weight: bold;">sizeof</span>(<span style="font-weight: bold; text-decoration: underline;">unit32_t</span>)));
+</pre>
+</div>
+
+<p>
+Then finally we can present the texture using <code>SDL_RenderCopy()</code>
+which can render copy all or a portion of the texture to the rendering target.
+</p>
+
+<ul class="org-ul">
+<li>Paramaters
+<ol class="org-ol">
+<li>pointer to the renderer</li>
+<li>pointer to the texture</li>
+<li>pointer to an SDL<sub>Rect</sub> to be used as src, we will not use this.</li>
+<li>pointer to sn SDL<sub>Rect</sub> to be used as dest, we will not use this</li>
+</ol></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">SDL_RenderCopy</span>(renderer, texture, <span style="font-weight: bold; text-decoration: underline;">NULL</span>, <span style="font-weight: bold; text-decoration: underline;">NULL</span> )
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbb09b76" class="outline-2">
+<h2 id="orgbb09b76"><span class="underline">GLOBAL VARIABLES</span></h2>
+<div class="outline-text-2" id="text-orgbb09b76">
+<p>
+Layout of our program
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">Preprocessor Directives at the top</span>
+
+
+<span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">Entry Point for the OS</span>
+<span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold;">main</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>)
+  {
+    <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">run your game loop here.</span>
+    <span style="font-weight: bold;">return</span> 0;
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8d2fb23" class="outline-2">
+<h2 id="org8d2fb23"><span class="underline">FULL SCREEN WINDOW</span></h2>
+<div class="outline-text-2" id="text-org8d2fb23">
+</div>
+<div id="outline-container-orgc2266e0" class="outline-3">
+<h3 id="orgc2266e0">fake full screen</h3>
+<div class="outline-text-3" id="text-orgc2266e0">
+<p>
+In fake full screen we get the width and height of our "display" and then
+open a window without borders and decoration using those values. That will
+give us a window that appears full screen. To query SDL we need to create a struct
+of type <code>SDL_DisplayMode</code> and call SDL<sub>GetCurrentDisplayMode</sub>. We can access the
+width using our <code>struct_variable.w</code> and height using <code>struct_variabel.h.</code>
+</p>
+
+<p class="verse">
+paramaters for <code>SDL_GetCurrentDisplayMode</code><br />
+1. the index of the display to query<br />
+2. the struct we want to fill with data<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">SDL_DIsplayMode</span> <span style="font-weight: bold; font-style: italic;">display_mode</span>; <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">struct</span>
+SDL_GetCurrentDisplayMode(0, &amp;display_mode);
+
+window_width =display_mode.w;
+window_height=display_mode.h;
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga6e1e8f" class="outline-3">
+<h3 id="orga6e1e8f">Real full screen</h3>
+<div class="outline-text-3" id="text-orga6e1e8f">
+<p>
+There is an actual full screen video mode built into our video systems.
+SDL allow us to actually change the mode of the underlying OS video system to
+real full screen mode. We can do this very easily by calling <code>SDL_SetWindowFullScreen</code>
+In Real full screen mode we can set the width and height of our window to whatever value
+we want and still project it onto the full size of the Display Monitor.  So we can actullay do
+800 by 600 full screen if want to change our coordinate system
+</p>
+</div>
+
+<div id="outline-container-orgf189d28" class="outline-4">
+<h4 id="orgf189d28"><code>SDL_SetWindowFullScreen</code></h4>
+<div class="outline-text-4" id="text-orgf189d28">
+<p>
+paramaters
+</p>
+<ol class="org-ol">
+<li>window // our window</li>
+<li>SDL<sub>WINDOW</sub><sub>FULLSCREEN</sub> //flags</li>
+</ol>
+<p>
+we will add this to our initialziation function at the end before we return true;
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">SDL_Setwindowfullscreen</span>(window, SDL_WINDOW_FULLSCREEN);
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgbfce09d" class="outline-2">
+<h2 id="orgbfce09d"><span class="underline">OVERALL PROGRAM STRUCTURE</span></h2>
+<div class="outline-text-2" id="text-orgbfce09d">
+</div>
+<div id="outline-container-org7b670cb" class="outline-3">
+<h3 id="org7b670cb">Our preprocessor Directives</h3>
+<div class="outline-text-3" id="text-org7b670cb">
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">#include</span> <span style="font-style: italic;">&lt;stdio.h&gt;</span>
+<span style="font-weight: bold;">#include</span> <span style="font-style: italic;">&lt;SDL2/SDL.h&gt;</span>
+<span style="font-weight: bold;">#include</span> <span style="font-style: italic;">&lt;stdbool.h&gt;</span>
+<span style="font-weight: bold;">#include</span> <span style="font-style: italic;">&lt;stdint.h&gt;</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org9fae33c" class="outline-3">
+<h3 id="org9fae33c">Our Global Variables</h3>
+<div class="outline-text-3" id="text-org9fae33c">
+<ul class="org-ul">
+<li><code>SDL_Window *window;</code></li>
+<li><code>SDL_Texture *texture;</code></li>
+<li><code>SDl_Renderer *renderer;</code></li>
+<li><code>bool is_running;</code></li>
+<li><code>uint32_t *color_buffer;</code></li>
+<li><code>int window_width = 800;</code>  you can think of the width as the number of columns in your frame.</li>
+<li><p>
+<code>int window_height = 600;</code> you can think of height as the number of rows in your frame.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">SDL_Window</span> *<span style="font-weight: bold; font-style: italic;">window</span> = <span style="font-weight: bold; text-decoration: underline;">NULL</span>;
+<span style="font-weight: bold; text-decoration: underline;">SDL_renderer</span> *<span style="font-weight: bold; font-style: italic;">renderer</span> = <span style="font-weight: bold; text-decoration: underline;">NULL</span>;
+<span style="font-weight: bold; text-decoration: underline;">SDL_Texture</span> *<span style="font-weight: bold; font-style: italic;">texture</span> = <span style="font-weight: bold; text-decoration: underline;">NULL</span>;
+<span style="font-weight: bold; text-decoration: underline;">unit32_t</span> *<span style="font-weight: bold; font-style: italic;">color_buffer</span> = <span style="font-weight: bold; text-decoration: underline;">NULL</span>;
+<span style="font-weight: bold; text-decoration: underline;">bool</span> <span style="font-weight: bold; font-style: italic;">is_running</span> = <span style="font-weight: bold; text-decoration: underline;">false</span>;
+<span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">window_width</span> = 800;
+<span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">window_height</span> = 600;
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org25d591d" class="outline-3">
+<h3 id="org25d591d">Our Functions</h3>
+<div class="outline-text-3" id="text-org25d591d">
+<ul class="org-ul">
+<li><p>
+<code>initialize_windowing_system()</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">bool</span> <span style="font-weight: bold;">initialize_windowing_system</span>()
+{
+
+  <span style="font-weight: bold;">if</span> (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
+    fprintf(stderr, <span style="font-style: italic;">"SDL_Init() Failed\n"</span>);
+    <span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">false</span>;
+  }
+
+    <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">Query SDL for display resolution</span>
+  <span style="font-weight: bold; text-decoration: underline;">SDL_DisplayMode</span> <span style="font-weight: bold; font-style: italic;">display_mode</span>; 
+  SDL_GetCurrentDisplayMode(0, &amp;display_mode);
+  window_width =display_mode.w;
+  window_height=display_mode.h;
+
+
+  window = SDL_CreateWindow(<span style="font-weight: bold; text-decoration: underline;">NULL</span>, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+                            window_width,
+                            window_height,
+                            SDL_WINDOW_BORDERLESS);
+  <span style="font-weight: bold;">if</span> (!window) {
+    fprintf(stderr, <span style="font-style: italic;">"SDL_CreateWindow() Failed\n"</span>);
+    <span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">false</span>
+  }
+
+  renderer = SDL_CreateRenderer(window,-1, 0)
+    <span style="font-weight: bold;">if</span> (!renderer) {
+      fprintf(stderr, <span style="font-style: italic;">"SDL_CreateRenderer() Failed\n"</span>);
+      <span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">false</span>
+    }
+
+  SDL_Setwindowfullscreen(window, SDL_WINDOW_FULLSCREEN);
+  <span style="font-weight: bold;">return</span> <span style="font-weight: bold; text-decoration: underline;">true</span>;
+}
+</pre>
+</div></li>
+<li><p>
+<code>clean_up_windowing_system()</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">clean_up</span>()
+{
+  free(color_buffer)
+  SDL_DestroyRenderer(renderer);
+  SDL_DestroyWindow(window);
+  SDL_Quit();
+}
+</pre>
+</div></li>
+<li><p>
+<code>run_render_pipeline()</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-c">
+<span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">run_render_pipeline</span>() {
+
+SDL_SetRenderDrawColor(renderer,255,0,0,255); <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">background color</span>
+SDL_RenderClear(renderer); <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">paint background back buffer</span>
+
+<span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">copy color_buffer to texture and render it.</span>
+SDL_UpdateTexture(texture,<span style="font-weight: bold; text-decoration: underline;">NULL</span>,color_buffer, (<span style="font-weight: bold; text-decoration: underline;">int</span>)(window_width * <span style="font-weight: bold;">sizeof</span>(unit32_t)));
+SDL_RenderCopy(renderer, texture, <span style="font-weight: bold; text-decoration: underline;">NULL</span>, <span style="font-weight: bold; text-decoration: underline;">NULL</span> )
+
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">paint color buffer here</span>
+
+SDL_RenderPresent(renderer); <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">present background</span>
+
+}
+</pre>
+</div></li>
+
+<li><p>
+<code>process_keyboard_input()</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-c">
+<span style="font-weight: bold; text-decoration: underline;">void</span>  <span style="font-weight: bold;">process_keyboard_input</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>)
+  {
+
+    <span style="font-weight: bold; text-decoration: underline;">SDL_Event</span> <span style="font-weight: bold; font-style: italic;">event</span>; <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">create the union</span>
+    SDL_PollEvent(&amp;event); <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">fill the union with the current state </span>
+
+    <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">check the state of the union event</span>
+    <span style="font-weight: bold;">switch</span>(event.type) {
+
+    <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">SDL quit is returned when you press the x button to close your window.  </span>
+    <span style="font-weight: bold;">case</span> SDL_QUIT: 
+      is_running = <span style="font-weight: bold; text-decoration: underline;">false</span>;
+      <span style="font-weight: bold;">break</span>;
+
+    <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">SDL has constants for every key that can be pressed.</span>
+    <span style="font-weight: bold;">case</span> SDL_KEYDOWN:
+      <span style="font-weight: bold;">if</span> (event.key.keysym.sym == SDLK_ESACPE) 
+        is_running=<span style="font-weight: bold; text-decoration: underline;">false</span>;
+      <span style="font-weight: bold;">break</span>;
+
+      }
+  }
+</pre>
+</div></li>
+<li><p>
+<code>set_up_memory_buffers()</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">setup_memory_buffers</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>)
+{
+
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">Allocate the required memory in bytes to hold the color buffer</span>
+    color_buffer = (<span style="font-weight: bold; text-decoration: underline;">uint32_t</span> *) malloc(window_width *
+                                       window_height * <span style="font-weight: bold;">sizeof</span>(uint_32t));
+
+
+ <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">Creating a SDL texture that will be use to display the color buffer</span>
+    texture = SDL_CreateTexture(renderer,
+                                SDL_PIXELFORMAT_ARGB8888,
+                                SDL_TEXTUREACCESS_STREAMING,
+                                window_width,
+                                window_height);
+}
+</pre>
+</div></li>
+
+<li><p>
+<code>main()</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold;">main</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>)
+{
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">is running is a global boolean variable</span>
+  is_running = initialize_windowing_system(); 
+
+  <span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">Game loop</span><span style="font-weight: bold; font-style: italic;">                                             */</span>
+  <span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">if process_keyboard_input sets the</span><span style="font-weight: bold; font-style: italic;">                    */</span>
+  <span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">global variable is_running to false we exit the loop.</span><span style="font-weight: bold; font-style: italic;"> */</span>
+  <span style="font-weight: bold;">while</span> (is_running) {
+    process_keyboard_input(); 
+    update_state();
+    run_render_pipeline();
+    }
+
+  clean_up();
+}
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge83b53b" class="outline-2">
+<h2 id="orge83b53b">ADDITIVE COLOR</h2>
+</div>
+</div>
+</body>
+</html>
