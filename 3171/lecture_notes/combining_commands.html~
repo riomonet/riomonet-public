@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HW:2-3 Due Tuesday Feb 13th 2024</title>
+<title>&lrm;</title>
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -195,114 +195,66 @@
 </head>
 <body>
 <div id="content" class="content">
-
-
-<div id="outline-container-orgc4f67a6" class="outline-2">
-<h2 id="orgc4f67a6">ALL SHOULD BE DONE USING VIM ON THE SERVER</h2>
-<div class="outline-text-2" id="text-orgc4f67a6">
+<div id="outline-container-org8b4b542" class="outline-2">
+<h2 id="org8b4b542">Combining commands</h2>
+<div class="outline-text-2" id="text-org8b4b542">
+<p>
+In this class we are going to learn how to run and arrange our
+shell commands(simple programs) in different combinations.
+</p>
 </div>
-<div id="outline-container-org324999d" class="outline-3">
-<h3 id="org324999d">create the Following folders and text files</h3>
-<div class="outline-text-3" id="text-org324999d">
-<pre class="example" id="org7db2b61">
-notice the when there is a [d] below it means it's a directory.
-homework and projects are directories. The rest are just plain files.
 
-├── [drwxrwxr-x]  homework
-│   ├── Notes_on_Data_Structuring
-│   └── vimtutor_hw
-└── [drwxrwxr-x]  projects
-    ├── class_notes
-    ├── engineers_daybook
-    ├── shell_commands_I_should_know
-    └── shortcuts
-</pre>
-</div>
-</div>
-<div id="outline-container-orgd420d51" class="outline-3">
-<h3 id="orgd420d51">Do the entire vimtutor project</h3>
-<div class="outline-text-3" id="text-orgd420d51">
+<div id="outline-container-orgad2c46a" class="outline-3">
+<h3 id="orgad2c46a">What is a command ?</h3>
+<div class="outline-text-3" id="text-orgad2c46a">
+<p>
+When I use the word command on the shell I may be referring to
+</p>
 <ul class="org-ul">
-<li>A.  After you make all the corrections to the file that you are
-you workthrough in vimtutor, save it in you homework directory as
-<code>vimtutor_hw</code>.  (see above)</li>
-<li>B.  While you are working through vimtutor, take notes in your <code>engineers_daybook</code>
-file. In VIM command mode (press ESC to get into command mode) type !!. You will
-get a prompt at the bottom of the screen. type date there. and the date and time will
-be inserted into your file. The notes can be anything that you want to remember or any
-thoughts you have about vim and the process of going throught the tutor.</li>
+<li>a program</li>
+<li>a built in command</li>
+<li>a combined command like we have been demonsrating here.</li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org63f073d" class="outline-3">
-<h3 id="org63f073d">In your <code>Notes_on_Data_Structuring</code> file.</h3>
-<div class="outline-text-3" id="text-org63f073d">
+<div id="outline-container-orgf98415f" class="outline-3">
+<h3 id="orgf98415f">Packed with features</h3>
+<div class="outline-text-3" id="text-orgf98415f">
 <p>
-Use the same date command (ESC !!date)to enter the date and time in your file. Write 1/2 to 1 page and
-a few questions. The same way you did after watching the Ocaml video.  but this time 
-regarding the first page of the class reading we all read together last week. This should all be done
-on the server using the VIM text editor.
+The Designers of MS Word or Excel, or an ide like VS studio code, or
+intellij.  Design their programs to be packed with all the features
+they thought their users would need.  So those programs don't rely on
+outside programs for their functionality.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org3ac2e02" class="outline-3">
-<h3 id="org3ac2e02">in your <span class="underline">shorcuts</span> file add the following lines</h3>
-<div class="outline-text-3" id="text-org3ac2e02">
+<div id="outline-container-org615249b" class="outline-3">
+<h3 id="org615249b">Program composition.</h3>
+<div class="outline-text-3" id="text-org615249b">
 <p>
-C stands for control, M stands Meta which could be the alt, option, or command key
-(see if you could find this key on your mac or windows machine)
-</p>
-<p class="verse">
-C-a   :  Move to the first character of the line.<br />
-C-e   :  Move to the last character of the line.<br />
-C-k   :  Delete the line from where your cursor is till the end.<br />
-tab   :  auto completes names of files and directories.<br />
-M-f   :  move foreward one word<br />
-M-b   :  move backward one word<br />
-C-f   :  move foreward one character<br />
-C-b   :  move backward one character<br />
+The designers of unix, Dennis Richie and Ken Thompson, and btw Ken
+Thompson also designed the go language for google.  Had A philosphy
+that each program should only do one simple thing and do it well.
+Then to do more complex you just combine the programs together, so
+that the output of one program goes into the input of another
+program. and you can chain these things together for as long a command
+as you want. 
 </p>
 </div>
 </div>
 
-
-<div id="outline-container-orgd3d66a9" class="outline-3">
-<h3 id="orgd3d66a9">in <code>shell_commands_i_should_know</code></h3>
-<div class="outline-text-3" id="text-orgd3d66a9">
+<div id="outline-container-org47d2a25" class="outline-3">
+<h3 id="org47d2a25">Contemplation</h3>
+<div class="outline-text-3" id="text-org47d2a25">
 <p>
-make this list: work on becoming fluent with these commands
-</p>
-
-<p>
-ls, mv, rm, cp, cat, less, mkdir, rmdir, cd, touch, vim, pwd, chmod
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-orgcff9685" class="outline-3">
-<h3 id="orgcff9685">In your <code>engineers_daybook</code> make an entry</h3>
-<div class="outline-text-3" id="text-orgcff9685">
-<p>
-about a shell command.. Pick a command, look it up in the man pages, specify 2 options
-the command can take.
-</p>
-
-<p>
-e.g.
-</p>
-
-
-<p>
-Thu Feb  8 09:20:44 PM EST 2024
-</p>
-
-<p>
-rm can take a -r option which means to delete the files recursively.
-and it can take the -f option which means force delete the file.
+Are there anyting you wish you could automate in your computer?
+Like automatically downloading stats from a game. and
+presenting to you the way you want it ?
+Or anything else like that?
+If you work in IT or programming there will be many things. 
 </p>
 </div>
 </div>

@@ -195,66 +195,108 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="outline-container-orgf2962b6" class="outline-2">
-<h2 id="orgf2962b6">CODE</h2>
-<div class="outline-text-2" id="text-orgf2962b6">
+<div id="outline-container-org0756311" class="outline-2">
+<h2 id="org0756311">Perspective Divide</h2>
+<div class="outline-text-2" id="text-org0756311">
+<p class="verse">
+- mechanical perspective projection<br />
+<br />
+&#xa0;&#xa0;The fundamental ideas behind mechanical perspective come from an understanding of how we actually view the world.<br />
+<br />
+&#xa0;&#xa0;In mechanical perspective projection, all light rays pass through the pictures plane and converge<br />
+&#xa0;&#xa0;to a single point. That single point is your eye. The consequence of this is as follows.<br />
+<br />
+&#xa0;&#xa0;&#xa0;&#xa0;1. In orthographic projection all the light rays move in parralel to one another and perpendicular to the picturep plane<br />
+&#xa0;&#xa0;&#xa0;&#xa0;in perspecctive projection because every rayy is converging onto one point they will hit the projection plane at different<br />
+&#xa0;&#xa0;&#xa0;&#xa0;angles.<br />
+<br />
+&#xa0;&#xa0;&#xa0;&#xa0;2. As "things" move farther away from a viewer(or the projection plane), they appear smaller. That means space and mass appear smaller the<br />
+&#xa0;&#xa0;&#xa0;&#xa0;farther it is from the viewer.  As they move closer they appear bigger.  Objects that are closer to the projection plane<br />
+&#xa0;&#xa0;&#xa0;&#xa0;are going to take up more space on the projection plane, and Objects that are farther away will take up less space on the<br />
+&#xa0;&#xa0;&#xa0;&#xa0;projection plane. Scale of things change as they get closer and farther away.<br />
+&#xa0;&#xa0;&#xa0;&#xa0;so as the value of z goes up(distance goes up) x and y or going to get smaller and smaller. There is an invers relationship<br />
+&#xa0;&#xa0;&#xa0;&#xa0;between x and y.<br />
+<br />
+&#xa0;&#xa0;&#xa0;&#xa0;3. Explain field of view with a graphic: short interlude<br />
+&#xa0;&#xa0;&#xa0;&#xa0;show on top view for x axis and<br />
+&#xa0;&#xa0;&#xa0;&#xa0;side view for y axis.<br />
+&#xa0;&#xa0;&#xa0;&#xa0;explain that is actually a cone.<br />
+&#xa0;&#xa0;&#xa0;&#xa0;demo with hand blinders. 60 deg<br />
+<br />
+&#xa0;&#xa0;&#xa0;&#xa0;4. Our goal is to find the x and y values on our projection plane to do that we will find the x value and the y value<br />
+&#xa0;&#xa0;&#xa0;&#xa0;seperately. But using the laws of similiar triangles.<br />
+<br />
+&#xa0;&#xa0;&#xa0;&#xa0;In similiar triangles have :<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;congruent( equal) angles<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;the ratio between the sides of similiar triangels is constant<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;in other words no matter how much we scale up or down the ratio of the bases<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;will be equal to the ration of the heights.<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;Basically similiar triangles have the same characteristics but are scaled to different proportions.<br />
+<br />
+<br />
+&#xa0;&#xa0;&#xa0;&#xa0;This is called the  Perspective Divide:<br />
+<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;find x' using top view:<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;To find the x value lets look at a top view.<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;x'/x = z'/z  let z' = 1 (normalized)<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;multiple both sides by x and we get<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;x' = x/z<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;notice as z goes up x' gets smaller.<br />
+<br />
+<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;find y' using side view:<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;y'/y = z'/z  let z' = 1 (normalized)<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;multiple both sides by y and we get<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;y' = y/z<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;notice as z goes up y' gets smaller.<br />
+</p>
+
 <div class="org-src-container">
-<pre class="src src-c">      <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">add globals</span>
-
-      <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">scaling_factor</span> = 1200;
-      <span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold; font-style: italic;">cube_rotation</span> =  { .x = 0, .y = 0, .z  = 0 };
-
-
-
-
-    <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">TODO move scaling operation here</span>
-    <span style="font-weight: bold; text-decoration: underline;">vec2_t</span> <span style="font-weight: bold;">perspective_project_point</span>(<span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold; font-style: italic;">point_3d</span>) 
+<pre class="src src-c">
+    <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">compare the orgraphic with the perspecitve</span>
+    <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">Ortho</span>
+      <span style="font-weight: bold; text-decoration: underline;">vec2_t</span> <span style="font-weight: bold;">orthographic_project_point</span>(<span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold; font-style: italic;">point_3d</span>)
     {
-      <span style="font-weight: bold; text-decoration: underline;">vec2_t</span> <span style="font-weight: bold; font-style: italic;">projected_point</span> = { .x = (scaling_factor * point_3d.x) / point_3d.z,
-                                 .y = (scaling_factor * point_3d.y) / point_3d.z
-                               };
+      <span style="font-weight: bold; text-decoration: underline;">vec2_t</span> <span style="font-weight: bold; font-style: italic;">projected_point</span> = {point_3d.x, point_3d.y};
       <span style="font-weight: bold;">return</span> projected_point;
     }
 
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">perspective</span>
+      <span style="font-weight: bold; text-decoration: underline;">vec2_t</span> <span style="font-weight: bold;">perspective_project_point</span>(<span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold; font-style: italic;">point_3d</span>) <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">TODO</span>
+      {
+        <span style="font-weight: bold; text-decoration: underline;">vec2_t</span> <span style="font-weight: bold; font-style: italic;">projected_point</span> = {point_3d.x /point_3d.z,
+                                  point_3d.y / point_3d.z};
+        <span style="font-weight: bold;">return</span> projected_point;
+      }
 
+  <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">new global called camera position</span>
+   <span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold; font-style: italic;">camera_position</span> = {0, 0, -5}; 
 
-  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">TODO ROTATE POINTS </span>
+    <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">add adjustment for camera position moves</span>
+  <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">the model away from the pictuare plane</span>
   <span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">project_model</span>(<span style="font-weight: bold; text-decoration: underline;">void</span>)
   {
     <span style="font-weight: bold;">for</span> (<span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">i</span> = 0; i &lt; N_CUBE_POINTS; i++) {
       <span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold; font-style: italic;">point</span> = cube_model[i];
-
-      <span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold; font-style: italic;">transformed_point</span> = vec3_rotate_x(point, cube_rotation.x);
-      transformed_point = vec3_rotate_y(transformed_point, cube_rotation.y);
-      transformed_point = vec3_rotate_z(transformed_point, cube_rotation.z);
-      transformed_point.z -= camera_position.z; 
+      point.z -= camera_position.z; <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">TODO</span>
       <span style="font-weight: bold; font-style: italic;">/* </span><span style="font-weight: bold; font-style: italic;">vec2_t projected_point = orthographic_project_point(point);</span><span style="font-weight: bold; font-style: italic;"> */</span>
-      <span style="font-weight: bold; text-decoration: underline;">vec2_t</span> <span style="font-weight: bold; font-style: italic;">projected_point</span> = perspective_project_point(transformed_point);
+      <span style="font-weight: bold; text-decoration: underline;">vec2_t</span> <span style="font-weight: bold; font-style: italic;">projected_point</span> = perspective_project_point(point);
       projected_points[i] = projected_point;
     }
   }
 
-
-
-<span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">TODO increment cube rotatationk</span>
-
-  <span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">update_state</span>()
+<span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">may need to ajust scaling factor</span>
+  <span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">scale_shape</span>(<span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">scaling_factor</span>)
 {
-  clear_color_buffer(0xFF000000);
-  cube_rotation.x += .01;
-  cube_rotation.y += .01;
-  cube_rotation.z += .01;
-
-  project_model();
 
   <span style="font-weight: bold;">for</span>(<span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">i</span> = 0; i &lt; N_CUBE_POINTS; i++) {
-    <span style="font-weight: bold; text-decoration: underline;">vec2_t</span> <span style="font-weight: bold; font-style: italic;">point</span> = projected_points[i];
-
-    draw_rectangle(point.x + (window_width / 2), point.y + (window_height / 2), 4, 4, 0xFF00FFFF);
+    projected_points[i].x *= scaling_factor;
+    projected_points[i].y *= scaling_factor;
   }
 }
 
-
+<span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">notice how we are able to translate position here.</span>
+<span style="font-weight: bold;">draw_rectangle</span>(point.x + (window_width / 2), point.y + (window_height / 2), 4, 4, 0xFF00FFFF);
 
 </pre>
 </div>

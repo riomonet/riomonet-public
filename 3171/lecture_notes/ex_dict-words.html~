@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HW:2-3 Due Tuesday Feb 13th 2024</title>
+<title>&lrm;</title>
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -192,119 +192,140 @@
   .org-svg { width: 90%; }
 </style>
 <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
+<div id="outline-container-org8ebcad0" class="outline-2">
+<h2 id="org8ebcad0">word list filter exercises</h2>
+<div class="outline-text-2" id="text-org8ebcad0">
+<p>
+/usr/share/dict/words
+</p>
 
-
-<div id="outline-container-orgc4f67a6" class="outline-2">
-<h2 id="orgc4f67a6">ALL SHOULD BE DONE USING VIM ON THE SERVER</h2>
-<div class="outline-text-2" id="text-orgc4f67a6">
-</div>
-<div id="outline-container-org324999d" class="outline-3">
-<h3 id="org324999d">create the Following folders and text files</h3>
-<div class="outline-text-3" id="text-org324999d">
-<pre class="example" id="org7db2b61">
-notice the when there is a [d] below it means it's a directory.
-homework and projects are directories. The rest are just plain files.
-
-├── [drwxrwxr-x]  homework
-│   ├── Notes_on_Data_Structuring
-│   └── vimtutor_hw
-└── [drwxrwxr-x]  projects
-    ├── class_notes
-    ├── engineers_daybook
-    ├── shell_commands_I_should_know
-    └── shortcuts
-</pre>
-</div>
-</div>
-<div id="outline-container-orgd420d51" class="outline-3">
-<h3 id="orgd420d51">Do the entire vimtutor project</h3>
-<div class="outline-text-3" id="text-orgd420d51">
 <ul class="org-ul">
-<li>A.  After you make all the corrections to the file that you are
-you workthrough in vimtutor, save it in you homework directory as
-<code>vimtutor_hw</code>.  (see above)</li>
-<li>B.  While you are working through vimtutor, take notes in your <code>engineers_daybook</code>
-file. In VIM command mode (press ESC to get into command mode) type !!. You will
-get a prompt at the bottom of the screen. type date there. and the date and time will
-be inserted into your file. The notes can be anything that you want to remember or any
-thoughts you have about vim and the process of going throught the tutor.</li>
+<li>The first word in the file. Can you guess what it will be?
+head -n1</li>
+
+<li>The last word in the file. Can you guess this one?
+tail  -n1</li>
 </ul>
-</div>
-</div>
 
 
-<div id="outline-container-org63f073d" class="outline-3">
-<h3 id="org63f073d">In your <code>Notes_on_Data_Structuring</code> file.</h3>
-<div class="outline-text-3" id="text-org63f073d">
-<p>
-Use the same date command (ESC !!date)to enter the date and time in your file. Write 1/2 to 1 page and
-a few questions. The same way you did after watching the Ocaml video.  but this time 
-regarding the first page of the class reading we all read together last week. This should all be done
-on the server using the VIM text editor.
-</p>
-</div>
-</div>
+<ul class="org-ul">
+<li>The number of words in the words file - there is one word per line.
+wc</li>
 
-<div id="outline-container-org3ac2e02" class="outline-3">
-<h3 id="org3ac2e02">in your <span class="underline">shorcuts</span> file add the following lines</h3>
-<div class="outline-text-3" id="text-org3ac2e02">
-<p>
-C stands for control, M stands Meta which could be the alt, option, or command key
-(see if you could find this key on your mac or windows machine)
-</p>
-<p class="verse">
-C-a   :  Move to the first character of the line.<br />
-C-e   :  Move to the last character of the line.<br />
-C-k   :  Delete the line from where your cursor is till the end.<br />
-tab   :  auto completes names of files and directories.<br />
-M-f   :  move foreward one word<br />
-M-b   :  move backward one word<br />
-C-f   :  move foreward one character<br />
-C-b   :  move backward one character<br />
-</p>
-</div>
-</div>
+<li>The 6171st word in the file. Can you read my mind and guess this word directly?
+cat -n words | grep  '\b6171\b'  can also use -E opttion \s+</li>
+</ul>
 
 
-<div id="outline-container-orgd3d66a9" class="outline-3">
-<h3 id="orgd3d66a9">in <code>shell_commands_i_should_know</code></h3>
-<div class="outline-text-3" id="text-orgd3d66a9">
-<p>
-make this list: work on becoming fluent with these commands
+<ul class="org-ul">
+<li><p>
+All words containing the letter Q, capitalised. (A regular expression containing a string of one or more letters matches all strings that contain the expression as a substring.)
 </p>
 
 <p>
-ls, mv, rm, cp, cat, less, mkdir, rmdir, cd, touch, vim, pwd, chmod
-</p>
-</div>
-</div>
+grep Q words
+grep -c will give you acount of the results
+</p></li>
+
+<li>All words starting with the letter X. The regular expression X would match an X anywhere in the word, but ^X matches an X only at the start of the string.
+grep ^X words</li>
+</ul>
 
 
-<div id="outline-container-orgcff9685" class="outline-3">
-<h3 id="orgcff9685">In your <code>engineers_daybook</code> make an entry</h3>
-<div class="outline-text-3" id="text-orgcff9685">
-<p>
-about a shell command.. Pick a command, look it up in the man pages, specify 2 options
-the command can take.
-</p>
-
-<p>
-e.g.
-</p>
-
-
-<p>
-Thu Feb  8 09:20:44 PM EST 2024
+<ul class="org-ul">
+<li><p>
+All words ending in j. (The expression 'j$' matches a j only at the end of the string, but you have to single-quote it to stop the shell from interpreting the dollar sign).
 </p>
 
 <p>
-rm can take a -r option which means to delete the files recursively.
-and it can take the -f option which means force delete the file.
+grep 'j$' words
+</p></li>
+
+<li><p>
+The number of words containing the letter Q, ignoring case (e.g. capitalised or not).
 </p>
-</div>
+
+<p>
+grep -i Q words
+</p></li>
+
+<li><p>
+The first five words containing the letter sequence cl.
+</p>
+
+<p>
+grep cl words | head -n5
+</p></li>
+
+<li><p>
+All words containing the sequence "kp", but not "ckp". Can you guess any of these?
+</p>
+
+<p>
+grep kp words | grep -v ckp
+</p></li>
+</ul>
+
+
+<ul class="org-ul">
+<li><p>
+The last 15 words of exactly two letters. The expression . (period) matches a single character, and '^&#x2026;$' for example would match all strings of the format exactly three characters between start and end of string. You need to quote it because of the dollar sign.
+</p>
+
+<p>
+grep '^..$' words | head -n15
+you can also ask for how many of the different types
+explain the . 
+</p></li>
+
+<li>All words from the first 100 words on the list, which contain the letter y.
+head -n100 words | grep -i y</li>
+
+<li><p>
+The first five words that are among the last 100 words on the list, and contain the letter y (whether capitalised or not).
+</p>
+
+<p>
+Tail -n100 words | grep -i y | head -n5
+</p></li>
+
+<li><p>
+All three-letter words with no vowels (aeiou).The regular expression '[aeiou]' matches any string that contains one of the bracketed characters; you need quotes to stop the shell from interpreting the brackets. Remember to exclude words with capitalised vowels as well. There are 343 of these.
+</p>
+
+<p>
+grep -v '[aeiou]' words | grep '^&#x2026;$'
+</p></li>
+</ul>
+
+<p>
+All words of exactly 7 letters, where the third one is an e and the word ends "-ded". This kind of search is really useful for crosswords. There are 14 words of this form, can you guess them?
+         grep ^..e.ded$' words
+</p>
 </div>
 </div>
 </div>

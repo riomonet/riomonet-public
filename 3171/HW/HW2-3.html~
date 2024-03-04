@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HW:2-3 Due Tuesday Feb 13th 2024</title>
+<title>&lrm;</title>
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -195,16 +195,18 @@
 </head>
 <body>
 <div id="content" class="content">
-
-
-<div id="outline-container-orgc4f67a6" class="outline-2">
-<h2 id="orgc4f67a6">ALL SHOULD BE DONE USING VIM ON THE SERVER</h2>
-<div class="outline-text-2" id="text-orgc4f67a6">
+<div id="outline-container-org7686717" class="outline-2">
+<h2 id="org7686717">HW2-3</h2>
+<div class="outline-text-2" id="text-org7686717">
 </div>
-<div id="outline-container-org324999d" class="outline-3">
-<h3 id="org324999d">create the Following folders and text files</h3>
-<div class="outline-text-3" id="text-org324999d">
-<pre class="example" id="org7db2b61">
+<div id="outline-container-org61973ff" class="outline-3">
+<h3 id="org61973ff">ALL SHOULD BE DONE USING VIM ON THE SERVER</h3>
+<div class="outline-text-3" id="text-org61973ff">
+</div>
+<div id="outline-container-org9e37960" class="outline-4">
+<h4 id="org9e37960">create the Following folders and text files</h4>
+<div class="outline-text-4" id="text-org9e37960">
+<pre class="example" id="org821eda7">
 notice the when there is a [d] below it means it's a directory.
 homework and projects are directories. The rest are just plain files.
 
@@ -219,9 +221,9 @@ homework and projects are directories. The rest are just plain files.
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd420d51" class="outline-3">
-<h3 id="orgd420d51">Do the entire vimtutor project</h3>
-<div class="outline-text-3" id="text-orgd420d51">
+<div id="outline-container-org6dc2d7a" class="outline-4">
+<h4 id="org6dc2d7a">Do the entire vimtutor project</h4>
+<div class="outline-text-4" id="text-org6dc2d7a">
 <ul class="org-ul">
 <li>A.  After you make all the corrections to the file that you are
 you workthrough in vimtutor, save it in you homework directory as
@@ -235,10 +237,9 @@ thoughts you have about vim and the process of going throught the tutor.</li>
 </div>
 </div>
 
-
-<div id="outline-container-org63f073d" class="outline-3">
-<h3 id="org63f073d">In your <code>Notes_on_Data_Structuring</code> file.</h3>
-<div class="outline-text-3" id="text-org63f073d">
+<div id="outline-container-orge0574ab" class="outline-4">
+<h4 id="orge0574ab">In your <code>Notes_on_Data_Structuring</code> file.</h4>
+<div class="outline-text-4" id="text-orge0574ab">
 <p>
 Use the same date command (ESC !!date)to enter the date and time in your file. Write 1/2 to 1 page and
 a few questions. The same way you did after watching the Ocaml video.  but this time 
@@ -248,9 +249,9 @@ on the server using the VIM text editor.
 </div>
 </div>
 
-<div id="outline-container-org3ac2e02" class="outline-3">
-<h3 id="org3ac2e02">in your <span class="underline">shorcuts</span> file add the following lines</h3>
-<div class="outline-text-3" id="text-org3ac2e02">
+<div id="outline-container-org291556a" class="outline-4">
+<h4 id="org291556a">in your <span class="underline">shorcuts</span> file add the following lines</h4>
+<div class="outline-text-4" id="text-org291556a">
 <p>
 C stands for control, M stands Meta which could be the alt, option, or command key
 (see if you could find this key on your mac or windows machine)
@@ -268,10 +269,9 @@ C-b   :  move backward one character<br />
 </div>
 </div>
 
-
-<div id="outline-container-orgd3d66a9" class="outline-3">
-<h3 id="orgd3d66a9">in <code>shell_commands_i_should_know</code></h3>
-<div class="outline-text-3" id="text-orgd3d66a9">
+<div id="outline-container-org90f10a2" class="outline-4">
+<h4 id="org90f10a2">in <code>shell_commands_i_should_know</code></h4>
+<div class="outline-text-4" id="text-org90f10a2">
 <p>
 make this list: work on becoming fluent with these commands
 </p>
@@ -282,10 +282,9 @@ ls, mv, rm, cp, cat, less, mkdir, rmdir, cd, touch, vim, pwd, chmod
 </div>
 </div>
 
-
-<div id="outline-container-orgcff9685" class="outline-3">
-<h3 id="orgcff9685">In your <code>engineers_daybook</code> make an entry</h3>
-<div class="outline-text-3" id="text-orgcff9685">
+<div id="outline-container-org2effa9c" class="outline-4">
+<h4 id="org2effa9c">In your <code>engineers_daybook</code> make an entry</h4>
+<div class="outline-text-4" id="text-org2effa9c">
 <p>
 about a shell command.. Pick a command, look it up in the man pages, specify 2 options
 the command can take.
@@ -304,6 +303,7 @@ Thu Feb  8 09:20:44 PM EST 2024
 rm can take a -r option which means to delete the files recursively.
 and it can take the -f option which means force delete the file.
 </p>
+</div>
 </div>
 </div>
 </div>
