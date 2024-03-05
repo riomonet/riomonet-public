@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fixed Time Step</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+<body>
+<div id="content" class="content">
+
+<div id="outline-container-org75e49a1" class="outline-2">
+<h2 id="org75e49a1">GAME LOOP FPS</h2>
+<div class="outline-text-2" id="text-org75e49a1">
+<p>
+Currently our game loop is running as fast as possible. It all depends
+on our processors. The faster the processor the faster our loop will
+run.  We would like to have control of how fast we are processing 
+our game loop.  We want to have consistent animation speed across all
+machines.  So this is usually measured in Frames per second.
+</p>
+</div>
+
+<div id="outline-container-orgd8b61ff" class="outline-3">
+<h3 id="orgd8b61ff">Lets Create 2 global variables for FPS</h3>
+<div class="outline-text-3" id="text-orgd8b61ff">
+</div>
+<div id="outline-container-orgc7dde56" class="outline-4">
+<h4 id="orgc7dde56"><code>FPS</code> is how many frames we want to execute per second.</h4>
+</div>
+<div id="outline-container-orgf8e3e5e" class="outline-4">
+<h4 id="orgf8e3e5e"><code>FRAME_TARGET_TIME</code> is the time of a frame measured in milliseconds.</h4>
+<div class="outline-text-4" id="text-orgf8e3e5e">
+<p>
+Since there are 1000ms in 1 sec. We can calculate how long a frame is by
+the formual <code>FRAME_TARGET_TIME</code> = ( 1000 / <code>FPS</code> ) 
+</p>
+</div>
+</div>
+<div id="outline-container-org8adad95" class="outline-4">
+<h4 id="org8adad95">Add globals&#xa0;&#xa0;&#xa0;<span class="tag"><span class="code">code</span></span></h4>
+<div class="outline-text-4" id="text-org8adad95">
+<p>
+<code>#define FPS 30</code>
+</p>
+
+<p>
+<code>#define FRAME_TARGET_TIME (1000 / FPS)</code>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge4ce52e" class="outline-3">
+<h3 id="orge4ce52e">Game Loop Throttle Control</h3>
+<div class="outline-text-3" id="text-orge4ce52e">
+<hr />
+<p>
+How do we tell our game loop to wait <code>FRAME_TARGET_TIME</code> milliseconds
+before it updates the next frame? We need to keep track of how much
+time is passing. We will do this within our update function.
+</p>
+</div>
+
+<div id="outline-container-orgbfea27a" class="outline-4">
+<h4 id="orgbfea27a">throttle control within the update function</h4>
+<div class="outline-text-4" id="text-orgbfea27a">
+<hr />
+<p>
+To have throttle control of our game loop we are going to have to keep
+track of time. Inside the update function. We are going to keep track of
+how many milliseconds have past since the last frame ?
+</p>
+</div>
+
+<div id="outline-container-orge2ff9e1" class="outline-5">
+<h5 id="orge2ff9e1"><code>SDL_GetTicks();</code></h5>
+<div class="outline-text-5" id="text-orge2ff9e1">
+<p>
+Is a Builtin SDL function that will return the number of millisecods
+that have passed since the time SDL<sub>INIT</sub> was called.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org78a094a" class="outline-5">
+<h5 id="org78a094a">Declare a global variable and set it equal to 0</h5>
+<div class="outline-text-5" id="text-org78a094a">
+<p>
+<code>int previous_frame_time = 0; // millisecods</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga44adbf" class="outline-5">
+<h5 id="orga44adbf">Update Function Modification</h5>
+<div class="outline-text-5" id="text-orga44adbf">
+<p>
+Every time we call the update function we are goint to take a time stamp
+of the current number of milliseconds since SDL<sub>INIT</sub>. We will not run
+the next frame until(timestamp + <code>FRAME_TARGET_TIME</code>). For example
+if the time stamp is 100 and the <code>FRAME_TARGET_TIME</code> is 130 we are not going
+to run the next frame until <code>GetTicks()</code> return 130. Then 130 will be are new
+time stamp.
+</p>
+
+<p>
+We will pause the game loop by creating a while loop inside the update function.
+we will use the built in SDL FUNCTION <code>SDL_TICKS_PASSED</code>
+</p>
+</div>
+
+<div id="outline-container-org1a966ce" class="outline-6">
+<h6 id="org1a966ce"><code>SDL_TICKS_PASSED</code></h6>
+<div class="outline-text-6" id="text-org1a966ce">
+<p>
+The while loop says. as long as <code>SDL_GetTicks()</code> is less than previous time stamp +
+frame time, stay in the loop and lock execution.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c">
+<span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">lock execution</span>
+<span style="font-weight: bold;">while</span> ( !SDL_TICKS_PASSED(SDL_GetTicks(), previous_frame_time + FRAME_TARGET_TIME ));
+
+<span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">execution reusumes get time stamp</span>
+previous_frame_time = SDL_GetTicks();
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3c4b339" class="outline-2">
+<h2 id="org3c4b339">There is a better way.</h2>
+<div class="outline-text-2" id="text-org3c4b339">
+<hr />
+<p>
+We are doing this as an academic exercise to understand exactly what
+is happening under the hood.  We now understand that we are using the
+while loop to lock execution until the time that we want the next frame
+to execute.  If you build a game or animation in Unity, or any other
+game engine. This is all done for you already.  But, we really want to
+understand the mechanics and mathamatics of our underlying system.
+</p>
+</div>
+
+<div id="outline-container-org5d89408" class="outline-3">
+<h3 id="org5d89408">Is a while loop a good idea, why or why not?</h3>
+<div class="outline-text-3" id="text-org5d89408">
+<p>
+A while loop is a processor instruction. That means that it becomes
+a part of our instruction set. The cpu doesn't know that it is just
+waiting. Our program will comsume 100% of cpu cycles. We don't want
+our little program eating up all the CPU Resources. So we have to
+implement a different strategy. Our processs needs to share system r
+resources with other processes and other tasks.  
+</p>
+</div>
+</div>
+
+<div id="outline-container-org845feb3" class="outline-3">
+<h3 id="org845feb3">Instead of using the while loop we will use a Delay function.</h3>
+<div class="outline-text-3" id="text-org845feb3">
+</div>
+<div id="outline-container-org8046055" class="outline-4">
+<h4 id="org8046055"><code>void SDL_Delay(Uint32 ms)</code></h4>
+<div class="outline-text-4" id="text-org8046055">
+<p>
+a proper delay function uses system calls and interacts with the
+operating system directly to schedule processes and share resources.
+The built in SDL function <code>SDL_Delay(Uint32 ms)</code> takes a argument that
+is a 32 bit integer. if <code>FRAME_TARGET_TIME</code> = 33 and <code>SDL_GetTick()</code>
+returns 1000 since we called <code>SDL_INIT()</code> and <code>previous_frame_time</code> was
+860, Then <code>time_to_wait</code> will equal ?
+</p>
+<hr />
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">void</span> <span style="font-weight: bold;">update</span>()
+{
+  <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">time_to_wait</span> = FRAME_TARGET_TIME - (SDL_GetTicks() - previous_frame_time);
+
+  <span style="font-weight: bold;">if</span>( time_to_wait &gt; 0 &amp;&amp; time_to_wait &lt;= FRAME_TARGET_TIME) {
+    SDL_Delay(time_to_wait);
+  }
+}
+
+<span style="font-weight: bold; text-decoration: underline;">VOID</span> <span style="font-weight: bold;">SDL_DELAY</span>(<span style="font-weight: bold; text-decoration: underline;">Uint32</span> <span style="font-weight: bold; font-style: italic;">ms</span>)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org1e4aa62" class="outline-3">
+<h3 id="org1e4aa62">Constant vs Variable Delta-time.</h3>
+<div class="outline-text-3" id="text-org1e4aa62">
+<p>
+The above implemention gives us what is called Constant Delta time.
+Our Game loop has been throttled and only executes fast enought to
+give us the number of FPS we want. But Right now if we change our FPS
+value it will change how fast our objects move. Later we will learn
+what is known as Variable Delta Time, so we can change frame rate
+from 30 to 60 but our objects move at the same speed. It will give
+us frame rate independent movement.
+</p>
+</div>
+
+<div id="outline-container-org2069152" class="outline-4">
+<h4 id="org2069152">HW</h4>
+<div class="outline-text-4" id="text-org2069152">
+<ol class="org-ol">
+<li>Implement the delay with the while loop and notate cpu usage.</li>
+<li>Implement the delay using SDL<sub>Delay</sub>() and notate cpu usage.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
