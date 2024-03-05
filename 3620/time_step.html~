@@ -308,8 +308,7 @@ frame time, stay in the loop and lock execution.
 <div class="org-src-container">
 <pre class="src src-c">
 <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">lock execution</span>
-<span style="font-weight: bold;">while</span> ( !SDL_TICKS_PASSED(SDL_GetTicks(),
-                          previous_frame_time + FRAME_TARGET_TIME ));
+<span style="font-weight: bold;">while</span> ( !SDL_TICKS_PASSED(SDL_GetTicks(), previous_frame_time + FRAME_TARGET_TIME ));
 
 <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">execution reusumes get time stamp</span>
 previous_frame_time = SDL_GetTicks();
@@ -398,11 +397,11 @@ us frame rate independent movement.
 </p>
 </div>
 
-<div id="outline-container-org9182d6d" class="outline-4">
-<h4 id="org9182d6d">HW Constant Variable time</h4>
-<div class="outline-text-4" id="text-org9182d6d">
+<div id="outline-container-org2069152" class="outline-4">
+<h4 id="org2069152">HW</h4>
+<div class="outline-text-4" id="text-org2069152">
 <ol class="org-ol">
-<li>Implement with the while loop and notate cpu usage.</li>
+<li>Implement the delay with the while loop and notate cpu usage.</li>
 <li>Implement the delay using SDL<sub>Delay</sub>() and notate cpu usage.</li>
 </ol>
 </div>

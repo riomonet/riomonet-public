@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org0738aef">Linux 101</a>
+<ul>
+<li><a href="#org02f46c8">Intro to Linux</a></li>
+<li><a href="#org4e0f483">What is Open Source ?</a></li>
+<li><a href="#org9d59758">Where does linux run ?</a></li>
+<li><a href="#org9aae7df">Command line Interface</a></li>
+<li><a href="#org4b0890a">Linux distributions</a></li>
+<li><a href="#org781d295">Installation</a></li>
+<li><a href="#org3616be1">Distribution Life Cycle</a></li>
+<li><a href="#org54a7aa3">Upgrading</a></li>
+<li><a href="#orgcc39979">Desktop environments</a></li>
+<li><a href="#org0e0404c">Embedded Systems</a></li>
+<li><a href="#orga929555">HW</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0738aef" class="outline-2">
+<h2 id="org0738aef">Linux 101</h2>
+<div class="outline-text-2" id="text-org0738aef">
+</div>
+<div id="outline-container-org02f46c8" class="outline-3">
+<h3 id="org02f46c8">Intro to Linux</h3>
+<div class="outline-text-3" id="text-org02f46c8">
+<ul class="org-ul">
+<li>Linux is an Open sources Operating System based on Unix</li>
+<li>The linux kernel was originally devloped by Linus Torvald</li>
+<li>Unlike Windows and Mac there is no single company behind linux</li>
+<li>Linux is architecutre and platform independent</li>
+<li>Linux was built as a labor of love by 1000's of programmers around the world</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org4e0f483" class="outline-3">
+<h3 id="org4e0f483">What is Open Source ?</h3>
+<div class="outline-text-3" id="text-org4e0f483">
+<p>
+In open source projects, there is no corporate oversight.
+The goal is not profits.  The destiny and control of the software is
+completely in the hands of the developers that contribute to it.
+<a href="https://opensource.org/osd">Open Source Definition</a>
+</p>
+</div>
+
+<div id="outline-container-org64a00e8" class="outline-4">
+<h4 id="org64a00e8">Any one can access and read the entire source.</h4>
+</div>
+<div id="outline-container-org490251f" class="outline-4">
+<h4 id="org490251f">Anyone can change it anyway they like and make their own versions</h4>
+<div class="outline-text-4" id="text-org490251f">
+<p>
+This is how all the various Linux distribtutions came about.
+</p>
+</div>
+</div>
+<div id="outline-container-orga89e242" class="outline-4">
+<h4 id="orga89e242">Some linux distributions.</h4>
+<div class="outline-text-4" id="text-orga89e242">
+<p>
+cent OS, ubuntu, open Suse, tails, debian, arch, kali,  gentoo, redhat, fedora, etc&#x2026;
+</p>
+</div>
+</div>
+
+<div id="outline-container-org743dc9e" class="outline-4">
+<h4 id="org743dc9e">It is Free to use, change and distribute.</h4>
+<div class="outline-text-4" id="text-org743dc9e">
+<p>
+An open sourece licenses allow for public use and modification of
+source code.  It allows the original design to be modified. This
+encourages developers to build on each others work. It encourages
+collaboration to help improve the design and purpose the software.
+</p>
+</div>
+<div id="outline-container-org4159846" class="outline-5">
+<h5 id="org4159846">Some open source software</h5>
+<div class="outline-text-5" id="text-org4159846">
+<ul class="org-ul">
+<li>Apache WebServer, NGINX Web Server</li>
+<li>Word Press</li>
+<li>Firefox</li>
+<li>Blender</li>
+<li>NextCloud</li>
+<li>Audacity</li>
+<li>Kubernetes</li>
+<li>Docker</li>
+<li>Jenkins</li>
+<li>The entire  Gnu Suite of compilers and debuggers</li>
+<li>React</li>
+<li>Bitcoin</li>
+<li>NodeJS</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org30eceb4" class="outline-5">
+<h5 id="org30eceb4">Software license agreement</h5>
+<div class="outline-text-5" id="text-org30eceb4">
+<p>
+The purview of Open Source falls under the unites states code
+for <a href="https://www.copyright.gov/circs/circ01.pdf">Copyrights</a> and Patents. 
+When a Developer releases source code, they usally include
+A software license agreement.  The license specifies what
+parts of the software can be modified, and how the modification
+can be distributed. Linux uses the GNU GPL.
+</p>
+</div>
+<div id="outline-container-orga74cc57" class="outline-6">
+<h6 id="orga74cc57">Some common Open Source Licenses</h6>
+<div class="outline-text-6" id="text-orga74cc57">
+<ul class="org-ul">
+<li><a href="https://en.wikipedia.org/wiki/GNU_General_Public_License">GNU General Public License</a></li>
+<li><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License</a></li>
+<li>MIT License</li>
+<li>Unlicensed</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org9d59758" class="outline-3">
+<h3 id="org9d59758">Where does linux run ?</h3>
+<div class="outline-text-3" id="text-org9d59758">
+<ul class="org-ul">
+<li>96% of Web Servers run linux</li>
+<li>Android is a distribution based on LINUX</li>
+<li>Linux is number one OS used in IOT and embedded devices.
+eg. Smart TV, cameras, cars, and other embedded devices</li>
+<li>First choice in many industries because it is low cost,
+open source and easily scalable.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org9aae7df" class="outline-3">
+<h3 id="org9aae7df">Command line Interface</h3>
+<div class="outline-text-3" id="text-org9aae7df">
+<p>
+Many desktop linux distributions come with a windowing system that
+allows users to interact with the OS using a gui very much like they
+would on Windows and Macs. There are many linux distributions that are
+meant to be for servers. Many time these distirbutions will not include
+a graphical componenet and the only way to interact with the OS is
+using a Command line interface.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org4b0890a" class="outline-3">
+<h3 id="org4b0890a">Linux distributions</h3>
+<div class="outline-text-3" id="text-org4b0890a">
+<p>
+A distrbution (distro) is combination of the following components.
+Each Distro may have different variations of the following.
+</p>
+</div>
+
+<div id="outline-container-orgd8771ff" class="outline-4">
+<h4 id="orgd8771ff">Kernel</h4>
+<div class="outline-text-4" id="text-orgd8771ff">
+<p>
+A low-level computer program whcih functions as the bridge between the
+user and the computers resources. It is the interface to the hardware.
+Includein Memory management and IO device manaagement. The kernel is
+constanlty evolving. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc9ec09c" class="outline-4">
+<h4 id="orgc9ec09c">Supporting Software,Tools, libraries</h4>
+<div class="outline-text-4" id="text-orgc9ec09c">
+<ul class="org-ul">
+<li>X windowing system- X11</li>
+<li>disk utilites</li>
+<li>GNU compilers and software libraries</li>
+<li>terminals and shells</li>
+<li>shell tools</li>
+<li>C+  standard libraries</li>
+<li>Server, networking tools</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0749e7e" class="outline-4">
+<h4 id="org0749e7e">Configuration Files</h4>
+<div class="outline-text-4" id="text-org0749e7e">
+<p>
+Different distributions have different scripts and utilites to launch
+the system and tools.  Each distribution has it's own personality that
+can be configure to each users perferences
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org781d295" class="outline-3">
+<h3 id="org781d295">Installation</h3>
+<div class="outline-text-3" id="text-org781d295">
+<p>
+Linux distributions are available for download directly for developers
+websites. You can download an image file and burn it to a CD, DVD, or USB stick.
+You can install it using a virtual machine.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3616be1" class="outline-3">
+<h3 id="org3616be1">Distribution Life Cycle</h3>
+<div class="outline-text-3" id="text-org3616be1">
+<p>
+The release schedule specify when new releases are released to the
+public.  Generally there is a stable release as well as pre release
+version which can be used for testing and debugging.  Pre release
+versions are usually categorized as Alpha, which is very untested and
+likely to contain alot of bugs, or Beta which is where most testing is
+done. Release schedules are usually planned years ahead of time.
+</p>
+
+<p>
+Because of the nature of Open Source software. There are sometimes
+small distributions that are developed by only a couple of
+people. These sometimes end up as abandoned projects.
+</p>
+
+<p>
+Different Distribtutions use different naming schemes for their releases.
+Ubuntu uses a 2 word naming scheme for it's releases. Sometimes using fun names.
+</p>
+
+<ul class="org-ul">
+<li>22.04 -&gt; Jammy Jellyfish</li>
+<li>20.04 -&gt; Focal Fossa</li>
+<li>18.04 -&gt; Bionic Beaver</li>
+</ul>
+
+<p>
+Each distribution specifies how long a release will be supported.
+There are long term support(LCS) versions and Short term support (SPT)
+versions.  During the life of the release the distro will usually
+provide updates to improve performance and features of that
+release. They will also conitnuously update security patches to fix
+bugs and vulnerabilities. It is generally a good idea to keep your
+system updated to a supported release so you can update your system
+with the latest security patches and bug fixes.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org54a7aa3" class="outline-3">
+<h3 id="org54a7aa3">Upgrading</h3>
+<div class="outline-text-3" id="text-org54a7aa3">
+<p>
+Some distro require you to upgrade to the latest release by
+downloading a new image and reinstalling the whole OS. This can be
+time consuming.  Others use what is called a rolling release.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgcc39979" class="outline-3">
+<h3 id="orgcc39979">Desktop environments</h3>
+<div class="outline-text-3" id="text-orgcc39979">
+<p>
+Each distrbution may use a different desktop environment. Each one will look, feel and
+operate differently.
+</p>
+
+<ul class="org-ul">
+<li>Unity desktop environments</li>
+<li>KDE desktop environments</li>
+<li>The Gnome Desktop</li>
+<li>XFCE Desktop env(requires few system resources)
+better for a slower older computer.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org0e0404c" class="outline-3">
+<h3 id="org0e0404c">Embedded Systems</h3>
+<div class="outline-text-3" id="text-org0e0404c">
+<p>
+An Embeddes system is a controller that is built into a larger mechanical or electrical system.
+Embeded systems control many devices we use or see every day. Most embedded are running some version of linux.
+</p>
+
+<ul class="org-ul">
+<li>Industrial Automation</li>
+<li>Navigation Equipment</li>
+<li>Medical Devices.</li>
+<li>Wearable technology</li>
+<li>Home Applicance</li>
+</ul>
+</div>
+
+<div id="outline-container-org9669ad8" class="outline-4">
+<h4 id="org9669ad8"><span class="todo TODO">TODO</span> Rasberry Pi and Arduino</h4>
+</div>
+</div>
+
+
+<div id="outline-container-orga929555" class="outline-3">
+<h3 id="orga929555">HW</h3>
+<div class="outline-text-3" id="text-orga929555">
+<p>
+Read, look at pictures, watch videos about a few distributions and pick one to install on your virtual machine. Look at some of the following. I will be using ubuntu
+</p>
+
+<p>
+cent OS, ubuntu, open Suse, <a href="https://tails.net/">tails</a>,  debian, arch, gentoo, redhat, fedora, <a href="https://www.kali.org/">kali</a> 
+</p>
+
+<p>
+They will have different desktops envrionments and will all feel
+different and be different from one another.
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
