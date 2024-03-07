@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>&lrm;</title>
+<title>Linux 101</title>
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -211,7 +211,9 @@
 <li><a href="#org54a7aa3">Upgrading</a></li>
 <li><a href="#orgcc39979">Desktop environments</a></li>
 <li><a href="#org0e0404c">Embedded Systems</a></li>
-<li><a href="#orga929555">HW</a></li>
+<li><a href="#orge2c3422">Hardware Requirments (system requirements) and HCL</a></li>
+<li><a href="#org3410a10">Comparing operating Systems</a></li>
+<li><a href="#orge696e07">Homework</a></li>
 </ul>
 </li>
 </ul>
@@ -501,18 +503,190 @@ Embeded systems control many devices we use or see every day. Most embedded are 
 <li>Medical Devices.</li>
 <li>Wearable technology</li>
 <li>Home Applicance</li>
+<li>DIY controllers that can be used to create
+larger systems, Rasberry Pi and Arduino</li>
 </ul>
 </div>
+</div>
 
-<div id="outline-container-org9669ad8" class="outline-4">
-<h4 id="org9669ad8"><span class="todo TODO">TODO</span> Rasberry Pi and Arduino</h4>
+
+<div id="outline-container-orge2c3422" class="outline-3">
+<h3 id="orge2c3422">Hardware Requirments (system requirements) and HCL</h3>
+<div class="outline-text-3" id="text-orge2c3422">
+<p>
+Every linux distribution will specify the Hardware Requirements
+for their systems. They will   specify minimum and recommended
+requirements of the following components
+</p>
+
+<ul class="org-ul">
+<li>Processor Speed</li>
+<li>Size of Ram</li>
+<li>Hard drive Space</li>
+<li>and other peripheral devices required.</li>
+</ul>
+
+<p>
+<b>Minimum Requirements:</b> are the loweset posible hardware
+specs needed for your computer to boot and run succesfully with
+basic functionality.
+</p>
+
+<p>
+<b>Recommended Requirements:</b> specify what you would need if
+you were working on resource intensive applications like video
+editing software or 3d games.
+</p>
+
+
+<p>
+All the differerent Linux Distributions will have different
+requirements. e.g. 
+</p>
+</div>
+
+<div id="outline-container-orga440dc3" class="outline-4">
+<h4 id="orga440dc3">examples</h4>
+<div class="outline-text-4" id="text-orga440dc3">
+<p>
+<a href="https://www.debian.org/releases/bullseye/amd64/ch03s04.en.html">Debian Requirements</a>
+<a href="https://www.hostwinds.com/tutorials/minimum-system-requirements">Comparison of system requirements for various systems</a>
+</p>
 </div>
 </div>
 
 
-<div id="outline-container-orga929555" class="outline-3">
-<h3 id="orga929555">HW</h3>
-<div class="outline-text-3" id="text-orga929555">
+<div id="outline-container-orgec86b71" class="outline-4">
+<h4 id="orgec86b71">High requirement Distros</h4>
+<div class="outline-text-4" id="text-orgec86b71">
+<p>
+Some distro like ubuntu may require 
+</p>
+<ul class="org-ul">
+<li>2gb ram</li>
+<li>Dual Core processors at 2ghz</li>
+<li>20 gb of free diskspace</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org6cb00e9" class="outline-4">
+<h4 id="org6cb00e9">Low requirement Distro</h4>
+<div class="outline-text-4" id="text-org6cb00e9">
+<p>
+But amazingly there are distros that can run on
+computers from 1999 with the following minimum
+requirements
+</p>
+<ul class="org-ul">
+<li>Pentium III processors</li>
+<li>256 MB ram</li>
+<li>2.7 gb hard drive</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgb1cabdd" class="outline-4">
+<h4 id="orgb1cabdd">They will also provide and HCL. What is an HCL ?</h4>
+<div class="outline-text-4" id="text-orgb1cabdd">
+<p>
+Even if a given peripheral like a graphics card meets the recommended
+requirements, It still may be incomaptable with the distribution. 
+That is where the Hardware compatability list comes in. 
+A Hardware Compatability List specifies the compatablie and
+sometimes incompatabile hardware components that have been tested
+on a given distribution. The distro will test
+</p>
+
+<ul class="org-ul">
+<li>Audio controllers</li>
+<li>Ethernet controller</li>
+<li>wireless controllers</li>
+<li>Bluetooth</li>
+<li>USB</li>
+<li>Power management</li>
+<li>firmaware</li>
+<li>Memory</li>
+<li>CPU</li>
+<li>Motherboards</li>
+<li>etc</li>
+</ul>
+
+<p>
+Each Distribution will test all the above subsystems on different
+platforms, like laptops, desktops, and Servers as well as embeded platforms.
+They will list the platforms in which they have been succesfully
+tested and run. 
+e.g
+<a href="https://catalog.redhat.com/hardware">https://catalog.redhat.com/hardware</a>
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3410a10" class="outline-3">
+<h3 id="org3410a10">Comparing operating Systems</h3>
+<div class="outline-text-3" id="text-org3410a10">
+</div>
+<div id="outline-container-orga8c0ab6" class="outline-4">
+<h4 id="orga8c0ab6">Home and Business Desktop users</h4>
+<div class="outline-text-4" id="text-orga8c0ab6">
+<ul class="org-ul">
+<li>90% of Home and Business  Desktop Systems use MSFT - Windows</li>
+<li>7% OS x Market Share</li>
+<li>2% Linux Market Share</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8f810c9" class="outline-4">
+<h4 id="org8f810c9">Enterprise Server Environments</h4>
+<div class="outline-text-4" id="text-org8f810c9">
+<p>
+Linux has 75% market share
+</p>
+</div>
+</div>
+
+<div id="outline-container-org05215be" class="outline-4">
+<h4 id="org05215be">Malware</h4>
+<div class="outline-text-4" id="text-org05215be">
+<p>
+Windows most prone to viruses and Malware because of large user base.
+Malware and Virus devlopers want to be effective as possible so they
+attack the broadest possible surface which is the large Windows user
+base.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org013ae5d" class="outline-4">
+<h4 id="org013ae5d">Licenses and Use</h4>
+<div class="outline-text-4" id="text-org013ae5d">
+<p>
+To use windows you need a license from MSFT
+</p>
+
+<p>
+OS X is free to use but must be installed on Apple Hardwawre.
+So you have to purchase their hardware.
+</p>
+
+<p>
+Linux is open source and cross platform. Can be run from the command line
+or a gui.
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orge696e07" class="outline-3">
+<h3 id="orge696e07">Homework</h3>
+<div class="outline-text-3" id="text-orge696e07">
 <p>
 Read, look at pictures, watch videos about a few distributions and pick one to install on your virtual machine. Look at some of the following. I will be using ubuntu
 </p>
@@ -523,7 +697,11 @@ cent OS, ubuntu, open Suse, <a href="https://tails.net/">tails</a>,  debian, arc
 
 <p>
 They will have different desktops envrionments and will all feel
-different and be different from one another.
+behave differently from one another.
+</p>
+
+<p>
+Make sure to notate the minimum and recommended requirements.
 </p>
 </div>
 </div>
