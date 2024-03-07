@@ -200,11 +200,11 @@
 <h2 id="org0c22024">3d Objects</h2>
 <div class="outline-text-2" id="text-org0c22024">
 <p>
-Our goal is to render and animate 3d objects on the
-monitor. We want our objects in our virtual world
-to appear as they would in the real world. That is
-3 dimensional and solid. A well known model is the
-<a href="https://en.wikipedia.org/wiki/Stanford_bunny#/media/File:Stanford_Bunny.stl">Stanford Bunny 3d Model</a>
+Our goal is to render and animate 3d objects on the monitor. We want
+our objects in our virtual world to appear as they would in the real
+world. That is we want our virtual models to give the imression that
+they are 3 dimensional and solid. A well known model is the <a href="https://en.wikipedia.org/wiki/Stanford_bunny#/media/File:Stanford_Bunny.stl">Stanford
+Bunny 3d Model</a>
 </p>
 </div>
 
@@ -238,7 +238,7 @@ To render a 3d model that looks like a solid object we need to use a
 </p>
 
 
-<div id="org0eff8c4" class="figure">
+<div id="org834828b" class="figure">
 <p><img src="assets/img/BunnyWire.gif" alt="BunnyWire.gif" />
 </p>
 </div>
@@ -263,16 +263,329 @@ triangles. Each triangle placed in a precise location in 3d space.
 
 
 
-<div id="org08df6ba" class="figure">
+<div id="orgd43d3db" class="figure">
 <p><img src="assets/img/icosphere_refinement.jpg" alt="icosphere_refinement.jpg" />
 </p>
 </div>
 
 
 <p>
-Each vertex of a triangle will be specified using our vec3<sub>t</sub>,
-(3d vector type).
+Each vertex of a triangle will be a vec3<sub>t</sub>, (3d vector type).  So each
+triangles position in space is specified by 3 vertices. Each vertex is
+a single 3 dimensional vector. So each triangle will be created out of
+3 3 dimensional vectors.  When the 3 vertices are connected to one
+another with a line they form a triangle. In a mesh of polygons
+an individual polygon will be referred to as a face.
 </p>
+</div>
+</div>
+
+
+<div id="outline-container-org477376b" class="outline-2">
+<h2 id="org477376b">A new model for a cube</h2>
+<div class="outline-text-2" id="text-org477376b">
+<p>
+We are going to build a new model for our cube using this new
+concept. We want our cube to appear as a solid object. So we are going
+to model it using triangles. We will build our new model using:
+</p>
+<ul class="org-ul">
+<li>8 vertices</li>
+<li>12 triangles</li>
+<li>each face of the cube is represented by 2 triangles</li>
+</ul>
+
+
+<div id="org8860856" class="figure">
+<p><img src="assets/img/cube_with_points.jpg" alt="cube_with_points.jpg" />
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org62834ac" class="outline-3">
+<h3 id="org62834ac">Placing 8 vertex model in space</h3>
+<div class="outline-text-3" id="text-org62834ac">
+<p>
+Our model will now only have 8 3d points(vectors)
+instead of 9<sup>3</sup>. each corner of the cube is a vector
+and we need to put each corner into the correct position
+in space. We are going to use a left handed coordinate system
+for our model, our Z value will increase as it goes deeper into
+the screen.
+</p>
+</div>
+
+<div id="outline-container-orgdd6a201" class="outline-4">
+<h4 id="orgdd6a201">right and left handed coordinate system</h4>
+<div class="outline-text-4" id="text-orgdd6a201">
+<p>
+Open Gl and Direct X treat their z values differently.
+</p>
+</div>
+
+<div id="outline-container-org0378969" class="outline-5">
+<h5 id="org0378969">Direct X uses a left handed coordinate system, meaning</h5>
+<div class="outline-text-5" id="text-org0378969">
+<p>
+as z grows larger it moves way from us into space, deeper into the
+screen.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf75d1f6" class="outline-5">
+<h5 id="orgf75d1f6">Open GL uses a right hande coordinate system</h5>
+<div class="outline-text-5" id="text-orgf75d1f6">
+<p>
+as z grows larger it moves towards us and gets closer and closer.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf444078" class="outline-4">
+<h4 id="orgf444078">Cube Model</h4>
+<div class="outline-text-4" id="text-orgf444078">
+<p>
+The basis of our new cube model is an array[8] each index is a vec3<sub>t</sub>
+vector.  This is our new hard coded cube model
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold; font-style: italic;">cube_vertices</span>[8] = {
+  {.x = -1, .y = -1, .z = -1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">1</span>
+  {.x = -1, .y =  1, .z = -1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">2</span>
+  {.x =  1, .y =  1, .z = -1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">3</span>
+  {.x =  1, .y = -1, .z = -1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">4</span>
+  {.x =  1, .y =  1, .z =  1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">5</span>
+  {.x =  1, .y = -1, .z =  1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">6</span>
+  {.x = -1, .y =  1, .z =  1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">7</span>
+  {.x = -1, .y = -1, .z =  1}  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">8</span>
+};
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3e523c5" class="outline-4">
+<h4 id="org3e523c5">Drawing our triangluar faces</h4>
+<div class="outline-text-4" id="text-org3e523c5">
+<p>
+We don't want to just draw or vertex though, we want to draw our
+triangular faces. Each face will be constructed from 3 vertex.
+</p>
+</div>
+
+<div id="outline-container-org66bf2f8" class="outline-5">
+<h5 id="org66bf2f8">Let's create a new struct called face<sub>t</sub></h5>
+<div class="outline-text-5" id="text-org66bf2f8">
+<p>
+It will contain 3 integers. Each integer will be an index
+into our cube vertices array above. So a face<sub>t</sub> represents
+a triangle
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">typedef</span> <span style="font-weight: bold;">struct</span> {
+  <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">a</span>, <span style="font-weight: bold; font-style: italic;">b</span>, <span style="font-weight: bold; font-style: italic;">c</span>;
+} <span style="font-weight: bold; text-decoration: underline;">face_t</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org26725a0" class="outline-5">
+<h5 id="org26725a0">How many triangles do we need?</h5>
+<div class="outline-text-5" id="text-org26725a0">
+<p>
+Each side of the cube will be represented by 2 faces.
+So we will use 12 faces to model the surface of our cube.
+We will declare an array of faces, where each element is
+a face<sub>t</sub>. We will creae an array of 12 faces. Each face
+must be specified in clockwise direction. The order matters.
+The order determines the front and back of the face. The order
+determines which way the face is pointing. We need to know
+and specify which is the front and back of the face. We do that
+by ordering our vertices in clockwise order to specify the front.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold; text-decoration: underline;">face_t</span> <span style="font-weight: bold; font-style: italic;">cube_faces</span>[12] = {
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">front</span>
+  { .a = 1, .b = 2, .c = 3},
+  { .a = 1, .b = 3, .c = 4},
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">right</span>
+  { .a = 4, .b = 3, .c = 5},
+  { .a = 4, .b = 5, .c = 6},
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">back</span>
+  { .a = 6, .b = 5, .c = 7},
+  { .a = 7, .b = 7, .c = 8},
+   <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">TODO fill in the rest</span>
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">left</span>
+  { .a = , .b = , .c = },
+  { .a = , .b = , .c = },
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">top </span>
+  { .a = , .b = , .c = },
+  { .a = , .b = , .c = },
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">bottom</span>
+  { .a = , .b = , .c = },
+  { .a = , .b = , .c = },
+};
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org72bda90" class="outline-5">
+<h5 id="org72bda90">Summary</h5>
+<div class="outline-text-5" id="text-org72bda90">
+<ul class="org-ul">
+<li>each vertex is a vec3<sub>t</sub></li>
+<li>each face is made up of 3 integer values</li>
+</ul>
+<p>
+that are indexes into the vertex array. 
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgfc0f9e1" class="outline-3">
+<h3 id="orgfc0f9e1">Implementations</h3>
+<div class="outline-text-3" id="text-orgfc0f9e1">
+<p>
+Let start a new file.  Copy everything over from the old file.  But
+you can delete any functions, arrays, variables and definitions that
+have to do with our previous cube model
+</p>
+</div>
+
+
+<div id="outline-container-orgdb5e340" class="outline-4">
+<h4 id="orgdb5e340">Create mesh.h and mesh.c module</h4>
+<div class="outline-text-4" id="text-orgdb5e340">
+<p>
+<b>mesh.h</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">#if</span><span style="font-weight: bold;">n</span><span style="font-weight: bold;">def</span> MESH_H
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">MESH_H</span>
+
+<span style="font-weight: bold;">#include</span> <span style="font-style: italic;">"vector.h"</span>
+<span style="font-weight: bold;">#inlcude</span> <span style="font-style: italic;">"triangle.h"</span>
+
+<span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">Define a constant for The number of vertices for our MESH</span>
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">M_MESH_VERTICES</span> 8
+
+<span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">in mesh.h we declare our array of vertices we use</span>
+<span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">extern keyword becuase we will initialize and define</span>
+<span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">them in mesh.c</span>
+<span style="font-weight: bold;">extern</span> <span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold; font-style: italic;">cube_vertices</span>[M_MESH_VERTICES];
+
+<span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">6 cube faces, 2 triangles per face</span>
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">M_MESH_FACES</span> (6 * 2) 
+
+<span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">declare an array of faces</span>
+<span style="font-weight: bold;">extern</span> <span style="font-weight: bold; text-decoration: underline;">face_t</span> <span style="font-weight: bold; font-style: italic;">mesh_faces</span>[M_MESH_FACES]
+
+
+</pre>
+</div>
+
+<hr />
+<p>
+<b>mesh.c</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">#include</span> <span style="font-style: italic;">"mesh.h"</span>
+
+<span style="font-weight: bold; text-decoration: underline;">vec3_t</span> <span style="font-weight: bold; font-style: italic;">cube_vertices</span>[M_MESH_VERTICES] = {
+  {.x = -1, .y = -1, .z = -1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">1</span>
+  {.x = -1, .y =  1, .z = -1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">2</span>
+  {.x =  1, .y =  1, .z = -1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">3</span>
+  {.x =  1, .y = -1, .z = -1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">4</span>
+  {.x =  1, .y =  1, .z =  1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">5</span>
+  {.x =  1, .y = -1, .z =  1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">6</span>
+  {.x = -1, .y =  1, .z =  1}, <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">7</span>
+  {.x = -1, .y = -1, .z =  1}  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">8</span>
+};
+
+<span style="font-weight: bold; text-decoration: underline;">face_t</span> <span style="font-weight: bold; font-style: italic;">mesh_faces</span>[M_MESH_FACES] = {
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">front</span>
+  { .a = 1, .b = 2, .c = 3},
+  { .a = 1, .b = 3, .c = 4},
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">right</span>
+  { .a = 4, .b = 3, .c = 5},
+  { .a = 4, .b = 5, .c = 6},
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">back</span>
+  { .a = 6, .b = 5, .c = 7},
+  { .a = 7, .b = 7, .c = 8},
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">TODO fill in the rest</span>
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">left</span>
+  { .a = , .b = , .c = },
+  { .a = , .b = , .c = },
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">top </span>
+  { .a = , .b = , .c = },
+  { .a = , .b = , .c = },
+  <span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">bottom</span>
+  { .a = , .b = , .c = },
+  { .a = , .b = , .c = },
+};
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6dbd5ee" class="outline-4">
+<h4 id="org6dbd5ee">create a triangle module triangle.h triangle.c</h4>
+<div class="outline-text-4" id="text-org6dbd5ee">
+<p>
+<b>triangle.h</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">#if</span><span style="font-weight: bold;">n</span><span style="font-weight: bold;">def</span> TRIANGLE_H
+<span style="font-weight: bold;">#define</span> <span style="font-weight: bold; font-style: italic;">TRIANGLE_H</span>
+
+<span style="font-weight: bold;">typedef</span> <span style="font-weight: bold;">struct</span> {
+    <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">a</span>;
+    <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">b</span>;
+    <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">c</span>;
+} <span style="font-weight: bold; text-decoration: underline;">face_t</span>;
+
+<span style="font-weight: bold;">#endif</span>
+</pre>
+</div>
+<p>
+<span class="underline"><span class="underline"><span class="underline">_</span></span></span>
+</p>
+
+<p>
+<b>triangle.c</b>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span style="font-weight: bold;">#include</span> <span style="font-style: italic;">"triangle.h"</span>
+
+<span style="font-weight: bold; font-style: italic;">//</span><span style="font-weight: bold; font-style: italic;">TODO create implementation for triangle.h</span>
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0b35926" class="outline-4">
+<h4 id="org0b35926">In Main.c</h4>
+<div class="outline-text-4" id="text-org0b35926">
+<p>
+<code>#include mesh.h</code>
+In update we are going to loop thru the faces
+</p>
+</div>
+</div>
 </div>
 </div>
 </div>
