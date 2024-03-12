@@ -192,6 +192,7 @@
   .org-svg { width: 90%; }
 </style>
 <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+<link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
 <div id="content" class="content">
@@ -210,9 +211,11 @@
 <li><a href="#org915ef38">Common package mangers</a></li>
 </ul>
 </li>
-<li><a href="#org4cd095f">Distribution History Use and Variance.</a>
+<li><a href="#orgb2750dd">Distribution History, Use, and Variance.</a>
 <ul>
-<li><a href="#orgb8e4052">Release schedules.</a></li>
+<li><a href="#org0b253df">Distribution summary</a></li>
+<li><a href="#org6170c4d">Availability</a></li>
+<li><a href="#org259225e">Release Cycle</a></li>
 </ul>
 </li>
 </ul>
@@ -434,9 +437,9 @@ Arch also comes with a system to build packages as well as manage them.
 
 
 
-<div id="outline-container-org4cd095f" class="outline-2">
-<h2 id="org4cd095f">Distribution History Use and Variance.</h2>
-<div class="outline-text-2" id="text-org4cd095f">
+<div id="outline-container-orgb2750dd" class="outline-2">
+<h2 id="orgb2750dd">Distribution History, Use, and Variance.</h2>
+<div class="outline-text-2" id="text-orgb2750dd">
 <p>
 We need to know how Distributions are similirar and different from one
 another. So we can choose the right distro for our function.  If we
@@ -448,8 +451,198 @@ distribution.
 </div>
 
 
-<div id="outline-container-orgb8e4052" class="outline-3">
-<h3 id="orgb8e4052">Release schedules.</h3>
+<div id="outline-container-org0b253df" class="outline-3">
+<h3 id="org0b253df">Distribution summary</h3>
+<div class="outline-text-3" id="text-org0b253df">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Distribution</th>
+<th scope="col" class="org-left">Availability</th>
+<th scope="col" class="org-left">Package<sub>format</sub></th>
+<th scope="col" class="org-left">Release<sub>cycle</sub></th>
+<th scope="col" class="org-left">Administratorskill requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Arch</td>
+<td class="org-left">Free</td>
+<td class="org-left">pacman</td>
+<td class="org-left">Rolling</td>
+<td class="org-left">Expert</td>
+</tr>
+
+<tr>
+<td class="org-left">CentOS</td>
+<td class="org-left">Free</td>
+<td class="org-left">RPM</td>
+<td class="org-left">approximately 2-year</td>
+<td class="org-left">Intermediate</td>
+</tr>
+
+<tr>
+<td class="org-left">Debian</td>
+<td class="org-left">Free</td>
+<td class="org-left">Debian</td>
+<td class="org-left">2-year</td>
+<td class="org-left">Intermediate to expert</td>
+</tr>
+
+<tr>
+<td class="org-left">Fedora</td>
+<td class="org-left">Free</td>
+<td class="org-left">RPM</td>
+<td class="org-left">approximately 6-month</td>
+<td class="org-left">Intermediate</td>
+</tr>
+
+<tr>
+<td class="org-left">Gentoo</td>
+<td class="org-left">Free</td>
+<td class="org-left">ebuild</td>
+<td class="org-left">Rolling</td>
+<td class="org-left">Expert</td>
+</tr>
+
+<tr>
+<td class="org-left">Mint</td>
+<td class="org-left">Free</td>
+<td class="org-left">Debian</td>
+<td class="org-left">6-month</td>
+<td class="org-left">Novice to intermediate</td>
+</tr>
+
+<tr>
+<td class="org-left">openSUSE</td>
+<td class="org-left">Free</td>
+<td class="org-left">RPM</td>
+<td class="org-left">8-month</td>
+<td class="org-left">Intermediate</td>
+</tr>
+
+<tr>
+<td class="org-left">Red Hat Enterprise</td>
+<td class="org-left">Commercial</td>
+<td class="org-left">RPM</td>
+<td class="org-left">approximately 2-year</td>
+<td class="org-left">Intermediate</td>
+</tr>
+
+<tr>
+<td class="org-left">Slackware</td>
+<td class="org-left">Free</td>
+<td class="org-left">tarballs</td>
+<td class="org-left">Irregular</td>
+<td class="org-left">Expert</td>
+</tr>
+
+<tr>
+<td class="org-left">SUSE Enterprise</td>
+<td class="org-left">Commercial</td>
+<td class="org-left">RPM</td>
+<td class="org-left">2–3 years</td>
+<td class="org-left">Intermediate</td>
+</tr>
+
+<tr>
+<td class="org-left">Ubuntu</td>
+<td class="org-left">Free</td>
+<td class="org-left">Debian</td>
+<td class="org-left">6-month</td>
+<td class="org-left">Novice to intermediate</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org6170c4d" class="outline-3">
+<h3 id="org6170c4d">Availability</h3>
+<div class="outline-text-3" id="text-org6170c4d">
+<p>
+Most Linux distributions are entirely open source or
+free software; however, some include proprietary components and are
+sold for money, typically with a support contract. Red Hat Enterprise
+Linux (RHEL) and SUSE Enterprise Linux are the two most prominent
+examples of this type of distribution. Both have completely free
+cousins. For RHEL, CentOS is a near-clone that omits the proprietary
+components, and Fedora is an open version that serves as a testbed for
+technologies that may eventually be included in RHEL. For SUSE
+Enterprise, openSUSE is a free alternative.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org259225e" class="outline-3">
+<h3 id="org259225e">Release Cycle</h3>
+<div class="outline-text-3" id="text-org259225e">
+<p>
+As a general rule, distributions with short release cycles aim to
+provide the latest software possible, whereas those with longer
+release cycles strive to provide the most stable environments
+possible. Some try to have it both ways; for instance, Ubuntu releases
+long-term support (LTS) versions in April of even-numbered years. Its
+other releases aim to provide the latest software.
+</p>
+</div>
+
+
+<div id="outline-container-org61940a2" class="outline-4">
+<h4 id="org61940a2">Understanding Release Cycles</h4>
+<div class="outline-text-4" id="text-org61940a2">
+<p>
+After its release, a distribution is typically supported until
+sometime after the next version’s release—typically a few months to a
+year or more. During this support period, the distribution’s
+maintainers provide software updates to fix bugs and security
+problems. After the support period has passed, you can continue to use
+a distribution, but you’re on your own—if you need updated software,
+you’ll have to compile it from source code yourself or hope that you
+can find a compatible binary package from some other source. As a
+practical matter, therefore, it’s generally a good idea to upgrade to
+the latest version before the support period ends. This fact makes
+distributions with longer release cycles appealing to businesses,
+since a longer time between installations minimizes disruptions and
+costs associated with upgrades.
+</p>
+
+<p>
+Two commono distributions Arch and Gentoo have rolling
+release cycles. Such distributions have no version numbers in the
+usual sense; instead, upgrades occur in an ongoing manner. Using such
+a distribution makes it unnecessary to ever do a full upgrade, with
+all the hassles that creates; however, you’ll occasionally have to do
+a disruptive upgrade of one particular subsystem, such as a major
+upgrade in your desktop environment.
+</p>
+
+<p>
+Before the release of a new version, most distributions make
+pre-release versions available. <b>Alpha software</b> is extremely new and
+very likely to contain serious bugs, whereas beta software is more
+stable but nonetheless more likely to contain bugs than is the final
+release software. As a general rule, you should avoid using such
+software unless you want to contribute to the development effort by
+reporting bugs or unless you’re desperate to have a new feature.
+</p>
+</div>
+</div>
 </div>
 </div>
 </div>

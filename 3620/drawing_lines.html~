@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CIS 3620</title>
+<title>DDA line algorithm</title>
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -192,83 +192,158 @@
   .org-svg { width: 90%; }
 </style>
 <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+<link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
 <div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org3bda7f9">DDA line drawing Algorithm - Digital Differential Analyzer</a>
+<ul>
+<li><a href="#org380f2b3">What is a line ?</a>
+<ul>
+<li><a href="#orgffa8bb4">What is a line segment?</a></li>
+<li><a href="#orge925a85">The line equation</a></li>
+<li><a href="#orgd39e73c">Slope of a line</a></li>
+<li><a href="#orga004779">Filling in the path</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 
-<div id="outline-container-orge68b562" class="outline-2">
-<h2 id="orge68b562">Welcome To CIS 3620 Computer Graphics</h2>
-<div class="outline-text-2" id="text-orge68b562">
+
+<div id="outline-container-org3bda7f9" class="outline-2">
+<h2 id="org3bda7f9">DDA line drawing Algorithm - Digital Differential Analyzer</h2>
+<div class="outline-text-2" id="text-org3bda7f9">
+</div>
+<div id="outline-container-org380f2b3" class="outline-3">
+<h3 id="org380f2b3">What is a line ?</h3>
+<div class="outline-text-3" id="text-org380f2b3">
 <p>
-Hello, Programmers!!
-We are going low Level! Software Rendering, memory buffers MATH!!
+<b>A line is an infinite n dimension, it is length with no breadth</b>, It
+has only <b>one</b> <b>dimension</b> which is its length.  For comaparison sake lets
+look at 2 other objects. A <b>Surface has two dimensions</b> it's length and
+breadth. <b>A solid is defined with three dimensions</b>, length, breadth and
+width. Lines are an abstract concept they do not exist in actual 3
+dimensional space. Even if we draw a line and zoom in it will always
+have some width (breadth).
+</p>
+
+
+<div id="org474e142" class="figure">
+<p><img src="assets/img/infinite_line.jpg" alt="infinite_line.jpg" width="60%" />
+</p>
+<p><span class="figure-number">Figure 1: </span>A line is an infinite n dimension in a 2 dimensional coordinate system.</p>
+</div>
+</div>
+
+<div id="outline-container-orgffa8bb4" class="outline-4">
+<h4 id="orgffa8bb4">What is a line segment?</h4>
+<div class="outline-text-4" id="text-orgffa8bb4">
+<p>
+A portion of a line <b>lying between</b>, or confined between, <b>2 points</b>.
+When we speak about lines we are usually referring to line segments.
+Furthermore, we find for our purposes a line segment is a <b>collection of points</b>
+over a path. That path is defined by an <b>equation</b> <b>y = mx + c</b>.
+</p>
+
+
+<div id="org0a2c5f1" class="figure">
+<p><img src="assets/img/line_segment.jpg" alt="line_segment.jpg" width="60%" />
+</p>
+<p><span class="figure-number">Figure 2: </span>A line segment is a portion of a line bound by 2 points (x<sub>1</sub>, y<sub>1</sub>) and (x<sub>2</sub>, y<sub>2</sub>)</p>
+</div>
+
+
+<div id="orgc894f21" class="figure">
+<p><img src="assets/img/collection_of_points.jpg" alt="collection_of_points.jpg" width="60%" />
+</p>
+<p><span class="figure-number">Figure 3: </span>A line segment as a collection of points along a path.</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge925a85" class="outline-4">
+<h4 id="orge925a85">The line equation</h4>
+<div class="outline-text-4" id="text-orge925a85">
+<p>
+We refine our definition of a line to be a <b>collection of points over a
+path</b>, where <b>the path is defined by the equation y = mx + c</b> and the
+collection of points are <b>bound on the extremes</b> by two points (x<sub>1</sub>, y<sub>1</sub>)
+and (x<sub>2</sub>, y<sub>2</sub>). In the equation:
+</p>
+<ul class="org-ul">
+<li><b>y = mx + c</b>
+<ul class="org-ul">
+<li><b>m</b> is the <b>slope</b> of the line path</li>
+<li><b>c</b> is the intersecting point, the <b>y-intercept</b>, of the line path and the y
+axis.</li>
+<li>The <b>x-intercept</b> is where the line path intersects the x axis.</li>
+</ul></li>
+</ul>
+
+<p>
+If you know the slope and the y intercept of a line, you can find any
+point on that line.
 </p>
 </div>
-
-<div id="outline-container-org234a1c6" class="outline-4">
-<h4 id="org234a1c6">Computer Graphics, Professor Ari Zablozki</h4>
-<div class="outline-text-4" id="text-org234a1c6">
-<hr />
-<ul class="org-ul">
-<li><a href="logistics.html">Schedule, Room Number and Contact Information</a></li>
-<li><a href="assets/pdf/CISC_3620_Syllabus.pdf">Syllabus</a></li>
-<li><a href="resources.html">Course resources</a></li>
-</ul>
-</div>
 </div>
 
-<div id="outline-container-org04b1a4b" class="outline-4">
-<h4 id="org04b1a4b">Homework Assignments</h4>
-<div class="outline-text-4" id="text-org04b1a4b">
-<hr />
-<ul class="org-ul">
-<li>Set up SDL</li>
-<li>Grid, Rectangles, colors</li>
-<li>Cube Model Orthographic projection</li>
-<li>Perspective Projection</li>
-<li>Transformatoins 3d rotations</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgede76ad" class="outline-4">
-<h4 id="orgede76ad">Class Notes</h4>
-<div class="outline-text-4" id="text-orgede76ad">
-<hr />
-
-<ul class="org-ul">
-<li><a href="SDL_setup.html">Setting up SDL and our Color Buffer</a></li>
-<li><a href="init.html">initialization code</a></li>
-<li><a href="V&amp;P.html">Projections</a></li>
-<li><a href="draw_pixel.html">Funcion Draw Pixel</a></li>
-<li><a href="perspective_divide.html">Perspective Divide</a></li>
-<li><a href="vector_transforms.html">Transformations</a></li>
-<li><a href="time_step.html">Throttle Control</a></li>
-<li><a href="triangles.html">3D mesh and triangles</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org711874e" class="outline-4">
-<h4 id="org711874e">Code</h4>
-<div class="outline-text-4" id="text-org711874e">
-<ul class="org-ul">
-<li><a href="newops.html">various functions</a></li>
-<li><a href="vector_module.html">Vector Module</a></li>
-<li><a href="transformation_code.html">Code to implement transformations</a></li>
-<li><a href="newstuff.html">new</a></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-org50c1a2d" class="outline-4">
-<h4 id="org50c1a2d">Student Work</h4>
-<div class="outline-text-4" id="text-org50c1a2d">
-<hr />
+<div id="outline-container-orgd39e73c" class="outline-4">
+<h4 id="orgd39e73c">Slope of a line</h4>
+<div class="outline-text-4" id="text-orgd39e73c">
 <p>
-Coming Soon
+The slope is a ratio between the change in y
+with respect to the change in x. 
 </p>
+<hr />
+<ul class="org-ul">
+<li>m = &Delta;<sub>y</sub> / &Delta;<sub>x</sub>
+<ul class="org-ul">
+<li>rise / run</li>
+<li>y2 - y1  / x2 - x1</li>
+</ul></li>
+
+<li>m = tan(&theta;)
+<ul class="org-ul">
+<li>opposite / adjacent</li>
+</ul></li>
+</ul>
+
+
+<div id="org64fe2fc" class="figure">
+<p><img src="assets/img/slope_of_a_line.jpg" alt="slope_of_a_line.jpg" width="80%" />
+</p>
+<p><span class="figure-number">Figure 4: </span>The slope of a line is the ratio of the change in y to the  change in x.</p>
+</div>
+
+<hr />
+
+
+<div id="org13886c2" class="figure">
+<p><img src="assets/img/slope_categories.jpg" alt="slope_categories.jpg" />
+</p>
+<p><span class="figure-number">Figure 5: </span>(&theta; &lt; 45&deg; : m &lt; 1)      (&theta; &gt; 45&deg; : m &gt; 1)       (&theta; = 45&deg; : m = 1)</p>
+</div>
+<hr />
+</div>
+</div>
+
+
+<div id="outline-container-orga004779" class="outline-4">
+<h4 id="orga004779">Filling in the path</h4>
+<div class="outline-text-4" id="text-orga004779">
+
+<div id="orge464798" class="figure">
+<p><img src="assets/img/horizontal_line.jpg" alt="horizontal_line.jpg" />
+</p>
+</div>
+</div>
 </div>
 </div>
 </div>

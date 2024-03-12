@@ -1,0 +1,91 @@
+/* Check: <https://protesilaos.com/emacs/modus-themes-colors> */
+:root {
+    --modus-themes-color-black:              #000000;
+    --modus-themes-color-black-alt:          #808080;
+    --modus-themes-color-red:                #a60000;
+    --modus-themes-color-red-alt:            #972500;
+    --modus-themes-color-green:              #006800;
+    --modus-themes-color-green-alt:          #316500;
+    --modus-themes-color-yellow:             #6f5500;
+    --modus-themes-color-yellow-alt:         #884900;
+    --modus-themes-color-blue:               #0031a9;
+    --modus-themes-color-blue-alt:           #354fcf;
+    --modus-themes-color-magenta:            #8f0075;
+    --modus-themes-color-magenta-alt:        #531ab6;
+    --modus-themes-color-cyan:               #005e8b;
+    --modus-themes-color-cyan-alt:           #005f5f;
+    --modus-themes-color-white-alt:          #f0f0f0;
+    --modus-themes-color-white:              #ffffff;
+
+    
+    --code-comment: var(--modus-themes-color-black-alt);
+    --code-keyword: var(--modus-themes-color-magenta-alt);
+    --code-constant: var(--modus-themes-color-blue);
+    --code-function: var(--modus-themes-color-magenta);
+    --code-string: var(--modus-themes-color-blue-alt);
+    --code-variable: var(--modus-themes-color-cyan);
+    --code-type: var(--modus-themes-color-cyan-alt);
+    --code-preprocessor: var(--modus-themes-color-red-alt);
+    --code-background: var(--modus-themes-color-white);
+    
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --modus-themes-color-black:       #000000;
+        --modus-themes-color-black-alt:   #1e1e1e;
+        --modus-themes-color-red:         #ff5f59;
+        --modus-themes-color-red-alt:     #ff6b55;
+        --modus-themes-color-green:       #44bc44;
+        --modus-themes-color-green-alt:   #70b900;
+        --modus-themes-color-yellow:      #d0bc00;
+        --modus-themes-color-yellow-alt:  #fec43f;
+        --modus-themes-color-blue:        #2fafff;
+        --modus-themes-color-blue-alt:    #79a8ff;
+        --modus-themes-color-magenta:     #f78fe7;
+        --modus-themes-color-magenta-alt: #b6a0ff;
+        --modus-themes-color-cyan:        #00d3d0;
+        --modus-themes-color-cyan-alt:    #6ae4b9;
+        --modus-themes-color-white-alt:   #989898;
+        --modus-themes-color-white:       #ffffff;
+        
+        --code-comment: var(--modus-themes-color-white-alt);
+	--code-background: var(--modus-themes-color-black);
+    }
+}
+pre {
+    background-color: var(--code-background);
+}
+
+.org-comment {
+    color: var(--code-comment);
+}
+
+.org-comment-delimiter {
+    color: var(--code-comment);
+}
+
+.org-keyword {
+    color: var(--code-keyword);
+}
+
+.org-function-name {
+    color: var(--code-function);
+}
+
+.org-string {
+    color: var(--code-string);
+}
+
+.org-preprocessor {
+    color: var(--code-preprocessor);
+}
+
+.org-type {
+    color: var(--code-type);
+}
+
+.org-variable-name {
+    color: var(--code-variable);
+} 
+
