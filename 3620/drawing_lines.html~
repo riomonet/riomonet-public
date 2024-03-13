@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>DDA line algorithm</title>
+<title>Rasterizing Lines</title>
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -196,23 +196,20 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#org3bda7f9">DDA line drawing Algorithm - Digital Differential Analyzer</a>
-<ul>
-<li><a href="#org380f2b3">What is a line ?</a>
-<ul>
-<li><a href="#orgffa8bb4">What is a line segment?</a></li>
-<li><a href="#orge925a85">The line equation</a></li>
-<li><a href="#orgd39e73c">Slope of a line</a></li>
-<li><a href="#orga004779">Filling in the path</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<p>
+&gt;&gt;#+OPTIONS: toc:3
+</p>
+
+<div id="outline-container-org17fe873" class="outline-2">
+<h2 id="org17fe873">Bressenham and DDA</h2>
+<div class="outline-text-2" id="text-org17fe873">
+<p>
+There are two popular Line Drawing Algorithms. Bresenham and DDA.
+Bresenham is a more efficient algorithm because it doesn't require any
+division of floating point numbers which is a much more costly
+operation than Simple addition.. DDA is a easier to understand and
+reason about.
+</p>
 </div>
 </div>
 
@@ -235,7 +232,7 @@ have some width (breadth).
 </p>
 
 
-<div id="org474e142" class="figure">
+<div id="org3e34a34" class="figure">
 <p><img src="assets/img/infinite_line.jpg" alt="infinite_line.jpg" width="60%" />
 </p>
 <p><span class="figure-number">Figure 1: </span>A line is an infinite n dimension in a 2 dimensional coordinate system.</p>
@@ -253,14 +250,14 @@ over a path. That path is defined by an <b>equation</b> <b>y = mx + c</b>.
 </p>
 
 
-<div id="org0a2c5f1" class="figure">
+<div id="org29ddd80" class="figure">
 <p><img src="assets/img/line_segment.jpg" alt="line_segment.jpg" width="60%" />
 </p>
 <p><span class="figure-number">Figure 2: </span>A line segment is a portion of a line bound by 2 points (x<sub>1</sub>, y<sub>1</sub>) and (x<sub>2</sub>, y<sub>2</sub>)</p>
 </div>
 
 
-<div id="orgc894f21" class="figure">
+<div id="org2ef151d" class="figure">
 <p><img src="assets/img/collection_of_points.jpg" alt="collection_of_points.jpg" width="60%" />
 </p>
 <p><span class="figure-number">Figure 3: </span>A line segment as a collection of points along a path.</p>
@@ -316,7 +313,7 @@ with respect to the change in x.
 </ul>
 
 
-<div id="org64fe2fc" class="figure">
+<div id="orgdb8ee97" class="figure">
 <p><img src="assets/img/slope_of_a_line.jpg" alt="slope_of_a_line.jpg" width="80%" />
 </p>
 <p><span class="figure-number">Figure 4: </span>The slope of a line is the ratio of the change in y to the  change in x.</p>
@@ -325,7 +322,7 @@ with respect to the change in x.
 <hr />
 
 
-<div id="org13886c2" class="figure">
+<div id="org455d629" class="figure">
 <p><img src="assets/img/slope_categories.jpg" alt="slope_categories.jpg" />
 </p>
 <p><span class="figure-number">Figure 5: </span>(&theta; &lt; 45&deg; : m &lt; 1)      (&theta; &gt; 45&deg; : m &gt; 1)       (&theta; = 45&deg; : m = 1)</p>
@@ -333,15 +330,455 @@ with respect to the change in x.
 <hr />
 </div>
 </div>
+</div>
 
 
-<div id="outline-container-orga004779" class="outline-4">
-<h4 id="orga004779">Filling in the path</h4>
-<div class="outline-text-4" id="text-orga004779">
-
-<div id="orge464798" class="figure">
-<p><img src="assets/img/horizontal_line.jpg" alt="horizontal_line.jpg" />
+<div id="outline-container-org089ad94" class="outline-3">
+<h3 id="org089ad94">The Algorithm</h3>
+<div class="outline-text-3" id="text-org089ad94">
+<ol class="org-ol">
+<li>Takes 2 points.</li>
+<li><p>
+Determin &Delta; values for x and y
 </p>
+<p class="verse">
+<code>int delta_x = x1 - x0;</code><br />
+<code>int delta_y = y1 - y0;</code><br />
+</p></li>
+
+<li><p>
+Determine number of steps
+</p>
+<p class="verse">
+<code>int steps = abs(delta_x) &gt;= abs (delta_y) ? abs(delta_x) : (delta_y);</code><br />
+</p></li>
+
+<li><p>
+Determine X and Y incements
+</p>
+<p class="verse">
+&#xa0;X increment =  &Delta;<sub>x</sub> / steps<br />
+&#xa0;Y increment =  &Delta;<sub>y</sub> / steps<br />
+<code>float x_inc = delta_x / (float)steps;</code><br />
+<code>float y_inc = delta_y / (float)steps;</code><br />
+</p></li>
+<li><p>
+Generate Points
+</p>
+<p class="verse">
+<code>for (i = 0; i &lt;= Steps ; i++)</code><br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<code>drawpixles(x1,y1)</code>;<br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<code>x1 += x_inc;</code><br />
+&#xa0;&#xa0;&#xa0;&#xa0;&#xa0;<code>y1 += y_inc;</code><br />
+</p></li>
+</ol>
+</div>
+
+<div id="outline-container-orga56786a" class="outline-4">
+<h4 id="orga56786a">Examples</h4>
+<div class="outline-text-4" id="text-orga56786a">
+</div>
+<div id="outline-container-org7118977" class="outline-5">
+<h5 id="org7118977">When the Slope is 0, the line is  horizontal.</h5>
+<div class="outline-text-5" id="text-org7118977">
+<p class="verse">
+(x1, y1) = (2, 2)<br />
+(x2, y2) = (9, 2)<br />
+&Delta;<sub>x</sub> = 9 - 2 = 7<br />
+&Delta;<sub>y</sub> = 2 - 2 = 0<br />
+M = &Delta;<sub>Y</sub>/&Delta;<sub>x</sub> = 0/7 = 0, Slope = 0<br />
+largest  &Delta; = &Delta;<sub>x</sub> = 7 (this is the number of steps)<br />
+x<sub>inc</sub> =  &Delta;<sub>x</sub> / steps = 7/7 = 1<br />
+y<sub>inc</sub> =  &Delta;<sub>y</sub> / steps = 0/7 = 0<br />
+</p>
+</div>
+
+<div id="outline-container-orgbc9e486" class="outline-6">
+<h6 id="orgbc9e486">Determine the set of points.</h6>
+<div class="outline-text-6" id="text-orgbc9e486">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">x</th>
+<th scope="col" class="org-right">y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org964f2ea" class="outline-5">
+<h5 id="org964f2ea">When the Slope is infiniti, the line is vertical</h5>
+<div class="outline-text-5" id="text-org964f2ea">
+<p class="verse">
+(x1, y1) = (2, 5)<br />
+(x2, y2) = (2, 12)<br />
+&Delta;<sub>x</sub> = 2 - 2 = 0<br />
+&Delta;<sub>y</sub> = 12 - 5 = 7<br />
+M = &Delta;<sub>Y</sub>/&Delta;<sub>x</sub> = 7/0 =  infiniti<br />
+largest  &Delta; = &Delta;<sub>y</sub> = 7 (this is the number of steps)<br />
+x<sub>inc</sub> = &Delta;<sub>x</sub> / steps = 0/7 = 0<br />
+y<sub>inc</sub> = &Delta;<sub>y</sub> / steps = 7/7 = 1<br />
+</p>
+</div>
+
+<div id="outline-container-org48e332f" class="outline-6">
+<h6 id="org48e332f">Determine the set of points.</h6>
+<div class="outline-text-6" id="text-org48e332f">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">x</th>
+<th scope="col" class="org-right">y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">6</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">9</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">11</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">12</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org35407e5" class="outline-5">
+<h5 id="org35407e5">When the Slope is &lt; 1, &Delta;<sub>y</sub> &gt; &Delta;<sub>x</sub></h5>
+<div class="outline-text-5" id="text-org35407e5">
+<p class="verse">
+(x1, y1) = (5, 4)<br />
+(x2, y2) = (12, 7)<br />
+&Delta;<sub>x</sub> = 12 - 5 = 7<br />
+&Delta;<sub>y</sub> = 7 - 4 = 3<br />
+M = &Delta;<sub>Y</sub>/&Delta;<sub>x</sub> = 3/7 &lt; 1<br />
+largest  &Delta; = &Delta;<sub>x</sub> = 7 (this is the number of steps)<br />
+x<sub>inc</sub> = &Delta;<sub>x</sub> / steps = 7/7 = 1<br />
+y<sub>inc</sub> = &Delta;<sub>y</sub> / steps = 3/7 = .4<br />
+</p>
+</div>
+
+<div id="outline-container-org9f1bbb6" class="outline-6">
+<h6 id="org9f1bbb6">Determine the set of points m &lt; 1</h6>
+<div class="outline-text-6" id="text-org9f1bbb6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">x</th>
+<th scope="col" class="org-right">y</th>
+<th scope="col" class="org-right">round(y)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">4</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">4.4</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">4.8</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">5.2</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">5.6</td>
+<td class="org-right">6</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">6</td>
+<td class="org-right">6</td>
+</tr>
+
+<tr>
+<td class="org-right">11</td>
+<td class="org-right">6.4</td>
+<td class="org-right">6</td>
+</tr>
+
+<tr>
+<td class="org-right">12</td>
+<td class="org-right">6.8</td>
+<td class="org-right">7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org25dac16" class="outline-5">
+<h5 id="org25dac16">When Slope is &gt; 1, &Delta;<sub>y</sub> &lt; &Delta;<sub>x</sub></h5>
+<div class="outline-text-5" id="text-org25dac16">
+<p>
+(x1, y1) = (5, 7)  
+(x2, y2) = (10, 15)
+&Delta;<sub>x</sub> = 10 - 5 = 5 
+&Delta;<sub>y</sub> = 15 - 7 = 8
+M = &Delta;<sub>Y</sub>/&Delta;<sub>x</sub> = 8/5 &gt; 1
+largest  &Delta; = &Delta;<sub>y</sub> = 8 (number of steps)
+x<sub>inc</sub> = &Delta;<sub>x</sub> / steps = 5/8 = .6
+y<sub>inc</sub> = &Delta;<sub>y</sub> / steps = 8/8 = 1
+#+end<sub>verse</sub>
+</p>
+</div>
+
+<div id="outline-container-orgeb24c06" class="outline-6">
+<h6 id="orgeb24c06">Determine the set of points m &gt; 1</h6>
+<div class="outline-text-6" id="text-orgeb24c06">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">round(y)</th>
+<th scope="col" class="org-right">x</th>
+<th scope="col" class="org-right">y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">5</td>
+<td class="org-right">5</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">5.6</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-right">6</td>
+<td class="org-right">6.2</td>
+<td class="org-right">9</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">6.8</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-right">7</td>
+<td class="org-right">7.4</td>
+<td class="org-right">11</td>
+</tr>
+
+<tr>
+<td class="org-right">8</td>
+<td class="org-right">8</td>
+<td class="org-right">12</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">8.6</td>
+<td class="org-right">13</td>
+</tr>
+
+<tr>
+<td class="org-right">9</td>
+<td class="org-right">9.2</td>
+<td class="org-right">14</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-right">9.8</td>
+<td class="org-right">15</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd3e6cf2" class="outline-5">
+<h5 id="orgd3e6cf2">When the Slope is = 1, &Delta;<sub>y</sub> = &Delta;<sub>x</sub></h5>
+<div class="outline-text-5" id="text-orgd3e6cf2">
+<p class="verse">
+(x1, y1) = (12, 9)<br />
+(x2, y2) = (17, 14)<br />
+&Delta;<sub>x</sub> = 10 - 5 = 5<br />
+&Delta;<sub>y</sub> = 15 - 7 = 5<br />
+M = &Delta;<sub>Y</sub>/&Delta;<sub>x</sub> = 5/5 = 1<br />
+largest  &Delta; = 5 (number of steps)<br />
+x<sub>inc</sub> = &Delta;<sub>x</sub> / steps = 5/5 = 1<br />
+y<sub>inc</sub> = &Delta;<sub>y</sub> / steps = 5/5 = 1<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">x</th>
+<th scope="col" class="org-right">y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">12</td>
+<td class="org-right">9</td>
+</tr>
+
+<tr>
+<td class="org-right">13</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-right">14</td>
+<td class="org-right">11</td>
+</tr>
+
+<tr>
+<td class="org-right">15</td>
+<td class="org-right">12</td>
+</tr>
+
+<tr>
+<td class="org-right">16</td>
+<td class="org-right">13</td>
+</tr>
+
+<tr>
+<td class="org-right">17</td>
+<td class="org-right">14</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
