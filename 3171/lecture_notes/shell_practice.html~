@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CIS3171</title>
+<title>&lrm;</title>
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -196,85 +196,124 @@
 </head>
 <body>
 <div id="content" class="content">
-<div id="outline-container-orga76e7b1" class="outline-2">
-<h2 id="orga76e7b1">Welcome Engineers to CISC 3171</h2>
-<div class="outline-text-2" id="text-orga76e7b1">
 <p>
-Looking forward to an exciting semester!!
+<b>Linux users can skip the GUI when logging into the system locally via a text-mode console.</b>
 </p>
-</div>
-
-<div id="outline-container-orgcb6fc13" class="outline-3">
-<h3 id="orgcb6fc13">Software Engineering, Professor Ari Zablozki</h3>
-<div class="outline-text-3" id="text-orgcb6fc13">
-<hr />
 <ul class="org-ul">
-<li><a href="logistics.html">Schedule, Room Number and Contact Information</a></li>
-<li><a href="assets/pdf/CISC_3171_Syllabus.pdf">Syllabus</a></li>
-<li><a href="resources.html">Course resources</a></li>
+<li>True</li>
+<li>False</li>
 </ul>
-</div>
-</div>
-
-<div id="outline-container-orge62ba2e" class="outline-3">
-<h3 id="orge62ba2e">Homework Assignments</h3>
-<div class="outline-text-3" id="text-orge62ba2e">
 <hr />
+<p>
+<b>The default shell in most Linux distros is bash which stands for:</b>
+</p>
 <ul class="org-ul">
-<li><a href="HW/hw1.html">HW 1</a></li>
-<li><a href="HW/HW2-3.html">HW 2-3</a></li>
-<li><a href="HW/HW4.html">HW 4</a></li>
-<li><a href="HW/HW5.html">HW 5</a></li>
+<li>Born Again Shell</li>
+<li>Beautiful Amazing Shell</li>
+<li>Bourne Again Shell</li>
+<li>Bash as Shell</li>
 </ul>
-</div>
-</div>
-
-<div id="outline-container-org8f77ae0" class="outline-3">
-<h3 id="org8f77ae0">Notes</h3>
-<div class="outline-text-3" id="text-org8f77ae0">
 <hr />
+<p>
+<b>You can only run one instance of the shell.</b>
+</p>
 <ul class="org-ul">
-<li><a href="lecture_notes/combining_commands.html">Combining Commands</a></li>
-<li><a href="lecture_notes/pipes.html">Pipes</a></li>
-<li><a href="lecture_notes/software_crisis.html">The Software Crisis</a></li>
-<li><a href="lecture_notes/linux_essential_exam.html">Linux Essentials Exam</a></li>
-<li><a href="lecture_notes/linux101.html">Linux 101</a></li>
-<li><a href="lecture_notes/open_source.html">Open Source Software</a></li>
-<li><a href="lecture_notes/linux_package_managemen.html">Distributions, repositories and packages</a></li>
-<li><a href="lecture_notes/command_line.html">terminal Basics</a></li>
+<li>True</li>
+<li>False</li>
 </ul>
-</div>
-</div>
-
-
-<div id="outline-container-org626675f" class="outline-3">
-<h3 id="org626675f">Review and Practice exercises</h3>
-<div class="outline-text-3" id="text-org626675f">
 <hr />
-<ul class="org-ul">
-<li><a href="lecture_notes/Linux101_review.html">Linux 101 Review Questions</a></li>
-<li><a href="lecture_notes/open_source_review.html">Open Source Review</a></li>
-<li><a href="package_exercises.html">Package Manager exercises</a></li>
-<li><a href="miterm_review_exercies_1.html">Midterm review exercises</a></li>
-<li><a href="lecture_notes/cli_practice.html">Cli exercises 1</a></li>
-<li><a href="lecture_notes/auth.log_challenge.html">Auth.log challenge</a></li>
-<li><a href="lecture_notes/shell_practice.html">Shell Practice</a></li>
-</ul>
-</div>
-</div>
+<p>
+Which of the following is the correct order of a computer’s
+  operation: (1) The computer executes the command, (2) The computer
+  waits for user input, (3) The user selects a command and enters it
+  via the keyboard or mouse
+</p>
 
-<div id="outline-container-orgdd1676f" class="outline-3">
-<h3 id="orgdd1676f">Building the Arsenal</h3>
-<div class="outline-text-3" id="text-orgdd1676f">
-<hr />
 <ul class="org-ul">
-<li><a href="arsenal.html">Commands</a></li>
-<li><a href="lecture_notes/ex_dict-words.html">Grep Games</a></li>
-<li><a href="cli_shortcuts.html">cli shortcuts</a></li>
+<li>3,2,1</li>
+<li>2,3,1</li>
+<li>1,2,3</li>
+<li>1,3,2</li>
 </ul>
-</div>
-</div>
-</div>
+<hr />
+<p>
+Two types of command parameters are:
+</p>
+
+<ul class="org-ul">
+<li>Opinions and Debates</li>
+<li>Options and Arguments</li>
+<li>Opt-ints and Assesments</li>
+<li>Open adn Argumentative</li>
+</ul>
+<hr />
+<p>
+Commands must follow certain rules known as:
+</p>
+<ul class="org-ul">
+<li>Syntax</li>
+<li>Synapse</li>
+<li>Command Rules and Regulations</li>
+<li>Command Execute</li>
+</ul>
+<hr />
+<p>
+Which of the following is NOT correct when naming variables?
+</p>
+
+<ul class="org-ul">
+<li>Variable Names must start with a letter</li>
+
+<li>Underscores are used instead of embedded psaces</li>
+
+<li>Variable Names must start with numbers</li>
+
+<li>Punctuation Marks are not allowed.</li>
+</ul>
+<hr />
+
+<p>
+To see all the variables that are in the user’s environment, use the <span class="underline"><span class="underline"><span class="underline">_</span></span></span> command.
+</p>
+
+<ul class="org-ul">
+<li>printvar</li>
+
+<li>ping</li>
+
+<li>printenv</li>
+
+<li>processvar</li>
+</ul>
+
+<hr />
+<p>
+The generic name given to the action of protecting shell meta-characters from being treated specially by the shell:
+</p>
+
+<ul class="org-ul">
+<li>quitting</li>
+
+<li>quoting</li>
+
+<li>quilting</li>
+
+<li>queuing</li>
+</ul>
+<hr />
+<p>
+This is a set of pages that explain every command available on the system
+</p>
+
+<ul class="org-ul">
+<li>Man Pages</li>
+
+<li>Script Pages</li>
+
+<li>Master Pages</li>
+
+<li>Book Pages</li>
+</ul>
 </div>
 </body>
 </html>

@@ -192,6 +192,7 @@
   .org-svg { width: 90%; }
 </style>
 <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+<link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
 <div id="content" class="content">
@@ -223,6 +224,7 @@ Looking forward to an exciting semester!!
 <li><a href="HW/hw1.html">HW 1</a></li>
 <li><a href="HW/HW2-3.html">HW 2-3</a></li>
 <li><a href="HW/HW4.html">HW 4</a></li>
+<li><a href="HW/HW5.html">HW 5</a></li>
 </ul>
 </div>
 </div>
@@ -239,6 +241,7 @@ Looking forward to an exciting semester!!
 <li><a href="lecture_notes/linux101.html">Linux 101</a></li>
 <li><a href="lecture_notes/open_source.html">Open Source Software</a></li>
 <li><a href="lecture_notes/linux_package_managemen.html">Distributions, repositories and packages</a></li>
+<li><a href="lecture_notes/command_line.html">terminal Basics</a></li>
 </ul>
 </div>
 </div>
@@ -252,6 +255,7 @@ Looking forward to an exciting semester!!
 <li><a href="lecture_notes/Linux101_review.html">Linux 101 Review Questions</a></li>
 <li><a href="lecture_notes/open_source_review.html">Open Source Review</a></li>
 <li><a href="package_exercises.html">Package Manager exercises</a></li>
+<li><a href="miterm_review_exercies_1.html">Midterm review exercises</a></li>
 <li><a href="lecture_notes/cli_practice.html">Cli exercises 1</a></li>
 <li><a href="lecture_notes/auth.log_challenge.html">Auth.log challenge</a></li>
 </ul>
