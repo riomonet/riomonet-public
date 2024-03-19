@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>linux file system</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+<link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgdbd048e">Multi User</a></li>
+<li><a href="#orgd4462f6">linux permissions</a></li>
+<li><a href="#orgc2622dc">Commands for managing users</a></li>
+<li><a href="#org95c268c">File system</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgdbd048e" class="outline-2">
+<h2 id="orgdbd048e">Multi User</h2>
+<div class="outline-text-2" id="text-orgdbd048e">
+<p>
+Linux is designed as a multiuser operating system.  That means
+multiple users can access the system Simultaneousely.  That also means
+we need to learn the commands to add and remove users. Understand
+which config files store user informations. And understand how to
+assign permissions and defaults for a user.  Each user has there own
+home directory and each user has their own configuration files and
+customizations.
+</p>
+
+<p>
+Users can be subdivided into 2 broad categories.
+</p>
+</div>
+
+<div id="outline-container-org3d74381" class="outline-3">
+<h3 id="org3d74381">Normal</h3>
+<div class="outline-text-3" id="text-org3d74381">
+<ul class="org-ul">
+<li>regulare every day users of the system</li>
+<li>Login users and System Users</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgffc216e" class="outline-3">
+<h3 id="orgffc216e">Root User aka Super user</h3>
+<div class="outline-text-3" id="text-orgffc216e">
+<ul class="org-ul">
+<li>Priveleges to access all parts of the system</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd4462f6" class="outline-2">
+<h2 id="orgd4462f6">linux permissions</h2>
+<div class="outline-text-2" id="text-orgd4462f6">
+</div>
+<div id="outline-container-org23c4602" class="outline-3">
+<h3 id="org23c4602">ls -l output columns</h3>
+<div class="outline-text-3" id="text-org23c4602">
+<pre class="example" id="orgf5ee78a">
+permissions hard_links  owner  group  fil_size Date_of_creation  Name_of_file
+-rw-rw-r--     1        alpha  alpha  605      Mar  6 23:44      auth.log_challenge.org
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb954457" class="outline-3">
+<h3 id="orgb954457">file and dir names</h3>
+<div class="outline-text-3" id="text-orgb954457">
+<ul class="org-ul">
+<li>are case sensitive</li>
+<li>dir names are case sensitive</li>
+<li>File extenxtions .xxx doesn't have any signicansce</li>
+<li>hidden files start with a . e.g .bin is a hidden file/dir</li>
+<li>Every file belongs to exactly one user and one group</li>
+</ul>
+
+<pre class="example" id="org662a074">
+drwxr-xr-x 60 alpha alpha 4096 Mar 18 15:47 alpha/
+  permission string
+     drwxr-xr-x
+
+     divided into 4 sections the first is the first letter:
+
+    d 
+      d =&gt; means directory
+      - =&gt; means regular file
+      l =&gt; means link
+
+     Below are the permissions for each section. -
+     means that cohort does not have that permission.
+     
+     rwx
+     Permissions for User that owns the file or folder
+
+     r-x
+     Permissions for Group that owns the file of folder
+
+     r-x
+     Permissions for Every other(the world) user on the system.
+
+     r =&gt; means read the contents of a reg file or contents of a directory.
+     w =&gt; means write, add contents to a reg file. add content of a directory.
+     x =&gt; means for a  reg file, it can be executed like a program.
+          for a directory means I can cd into the directory.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgcccb0f5" class="outline-3">
+<h3 id="orgcccb0f5">chmod</h3>
+<div class="outline-text-3" id="text-orgcccb0f5">
+<p>
+We have already discussed that you can use chmod with the following
+form <code>chmod u+x file</code> would change the file permission execute bit for
+file to have execute permissions. <code>chmod -x file</code> would disable the
+execute bit, disllowing the permission.  A file without an x in it's
+permissions cannot be executed. Lets create a simple script. notice
+when you first create the file it does not have execute
+permissions. If you try and execute it you will get an error. To make
+it work you need to chmod to give execute permissions. Now run it
+again. You can set and unset multiple bits in one command by
+specifying them <code>chmod g+rwx</code> sets the read write and execute bits for
+the group permissions
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span class="org-comment-delimiter">#</span><span class="org-comment">!/bin/</span><span class="org-keyword">bash</span>
+<span class="org-builtin">cd</span> ~/mytmp/
+touch newfile
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6fc2acc" class="outline-4">
+<h4 id="org6fc2acc">Octal</h4>
+<div class="outline-text-4" id="text-org6fc2acc">
+<p>
+Numerical representations of the permission bits.  The permission bits
+have humerical representations to them as well notice that each
+permission group has 3 bits associated with it. With 3 bits we can
+represent 8 different values. So we can specify the permissions using
+octal notation. For now note the following. 
+</p>
+
+<ul class="org-ul">
+<li>r = 4</li>
+<li>w = 2</li>
+<li>x = 1</li>
+</ul>
+
+<p>
+remember that these are 3 digits in binary form.
+Lets look at the following examples
+</p>
+
+<pre class="example" id="org7d97cef">
+chmod 444 file =&gt; r--r--r--  // sets the first bit
+chmod 222 file =&gt; -w--w--w-  // sets the second bit
+chmod 111 file =&gt; --x--x--x  // sets the third bit
+</pre>
+
+<p>
+You can also combine these for very efficient permission setup.
+each digit represents permission for user,group, and other.
+</p>
+
+<pre class="example" id="org9cc540a">
+chmod 666 file =&gt; rw-rw-rw-  //sets first and second bit
+chmod 421 file =&gt; r---w---x  //4 is first bit, 2 is second bit,1 is third
+chmod 333 file =&gt; -wx-wx-wx //set second and third bit by adding 1 and 2
+chmod 777 file =&gt; rwxrwxrwx // sets all bits
+chmod 000 file =&gt; --------- // no bits set, nothing is allowed on the file
+chmod 755 file =&gt; rwxr-xr-x 
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgc2622dc" class="outline-2">
+<h2 id="orgc2622dc">Commands for managing users</h2>
+<div class="outline-text-2" id="text-orgc2622dc">
+</div>
+<div id="outline-container-org601ff19" class="outline-3">
+<h3 id="org601ff19"><code>/etc/passwd/</code></h3>
+<div class="outline-text-3" id="text-org601ff19">
+<p>
+How do we find current user accounts in the system.  The file
+<code>/etc/passwd</code> shows all the users on the system.  It shows one user per
+line. So if we <code>cat /etc/passwd | wc -l</code> we will get a count of all the
+users that have accounts on the system.
+</p>
+
+<p>
+The colums for <code>/etc/passwd</code> are as follows
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">user Name</td>
+<td class="org-left">passwd(historic)</td>
+<td class="org-left">User ID</td>
+<td class="org-left">Group ID</td>
+<td class="org-left">User Information field</td>
+<td class="org-left">Home Dir</td>
+<td class="org-left">Login Shell</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+each field is separated by a : so if you see :: it means the field is empty.
+</p>
+
+<p>
+If you check on your virtual machine for your user id it most likely 1000, when you install a new distro
+the your first normal user is usually given the user id 1000.
+</p>
+
+<p>
+Normal user accounts are usually given id's of 1000 and above while System accounts are usually
+less 1 which is root, to 999.
+</p>
+</div>
+
+<div id="outline-container-orgdb942a6" class="outline-4">
+<h4 id="orgdb942a6"><code>/etc/shadow</code></h4>
+<div class="outline-text-4" id="text-orgdb942a6">
+<p>
+Notice the x after the username in your <code>/etc/passwd</code> file. Historically encrypted passwords
+were stored in this file. But if you check the permissions for this file.
+</p>
+
+<p>
+<code>ls -l /etc/passwd</code> you will see that all users have read permissions. So although the passwords
+were encrypted the file was still readable by all users, so hackers could try and hash many plaintext
+common passwords form lists of common passwords and see if they could come up with a match. So the encrypted
+passwords were move to the <code>/etc/shadow</code> file.
+if <code>ls -l /etc/shadow</code> you will notice that only root and the shadow group have read permissions for the file.
+</p>
+
+<p>
+<code>/etc/shadow</code> colums are oganized by in the following columns.
+You need to use sudo to read the file so you can
+<code>sudo cat /etc/shadow</code>
+</p>
+
+<ul class="org-ul">
+<li>username</li>
+<li>actual hashed password</li>
+<li>passwd last changed (number of days since Jan 1 1970 - the unix epoch)</li>
+<li>how many days req to pass before next change</li>
+<li>days till a password change is required</li>
+<li>How many days till user will be reminded to change passwd.</li>
+<li>how many days till passwd is locked</li>
+<li>how many days till account locked</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0a5de5c" class="outline-3">
+<h3 id="org0a5de5c">how to add a user</h3>
+<div class="outline-text-3" id="text-org0a5de5c">
+<p>
+<code>sudo useradd username</code> Can only be used as root. So you need to use
+spudo.  You will be prompted for a password and when a user is created
+it will assign the next available user id. Check you /etc/passwd file to
+see if the new user was created.
+</p>
+
+<p>
+Check to see if a directory was make in ~/home/ for your new user. Some
+distributions are set up to automatically make the dir and some are not.
+</p>
+
+<p>
+you can check <code>/etc/default/useradd</code> file to see what the defaults are for
+<code>useradd</code>, you can set your defualts here.
+</p>
+
+<p>
+to add a user and a home directory for a user, you need to use the
+-m option.
+<code>sudo useradd -m username</code>
+</p>
+
+<p>
+note useradd is different than adduser
+</p>
+</div>
+</div>
+
+<div id="outline-container-org004c6e1" class="outline-3">
+<h3 id="org004c6e1">remove a user</h3>
+<div class="outline-text-3" id="text-org004c6e1">
+<p>
+<code>sudo userdel username</code>  <b>Be careful</b>
+When you delete a user linux does not automatically delete that users home directory or
+there other files. If user leaves a company they might want to hold on to the users home
+dir and other files for some period of time.
+to delete a user from <code>/etc/passwd</code> and delete their home directory
+use <code>sudo deluser --remove-home username</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfeb03bc" class="outline-3">
+<h3 id="orgfeb03bc">how to add and  change a passwd</h3>
+<div class="outline-text-3" id="text-orgfeb03bc">
+<p>
+If you notices when you created a user, it's possible linux didn't ask you for a password
+for the user. To set up a passwd for the user as the administrator you can type
+<code>sudo passwd username</code> and it will as you for a passwd for that user.
+</p>
+
+<p>
+A user can also change their own password just by typing <code>passwd</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbd93e0d" class="outline-3">
+<h3 id="orgbd93e0d">System users</h3>
+<div class="outline-text-3" id="text-orgbd93e0d">
+<p>
+A system user is useful for anykind of automation. e.g. you need to run and email
+a financial report every week. It makes sense not to use your user account for
+tasks like this. you can create a system user. To add a system user
+<code>sudo useradd -r my_sys_user</code>
+</p>
+
+<p>
+now if we <code>cat /etc/passwd/ | grep my_sys_user</code>  we will see the new user
+and notice it's user id, is below 1000.
+</p>
+
+<p>
+check <code>/etc/passwd</code> for the shells that are used by different users. You will notice
+that some user have nologin as their shells. These are system users that do not have
+login shells assigned to them.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9149b63" class="outline-3">
+<h3 id="org9149b63">chown and chgrp</h3>
+</div>
+</div>
+
+<div id="outline-container-org95c268c" class="outline-2">
+<h2 id="org95c268c">File system</h2>
+<div class="outline-text-2" id="text-org95c268c">
+<p>
+Most Distibutions in linux file the FHS, which is short for Filesystem
+Hierarchy Standard.  The FHS is a reference describing conventions
+used for the unified directory tree, which means all files can be
+found to the root of the tree which is / , it also distinguises the
+following characteristics.
+</p>
+
+<ul class="org-ul">
+<li><p>
+shareable vs unshareable files
+</p>
+
+<p>
+Unshareable files are systems specific configuration files
+shareable files may be executables
+</p></li>
+
+<li><p>
+static vs variable files
+</p>
+
+<p>
+Most executable files are considered static files
+Any txt documents you change can be considered variable files
+</p></li>
+</ul>
+
+<p>
+<a href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">File System Hierarchy</a>
+</p>
+
+<pre class="example" id="org1e86868">
+/
+├── bin -&gt; usr/bin
+├── boot
+├── cdrom
+├── dev
+├── etc
+├── home
+├── lib -&gt; usr/lib
+├── lib32 -&gt; usr/lib32
+├── lib64 -&gt; usr/lib64
+├── libx32 -&gt; usr/libx32
+├── lost+found
+├── media
+├── mnt
+├── opt
+├── proc
+├── root
+├── run
+├── sbin -&gt; usr/sbin
+├── snap
+├── srv
+├── sys
+├── tmp
+├── usr
+└── var
+
+</pre>
+</div>
+
+<div id="outline-container-org7de2a14" class="outline-3">
+<h3 id="org7de2a14">referencing files</h3>
+<div class="outline-text-3" id="text-org7de2a14">
+<p>
+Files can be referenced in 3 different ways.
+</p>
+</div>
+
+<div id="outline-container-orge02aa20" class="outline-4">
+<h4 id="orge02aa20">Absolute references</h4>
+<div class="outline-text-4" id="text-orge02aa20">
+<p>
+The paths you specify is spelled out all the way to the root directory
+/ <code>/home/username/Downloads/file.txt</code>
+</p>
+
+<p>
+This is the full path spelled out from the root directory /
+all the way to the file. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org94cbe68" class="outline-4">
+<h4 id="org94cbe68">Home Dir references</h4>
+<div class="outline-text-4" id="text-org94cbe68">
+<p>
+The ~\/ represents your home directory. So
+when you specify a path it is in relation to your home dir.
+<code>~/Downloads/file.txt</code> , this looks for the file.txt file in
+the Downloads directory in your home folder.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdef6c96" class="outline-4">
+<h4 id="orgdef6c96">Relative references</h4>
+<div class="outline-text-4" id="text-orgdef6c96">
+<p>
+if you specify a path without referencing  your home
+or root, the shell will reference the current directory you are in.
+So if you just say <code>cd Downloads</code> it will look for the Downloads folder in
+the current directory.
+There are 2 special hidden directories in every directory "." and ".."
+"." refers to the current directory. and ".." refers to the parent directory.
+So if you are in <code>/home/me/Downloads</code> and you type cd . it will stay in the same directory
+but if you type cd .. it will go to the parent directory which is <code>/home/me</code>. If you type
+cd ../.. it will go to the parent of the parent of the pwd which in this case would be
+the <code>/home</code> directory. If you want to <code>cd</code> to <code>/home/me/Music</code> and your pwd is <code>/home/me/Downloads</code>
+you can type <code>cd ../Music/</code>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
