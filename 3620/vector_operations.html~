@@ -359,7 +359,7 @@ the new vector (a + b).x and (a + b).y
 When we subtract Vectors we flip the second vector to the opposite
 direction and then do regular addition. We can think of it as
 </p>
-<pre class="example" id="orge42f21e">
+<pre class="example" id="org32604ed">
 a - b = a + -(b)
 </pre>
 <p>
@@ -457,6 +457,299 @@ only affects the magnitude
 </div>
 <div id="outline-container-orgca75ad1" class="outline-3">
 <h3 id="orgca75ad1"><span class="todo TODO">TODO</span> Declare and implement 2d and 3d version of division</h3>
+</div>
+</div>
+
+<div id="outline-container-org32c5d94" class="outline-2">
+<h2 id="org32c5d94">The cross product a x b</h2>
+<div class="outline-text-2" id="text-org32c5d94">
+<p>
+2 vectors a and b define a 2 dimensional surface in 3 dimensionsal
+space. It is a slice. A surface through 3 dimensional space. To find
+the <b>NORMAL</b> to that surface we use the cross product.  The normal is
+the vector that is perpendiculiar to that surface. The output of a
+cross product is a vector that is perpendiculiar to the two input
+vectors.  That is, it gives us the Normal to a surface.
+</p>
+
+<p>
+The maginitude of A X B is the <b>area</b> of the parrallelogram formed by A
+and B. It is given by the formula
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">a x b</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">=</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">a</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">b</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">*  sin&theta;</td>
+</tr>
+</tbody>
+</table>
+<p>
+where  &theta; is the angle between and b
+</p>
+
+<p>
+A X B, is not the same as B X A. They both give you a Normal,
+but in opposite directions.
+</p>
+
+
+<p>
+Note: cross product can only work in 3d space.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> Cross Product (x,y,z) coordinates</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">vec a</th>
+<th scope="col" class="org-left">vec b</th>
+<th scope="col" class="org-left">a X b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a<sub>x</sub></td>
+<td class="org-left">b<sub>x</sub></td>
+<td class="org-left">(a<sub>y</sub> * b<sub>z</sub>)  - (a<sub>z</sub> * b<sub>y</sub>)</td>
+</tr>
+
+<tr>
+<td class="org-left">a<sub>y</sub></td>
+<td class="org-left">b<sub>y</sub></td>
+<td class="org-left">(a<sub>z</sub> * b<sub>x</sub>) -  (a<sub>x</sub> * b<sub>z</sub>)</td>
+</tr>
+
+<tr>
+<td class="org-left">a<sub>z</sub></td>
+<td class="org-left">b<sub>z</sub></td>
+<td class="org-left">(a<sub>x</sub> * b<sub>y</sub>) -  (a<sub>y</sub> * b<sub>x</sub>)</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> Cross Product General</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">vec a</th>
+<th scope="col" class="org-left">vec b</th>
+<th scope="col" class="org-left">a X b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">a<sub>1</sub></td>
+<td class="org-left">b<sub>1</sub></td>
+<td class="org-left">(a<sub>2</sub> * b<sub>3</sub>)  - (a<sub>3</sub> * b<sub>2</sub>)</td>
+</tr>
+
+<tr>
+<td class="org-left">a<sub>2</sub></td>
+<td class="org-left">b<sub>2</sub></td>
+<td class="org-left">(a<sub>3</sub> * b<sub>1</sub>) -  (a<sub>1</sub> * b<sub>3</sub>)</td>
+</tr>
+
+<tr>
+<td class="org-left">a<sub>3</sub></td>
+<td class="org-left">b<sub>3</sub></td>
+<td class="org-left">(a<sub>1</sub> * b<sub>2</sub>) -  (a<sub>2</sub> * b<sub>1</sub>)</td>
+</tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> Cross Product example</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">vec a</th>
+<th scope="col" class="org-right">vec b</th>
+<th scope="col" class="org-left">a X b  equation</th>
+<th scope="col" class="org-right">output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">5</td>
+<td class="org-left">(-7 * 4) - (1 * 2)</td>
+<td class="org-right">-30</td>
+</tr>
+
+<tr>
+<td class="org-right">-7</td>
+<td class="org-right">2</td>
+<td class="org-left">(1 * 5) -  (1 * 4)</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">4</td>
+<td class="org-left">(1 * 2) -  (-7 * 5)</td>
+<td class="org-right">37</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<a href="https://www.mathsisfun.com/algebra/vectors-cross-product.html">Vector Cross product demo</a>
+</p>
+</div>
+
+<div id="outline-container-orgaab9c00" class="outline-3">
+<h3 id="orgaab9c00">Deriving the normal</h3>
+<div class="outline-text-3" id="text-orgaab9c00">
+<p>
+For us the Cross product is relevant because our models are
+constructed from triangular faces. Each face is described with 3
+points(vertices).  With 3 points we can derive 2 vectors, by
+subtracting points. and with those 2 vectors we can derive the normal.
+</p>
+
+<p>
+Given Triangle ABC, where A,B,C are the vertices of the triangle. We
+can derive 2 vectors, B-A and C - A, Any 2 points can be converted
+into a vector by subtracting the points. And to find the normal we
+take the cross product (B-A) X (C-A). The order we take the cross
+product in, will define the direction of the NORMAL. (B-A) X (C-A) is
+the opposite of (C-A) X (B-A).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5487c57" class="outline-3">
+<h3 id="org5487c57">right hand rule (direction of cross product)</h3>
+<div class="outline-text-3" id="text-org5487c57">
+<p>
+To detrmine the direction we use the right hand rule.  The cross
+product of two vectors, u and v, will itself be a vector denoted
+u×v. The direction of u×v is determined by the right-hand rule: if we
+point the index finger of our right hand in the direction of u and our
+middle finger in the direction of v, then our thumb points in the
+direction of u×v
+</p>
+
+
+
+<div class="org-src-container">
+<pre class="src src-c">
+<span class="org-comment-delimiter">//</span><span class="org-comment">declaration in header file</span>
+  <span class="org-type">vec3_t</span> <span class="org-function-name">vec3_cross</span>(<span class="org-type">vec3_t</span> <span class="org-variable-name">a</span>, <span class="org-type">vec3_t</span> <span class="org-variable-name">b</span>);
+
+ <span class="org-comment-delimiter">//</span><span class="org-comment">implementations</span>
+<span class="org-type">vec3_t</span> <span class="org-function-name">vec3_cross</span>(<span class="org-type">vec3_t</span> <span class="org-variable-name">a</span>, <span class="org-type">vec3_t</span> <span class="org-variable-name">b</span>)
+{
+  <span class="org-type">vec3_t</span> <span class="org-variable-name">result</span> = {
+    .x = a.y * b.z - a.z * b.y,
+    .y = a.z * b.x - a.x * b.z,
+    .z = a.x * b.y - a.y * b.x
+  };
+  <span class="org-keyword">return</span> result;
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org84d1459" class="outline-2">
+<h2 id="org84d1459">Dot product =&gt; a &middot; b</h2>
+<div class="outline-text-2" id="text-org84d1459">
+<p>
+The result of the dot product is a scalar.  It is a statement of the
+relationsship between 2 vectors and how they relate. a &middot; b answers the
+question how much as a lies in the b direction ?  You can think of it
+as a shadow being cast from one onto the other. if a and b are
+perpendiculiar dot product is 0 because none of a lies in the b
+direction.
+</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=hojaTqbSOf4">detailed discussion of dot product</a>
+</p>
+
+<p>
+a &middot; b = (a<sub>x</sub> * b<sub>x</sub>) + (a<sub>y</sub> * b<sub>y</sub>)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-c"><span class="org-comment-delimiter">//</span><span class="org-comment">vec.h declartsion</span>
+<span class="org-type">float</span> <span class="org-function-name">vec3_dot</span>(<span class="org-type">vec3_t</span> <span class="org-variable-name">a</span>, <span class="org-type">vec3_t</span> <span class="org-variable-name">b</span>);
+
+<span class="org-comment-delimiter">//</span><span class="org-comment">vec.c implementation</span>
+<span class="org-type">float</span> <span class="org-function-name">vec3_dot</span>(<span class="org-type">vec3_t</span> <span class="org-variable-name">a</span>, <span class="org-type">vec3_t</span> <span class="org-variable-name">b</span>) {
+  <span class="org-keyword">return</span> (a.x * b.x) + (a.y * b.y) + (a.z * b.z);
+
+    <span class="org-comment-delimiter">// </span><span class="org-comment">we should do these for vec2_t as well</span>
+}
+
+</pre>
+</div>
 </div>
 </div>
 </div>
