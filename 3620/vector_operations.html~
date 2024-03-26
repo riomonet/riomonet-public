@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Vector Operations</title>
+<title>Vector Operations Back face Culling</title>
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -255,22 +255,22 @@ We start by adding functions to get magnitude of 2d and 3d vectors.
 
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span>Add to vector.h</label><pre class="src src-c">
-<span class="org-comment-delimiter">//</span><span class="org-comment">DONE: current typedef of 2d and 3d structs</span>
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Add to vector.h</label><pre class="src src-c">&gt;
+  <span class="org-comment-delimiter">//</span><span class="org-comment">DONE: current typedef of 2d and 3d structs</span>
 
-<span class="org-comment-delimiter">////////////////////////////////////////////////////////////////////////////////////////</span>
-<span class="org-comment-delimiter">//</span><span class="org-comment">Declarations of Vector 2d operation functions</span>
-<span class="org-comment-delimiter">////////////////////////////////////////////////////////////////////////////////////////</span>
-<span class="org-type">float</span> <span class="org-function-name">vec2_length</span>(<span class="org-type">vec2_t</span> <span class="org-variable-name">v</span>);
-<span class="org-comment-delimiter">//</span><span class="org-comment">TODO: vec2_add, vec2_sub, vec2_mul, etc...</span>
+  <span class="org-comment-delimiter">////////////////////////////////////////////////////////////////////////////////////////</span>
+  <span class="org-comment-delimiter">//</span><span class="org-comment">Declarations of Vector 2d operation functions</span>
+  <span class="org-comment-delimiter">////////////////////////////////////////////////////////////////////////////////////////</span>
+  <span class="org-type">float</span> vec2_length(<span class="org-type">vec2_t</span> <span class="org-variable-name">v</span>);
+  <span class="org-comment-delimiter">//</span><span class="org-comment">TODO: vec2_add, vec2_sub, vec2_mul, etc...</span>
 
-<span class="org-comment-delimiter">////////////////////////////////////////////////////////////////////////////////////////</span>
-<span class="org-comment-delimiter">//</span><span class="org-comment">Declartions of Vector 3d operation functions</span>
-<span class="org-comment-delimiter">////////////////////////////////////////////////////////////////////////////////////////</span>
-<span class="org-type">float</span> <span class="org-function-name">vec3_length</span>(<span class="org-type">vec3_t</span> <span class="org-variable-name">v</span>);
-<span class="org-comment-delimiter">//</span><span class="org-comment">TODO: vec3_add, vec3_sub, vec3_mul, etc...</span>
+  <span class="org-comment-delimiter">////////////////////////////////////////////////////////////////////////////////////////</span>
+  <span class="org-comment-delimiter">//</span><span class="org-comment">Declartions of Vector 3d operation functions</span>
+  <span class="org-comment-delimiter">////////////////////////////////////////////////////////////////////////////////////////</span>
+  <span class="org-type">float</span> <span class="org-function-name">vec3_length</span>(<span class="org-type">vec3_t</span> <span class="org-variable-name">v</span>);
+  <span class="org-comment-delimiter">//</span><span class="org-comment">TODO: vec3_add, vec3_sub, vec3_mul, etc...</span>
 
-<span class="org-comment-delimiter">//</span><span class="org-comment">DONE: Declarations of  3d rotation function </span>
+  <span class="org-comment-delimiter">//</span><span class="org-comment">DONE: Declarations of  3d rotation function </span>
 </pre>
 </div>
 
@@ -359,7 +359,7 @@ the new vector (a + b).x and (a + b).y
 When we subtract Vectors we flip the second vector to the opposite
 direction and then do regular addition. We can think of it as
 </p>
-<pre class="example" id="org32604ed">
+<pre class="example" id="org996ed57">
 a - b = a + -(b)
 </pre>
 <p>
@@ -375,7 +375,7 @@ vector formed by the origin and the new end of <b>b</b> is (a-b)
   <span class="org-type">vec2_t</span> <span class="org-function-name">vec2_subtract</span>(<span class="org-type">vec2_t</span> <span class="org-variable-name">a</span>, <span class="org-type">vec2_t</span> <span class="org-variable-name">b</span>);  
 
 <span class="org-comment-delimiter">//</span><span class="org-comment">implementation in vector.c</span>
- <span class="org-type">vec2_t</span> <span class="org-function-name">vec2_subtract</span>(<span class="org-type">vec2_t</span> <span class="org-variable-name">a</span>, <span class="org-type">vec2_t</span> <span class="org-variable-name">b</span>)
+  <span class="org-type">vec2_t</span> <span class="org-function-name">vec2_subtract</span>(<span class="org-type">vec2_t</span> <span class="org-variable-name">a</span>, <span class="org-type">vec2_t</span> <span class="org-variable-name">b</span>)
  {
    <span class="org-type">vec2_t</span> <span class="org-variable-name">result</span> = {
       .x = a.x - b.x,
@@ -401,15 +401,6 @@ implement these in 3d by including the z component in your calculations.
 
 
 
-
-
-
-
-
-
-
-
-
 <div id="outline-container-orgf58cb4e" class="outline-2">
 <h2 id="orgf58cb4e">Multiplying a vector by a scalar</h2>
 <div class="outline-text-2" id="text-orgf58cb4e">
@@ -424,9 +415,9 @@ of a vector.
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 4: </span>implementation</label><pre class="src src-c"><span class="org-type">vec2_t</span> <span class="org-function-name">vec2_mul</span>(<span class="org-type">vec2_t</span> <span class="org-variable-name">v</span>, <span class="org-type">float</span> <span class="org-variable-name">scalar</span>) {
   <span class="org-type">vec2_t</span> <span class="org-variable-name">result</span> = {
-    .x = v.x * scalar;
-    .y = v.y * scalar;
-  }
+    .x = v.x * scalar,
+    .y = v.y * scalar
+  };
 }
 </pre>
 </div>
@@ -446,11 +437,11 @@ only affects the magnitude
 </p>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 5: </span>2d implementation</label><pre class="src src-c"><span class="org-type">vec2_t</span> <span class="org-function-name">vec2_div</span>(<span class="org-type">vec2_t</span> <span class="org-variable-name">v</span>, <span class="org-type">float</span> <span class="org-variable-name">scalar</span>) {
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>2d implementation</label><pre class="src src-c"> <span class="org-type">vec2_t</span> <span class="org-function-name">vec2_div</span>(<span class="org-type">vec2_t</span> <span class="org-variable-name">v</span>, <span class="org-type">float</span> <span class="org-variable-name">scalar</span>) {
   <span class="org-type">vec2_t</span> <span class="org-variable-name">result</span> = {
-    .x = v.x / scalar;
-    .y = v.y / scalar;
-  }
+    .x = v.x / scalar,
+    .y = v.y / scalar
+  };
 }
 </pre>
 </div>
@@ -476,51 +467,9 @@ vectors.  That is, it gives us the Normal to a surface.
 The maginitude of A X B is the <b>area</b> of the parrallelogram formed by A
 and B. It is given by the formula
 </p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">a x b</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">=</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">a</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">*</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">b</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">*  sin&theta;</td>
-</tr>
-</tbody>
-</table>
+<pre class="example" id="org8de309e">
+||a x b|| = ||a|| * ||b|| *  theta
+</pre>
 <p>
 where  &theta; is the angle between and b
 </p>
@@ -734,6 +683,10 @@ direction.
 </p>
 
 <p>
+<a href="https://www.youtube.com/watch?v=M5U4_l0Aoxc">dot product</a>
+</p>
+
+<p>
 a &middot; b = (a<sub>x</sub> * b<sub>x</sub>) + (a<sub>y</sub> * b<sub>y</sub>)
 </p>
 
@@ -747,6 +700,152 @@ a &middot; b = (a<sub>x</sub> * b<sub>x</sub>) + (a<sub>y</sub> * b<sub>y</sub>)
 
     <span class="org-comment-delimiter">// </span><span class="org-comment">we should do these for vec2_t as well</span>
 }
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd88c3d8" class="outline-2">
+<h2 id="orgd88c3d8">Back face culling implementation</h2>
+<div class="outline-text-2" id="text-orgd88c3d8">
+<p>
+To implement back face culling we need to know the direction each face is pointing.
+The direction a face points is the same direction as it's normal vector.  We find the
+normal vector by applying the cross product to the face.
+</p>
+
+<p>
+Once we have the normal of the face, we can then find the vector that goes from the face
+to the camera. In our design, we have the camera placed at the origin, (0, 0, 0).
+</p>
+
+<p>
+If we apply the dot product to the normal and to the camera ray, the result will tell us
+if the two vector are pointing in the same direction. If they are it means that the camera
+can see the face. If they aren't, it means that the face is turned away from the camera and
+should not be rendered.  
+</p>
+
+<p>
+Here are the steps
+</p>
+<ul class="org-ul">
+<li>Using the vertices of the face, derive 2 vectors b-a and c-a</li>
+<li>find the normal vector of the face by applying the cross product
+(b-a) x (c-a)</li>
+<li>Find the camera ray, by subtracting the camara position from
+vertex <b>A</b> of the face.</li>
+<li>Find the relationship between the face normal and the camera vector,
+by applying the dot product. If the result is &gt; 0 they are pointed in
+the same direction and the face should be rendered.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1997d94" class="outline-2">
+<h2 id="org1997d94">Sequence of operations</h2>
+<div class="outline-text-2" id="text-org1997d94">
+<div class="org-src-container">
+<pre class="src src-c">
+<span class="org-comment-delimiter">/* </span><span class="org-comment">GLOBAL</span><span class="org-comment-delimiter"> */</span>
+<span class="org-comment-delimiter">// </span><span class="org-comment">Reset our global varaible to origin.</span>
+<span class="org-type">vec3_t</span> <span class="org-variable-name">camera_position</span> = { 0, 0, 0 };
+<span class="org-type">int</span> <span class="org-variable-name">t_cnt</span> = 0;
+
+
+<span class="org-comment-delimiter">/* </span><span class="org-comment">UPDATE STATE</span><span class="org-comment-delimiter"> */</span>
+
+<span class="org-comment-delimiter">/* </span><span class="org-comment">MAIN LOOP THRU ALL FACES</span><span class="org-comment-delimiter"> */</span>
+<span class="org-keyword">for</span> (<span class="org-type">int</span> <span class="org-variable-name">i</span> = 0; i &lt; N_MESH_FACES; i++) {
+  <span class="org-type">face_t</span> <span class="org-variable-name">mesh_face</span> = mesh_faces[i];
+
+  <span class="org-type">vec3_t</span> <span class="org-variable-name">face_vertices</span>[3];
+  face_vertices[0] = mesh_vertices[mesh_face.a - 1];
+  face_vertices[1] = mesh_vertices[mesh_face.b - 1];
+  face_vertices[2] = mesh_vertices[mesh_face.c - 1];
+
+  <span class="org-comment-delimiter">//</span><span class="org-comment">New array to store transformed vertices</span>
+  <span class="org-type">vec3_t</span> <span class="org-variable-name">transformed_vertices</span>[3]; 
+
+  <span class="org-comment-delimiter">/* </span><span class="org-comment">TRANSFORMAION</span><span class="org-comment-delimiter"> */</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Sub Loop, apply transformations to each vertex of the current face</span>
+  <span class="org-keyword">for</span> (<span class="org-type">int</span> <span class="org-variable-name">j</span> = 0; j &lt; 3; j++){
+    <span class="org-type">vec3_t</span> <span class="org-variable-name">transformed_vertex</span> = face_vertices[j];
+
+    transformed_vertex = vec3_rotate_x(transformed_vertex, cube_rotation.x);
+    transformed_vertex = vec3_rotate_y(transformed_vertex, cube_rotation.y);
+    transformed_vertex = vec3_rotate_z(transformed_vertex, cube_rotation.z);
+
+    <span class="org-comment-delimiter">//</span><span class="org-comment">translate the vertex away from the camera</span>
+    transformed_vertex.z + 5;
+
+    <span class="org-comment-delimiter">//</span><span class="org-comment">save transformed vertex in an array of transformed vertices </span>
+    transformed_vertices[j] = transformed_vertex;
+    }
+
+  <span class="org-comment-delimiter">/* </span><span class="org-comment">BACKFACE CULLING</span><span class="org-comment-delimiter">  */</span>
+  <span class="org-type">vec3_t</span> <span class="org-variable-name">vertex_a</span> = transformed_vertices[0]; <span class="org-comment-delimiter">/*    </span><span class="org-comment">A</span><span class="org-comment-delimiter">    */</span>
+  <span class="org-type">vec3_t</span> <span class="org-variable-name">vertex_b</span> = transformed_vertices[1]; <span class="org-comment-delimiter">/*   </span><span class="org-comment">/ \</span><span class="org-comment-delimiter">   */</span>
+  <span class="org-type">vec3_t</span> <span class="org-variable-name">vertex_c</span> = transformed_vertices[2]; <span class="org-comment-delimiter">/*  </span><span class="org-comment">C---B</span><span class="org-comment-delimiter">  */</span>
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Get the vector subtractiono of B-A and C-A</span>
+  <span class="org-type">vec3_t</span> <span class="org-variable-name">vector_ab</span> = vec3_sub(vertex_b, vertex_a);
+  <span class="org-type">vec3_t</span> <span class="org-variable-name">vector_ac</span> = vec3_sub(vertex_c, vertex_a);
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Compute the face normal (using corss product to find perpendiculiar vector)</span>
+  <span class="org-type">vec3_t</span> <span class="org-variable-name">normal</span> = vec3_cross(vector_ab, vector_ac);
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Find the vector between a point in the triangle and the camera origin.</span>
+  <span class="org-type">vec3_t</span> <span class="org-variable-name">camera_ray</span> = vec3_sub(camera_position, vertex_a);
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Calculate how aligned the camera ray is with the face normal (using the dot product)</span>
+  <span class="org-type">float</span> <span class="org-variable-name">dot_normal_camera</span> = vec3_dot(camera_ray, normal);
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Bypass triangles that are looking away from the camera by continuing to next face</span>
+  <span class="org-comment-delimiter">// </span><span class="org-comment">in main loop</span>
+  <span class="org-keyword">if</span> (dot_normal_camera &lt; 0 ) {
+    <span class="org-keyword">continue</span>;
+  }
+
+
+  <span class="org-comment-delimiter">/* </span><span class="org-comment">PROJECTION</span><span class="org-comment-delimiter"> */</span>
+
+  <span class="org-type">triangle_t</span> <span class="org-variable-name">projected_triangle</span>;
+
+  <span class="org-comment-delimiter">// </span><span class="org-comment">Sub Loop, project the vertices of curent face</span>
+  <span class="org-keyword">for</span> (<span class="org-type">int</span> <span class="org-variable-name">j</span> = 0; j &lt; 3; j++) {
+    <span class="org-type">vec2_t</span> <span class="org-variable-name">projected_point</span> = perspective_project_point(transformed_vertices[j]); 
+
+  <span class="org-comment-delimiter">/* </span><span class="org-comment">translate projected vertex to center of screen</span><span class="org-comment-delimiter"> */</span>
+    projected_point.x += (window_width / 2);
+    projected_point.y += (window_height / 2);
+
+    projected_triangle.points[j] = projected_point;
+  }
+  <span class="org-comment-delimiter">//</span><span class="org-comment">save the projected triangle</span>
+  triangles_to_render[t_cnt++] = projected_triangle;
+}
+
+
+<span class="org-comment-delimiter">// </span><span class="org-comment">Iterate through your global array of triangles to render. and draw them</span>
+
+<span class="org-keyword">for</span> (<span class="org-type">int</span> <span class="org-variable-name">i</span> = 0; i &lt; t_cnt; i++){
+  <span class="org-type">triangle_t</span> <span class="org-variable-name">triangle</span> = triangles_to_render[i];
+  draw_rectangle(triangle.points[0].x, triangle.points[0].y, 5,5, 0xFF00FF00);
+  draw_rectangle(triangle.points[1].x, triangle.points[1].y, 5,5, 0xFF00FF00);
+  draw_rectangle(triangle.points[2].x, triangle.points[2].y, 5,5, 0xFF00FF00);
+  draw_trianlge(
+                triangle.points[0].x,
+                triangle.points[0].y,
+                triangle.points[1].x,
+                triangle.points[1].y,
+                triangle.points[2].x,
+                triangle.points[2].y,
+                0xFF00AF00);
+}
+
+t_cnt = 0;
 
 </pre>
 </div>
